@@ -50,6 +50,15 @@ getSynonyms<-function(asw_taxonomy=defrostR::asw_taxonomy, Order=NA, Superfamily
     #check if current species name is included in the list:
     if(!as.character(asw_taxonomy$species[i]) %in% synon.names) synon.names<-c(as.character(asw_taxonomy$species[i]),synon.names)
 
+    #include also binomial species if only subspecies is lists
+    triplets<-grep(synon.names, pattern="^\\w+ \\w+ \\w+$")
+    if(length(triplets)>0){
+      original<-triplets[which(sapply(strsplit(synon.names[triplets],split = " "), FUN=duplicated), arr.ind=T)[,"col"]]
+      if(length(original)>0){
+        synon.names<-c(synon.names, gsub(synon.names[original], pattern="(\\w+ )(\\w+)( \\w+)", replacement = "\\1\\2"))
+      }
+    }
+
     #remove any duplicates
     synon.names<-synon.names[!duplicated(synon.names)]
 
