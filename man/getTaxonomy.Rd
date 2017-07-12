@@ -2,7 +2,7 @@
 % Please edit documentation in R/getTaxonomy.R
 \name{getTaxonomy}
 \alias{getTaxonomy}
-\title{Compile a data frame of all currently listed ASW species}
+\title{Construct taxonomy used by Amphibian Species of the World}
 \usage{
 getTaxonomy()
 }

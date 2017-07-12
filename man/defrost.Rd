@@ -2,7 +2,7 @@
 % Please edit documentation in R/defrost.R
 \name{defrost}
 \alias{defrost}
-\title{Suggest currently accepted nomenclature (sensu ASW)}
+\title{Submit query to update nomenclautre according to the ASW taxonomy}
 \usage{
 defrost(query, asw = defrostR::asw_synonyms, interactive = F,
   return.no.matches = F)
@@ -20,7 +20,7 @@ defrost(query, asw = defrostR::asw_synonyms, interactive = F,
 this function returns a data frame with the following information/columns: original/input names, "stripped" names with no formatting, status of what action has been taken, updated names as recommendet by the reference table
 }
 \description{
-This function takes a query (a list of taxon names to be assessed) and the amphibian species of the world synonym table (either generated with the function XXXX or loaded from the defrostR data set) as input and returns an updated list of names.
+This function takes a query (a list of taxon names to be assessed) and the amphibian species of the world synonym table (preferrably generated with the function getSynonyms(), or loaded from the dataset stored internally) as input and returns an updated list of names.
 }
 \details{
 Two logical arguments can be turned on to a) allow an "on the fly" decision to be made on what name to take if synonym matches multiple names (if not, it will return all possible names) and to b) return the original name if no match is found

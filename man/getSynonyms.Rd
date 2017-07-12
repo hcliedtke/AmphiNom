@@ -2,7 +2,7 @@
 % Please edit documentation in R/getSynonyms.R
 \name{getSynonyms}
 \alias{getSynonyms}
-\title{Compile a data frame of all synonyms listed on ASW}
+\title{Compile dataframe of all synonyms listed on Amphibia Species of the World}
 \usage{
 getSynonyms(asw_taxonomy = defrostR::asw_taxonomy, Order = NA,
   Superfamily = NA, Family = NA, Subfamily = NA, Genus = NA,
@@ -15,7 +15,7 @@ getSynonyms(asw_taxonomy = defrostR::asw_taxonomy, Order = NA,
 returns a dataframe listing all species and their listed synonyms
 }
 \description{
-This function looks up any listed synonyms on the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/). It takes only a single argument, the asw_taxonomy table generated with the function getTaxonomy(). If a full search is performed, this can take quite long (looking through ~7000 websites for upwards of 20 000 synonyms).
+This function looks up any listed synonyms on the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/). It takes a minimum of oneargument, the asw_taxonomy table generated with the function getTaxonomy(). If a full search is performed, this can take quite long (looking through ~7000 websites for upwards of 20 000 synonyms), but additional arguments can be included to restrict searches to a specified taxonomic group.
 }
 \details{
 Users may experience issues with umlauts that are not supported by their system langauge. On Mac OSX, this can be changed by running the following line of code in R:

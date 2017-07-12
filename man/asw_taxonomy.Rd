@@ -3,7 +3,7 @@
 \docType{data}
 \name{asw_taxonomy}
 \alias{asw_taxonomy}
-\title{Current version of Frost taxonomy}
+\title{Amphibian Species of the World Taxonomy}
 \format{R dataset}
 \usage{
 asw_taxonomy
