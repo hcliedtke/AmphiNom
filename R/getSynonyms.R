@@ -1,0 +1,81 @@
+#' Compile a data frame of all synonyms listed on ASW
+#'
+#' This function looks up any listed synonyms on the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/). It takes only a single argument, the asw_taxonomy table generated with the function getTaxonomy(). If a full search is performed, this can take quite long (looking through ~7000 websites for upwards of 20 000 synonyms).
+#'
+#' @param asw_taxonomy the ASW taxonomy table obtained with getTaxonomy(). If no table is provided, the default is to use defrostR's internally stored version. WARNING! this version may be outdated
+#' @return returns a dataframe listing all species and their listed synonyms
+#' @export
+#' @details Users may experience issues with umlauts that are not supported by their system langauge. On Mac OSX, this can be changed by running the following line of code in R:
+#'
+#' system("defaults write org.R-project.R force.LANG en_US.UTF-8")
+#'
+#' and then restarting the session. Read more here: https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Internationalization-of-the-R_002eapp
+#' @examples
+#' asw_synonyms<-getSynonyms()
+#' breviceptid_synonyms<-getSynonyms(Family="Brevicipitidae")
+
+
+getSynonyms<-function(asw_taxonomy=defrostR::asw_taxonomy, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA, Species=NA){
+
+  if(!is.na(Order)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$order==Order,]
+  if(!is.na(Superfamily)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$superfamily==Superfamily,]
+  if(!is.na(Family)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$family==Family,]
+  if(!is.na(Subfamily)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$subfamily==Subfamily,]
+  if(!is.na(Genus)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$genus==Genus,]
+  if(!is.na(Species)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$species==Species,]
+
+
+  asw_taxonomy<-as.data.frame(apply(X=asw_taxonomy, MARGIN=2, FUN=factor))
+  asw_taxonomy<-asw_taxonomy[!is.na(asw_taxonomy$url),]
+
+
+  print("Looking up synonyms. If performing a full search, this could take a while...")
+  asw.syn.tab<-c()
+  pb<- txtProgressBar(max=nrow(asw_taxonomy),style=3)
+  for(i in 1:nrow(asw_taxonomy)){
+    #get url and parse to document
+    html.doc <- htmlParse(asw_taxonomy$url[i],useInternalNodes = T, encoding="UTF-8")
+
+    #extract synonym div class, convert to list and extract all the names in bold
+    synon<-xpathSApply(doc=html.doc,path="//*/div[@class='synonymy']")[[1]]
+    synon.list<-xmlToList(synon)
+    synon.names<-sapply(synon.list, '[', 'b') #check first level
+    synon.names<-c(synon.names, sapply(synon.list$p, '[', 'b')) #check second level
+    synon.names<-grep(x=unlist(synon.names, use.names=F), pattern="[:alpha:]", value = T)
+
+
+    #extract sub genera
+    synon.names<-gsub(synon.names, pattern="(\\w+ )(\\()(\\w+)(\\) )(\\w+)", replacement="\\3 \\5")
+
+    #check if current species name is included in the list:
+    if(!as.character(asw_taxonomy$species[i]) %in% synon.names) synon.names<-c(as.character(asw_taxonomy$species[i]),synon.names)
+
+    #remove any duplicates
+    synon.names<-synon.names[!duplicated(synon.names)]
+
+    # sort alphabetically
+    synon.names<-synon.names[order(synon.names)]
+
+    names(synon.names)<-rep(asw_taxonomy$species[i], length(synon.names))
+
+    ##populate:
+    asw.syn.tab<-c(asw.syn.tab, synon.names)
+
+    #free html
+    free(html.doc)
+
+    # counter:
+    setTxtProgressBar(pb,i)
+  }
+
+  # convert to table
+  asw.syn.tab<-data.frame(species=names(asw.syn.tab), synonyms=asw.syn.tab)
+
+  return(asw.syn.tab)
+###end
+}
+
+
+
+
+
