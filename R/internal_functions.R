@@ -1,4 +1,5 @@
-
+### generate reference manual: in shell run
+#R CMD Rd2pdf --title='defrostR' -o defrostR_manual.pdf .
 
 
 urlBuilder<-function(x){
