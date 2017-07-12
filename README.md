@@ -8,7 +8,7 @@ A more detailed tutorial can be found [here](https://rawgit.com/hcliedtke/defros
 
 
 
-##Package Installation
+## Package Installation
 
 You can also install it directly from gitHub through devtools:
 
@@ -18,6 +18,6 @@ install_github("hcliedtke/defrostR", build_vignettes = TRUE)
 
 (The installation may crash if your dependencies are not up to date.)
 
-##Package citation
+## Package citation
 
 <insert publication>
