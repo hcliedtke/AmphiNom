@@ -8,7 +8,7 @@ defrost(query, asw = defrostR::asw_synonyms, interactive = F,
   return.no.matches = F)
 }
 \arguments{
-\item{query}{vector of taxon names to be processed (can also be tip labels of a phylogeny)}
+\item{query}{vector of taxon names to be processed (can also be tip labels of a phylogeny for example)}
 
 \item{asw}{amphibian species of the world synonym reference table on which to base new names on.Default is to use defrostR's internally stored data set that may not be the most up-to-date.}
 

@@ -6,7 +6,7 @@
 \title{Current version of Frost synonyms}
 \format{R dataset}
 \usage{
-amphwebg
+amphweb
 }
 \description{
 most current datasets

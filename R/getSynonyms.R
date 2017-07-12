@@ -1,6 +1,6 @@
-#' Compile a data frame of all synonyms listed on ASW
+#' Compile dataframe of all synonyms listed on Amphibia Species of the World
 #'
-#' This function looks up any listed synonyms on the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/). It takes only a single argument, the asw_taxonomy table generated with the function getTaxonomy(). If a full search is performed, this can take quite long (looking through ~7000 websites for upwards of 20 000 synonyms).
+#' This function looks up any listed synonyms on the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/). It takes a minimum of oneargument, the asw_taxonomy table generated with the function getTaxonomy(). If a full search is performed, this can take quite long (looking through ~7000 websites for upwards of 20 000 synonyms), but additional arguments can be included to restrict searches to a specified taxonomic group.
 #'
 #' @param asw_taxonomy the ASW taxonomy table obtained with getTaxonomy(). If no table is provided, the default is to use defrostR's internally stored version. WARNING! this version may be outdated
 #' @return returns a dataframe listing all species and their listed synonyms

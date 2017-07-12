@@ -1,6 +1,6 @@
 #' Get summary statistics of current taxonomy
 #'
-#' This function uses the ASW taxnomy table created with the function frostScraper() and summarizes counts of units per taxonomic level
+#' This function uses the ASW taxnomy table created with the function getTaxonomy() and summarizes counts of units per taxonomic level
 #'
 #'
 #' @details One logical arguments can be turned on to summarize at given taxonomic levels or to give numbers of each unit per taxonomic level

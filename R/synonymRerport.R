@@ -1,4 +1,4 @@
-#' Get summary report for defrosting
+#' Get summary report of "defrosted" query
 #'
 #' This function produces a report of an undertaken defrost() query
 #'
