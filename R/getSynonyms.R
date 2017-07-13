@@ -47,6 +47,9 @@ getSynonyms<-function(asw_taxonomy=defrostR::asw_taxonomy, Order=NA, Superfamily
     #extract sub genera
     synon.names<-gsub(synon.names, pattern="(\\w+ )(\\()(\\w+)(\\) )(\\w+)", replacement="\\3 \\5")
 
+    #remove any non-alpha numerics at the end of the strings
+    synon.names<-gsub(synon.names, pattern="[^[:alnum:]]+$", replacement="")
+
     #check if current species name is included in the list:
     if(!as.character(asw_taxonomy$species[i]) %in% synon.names) synon.names<-c(as.character(asw_taxonomy$species[i]),synon.names)
 
@@ -81,9 +84,8 @@ getSynonyms<-function(asw_taxonomy=defrostR::asw_taxonomy, Order=NA, Superfamily
   asw.syn.tab<-data.frame(species=names(asw.syn.tab), synonyms=asw.syn.tab)
 
   return(asw.syn.tab)
-###end
+  ###end
 }
-
 
 
 
