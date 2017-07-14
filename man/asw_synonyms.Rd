@@ -13,5 +13,6 @@ Data table generated using the getSynonyms() function. The dataset contains a fu
 }
 \examples{
 head(asw_synonyms)
+asw_synonyms<-load(asw_synonyms)
 }
 \keyword{datasets}

@@ -41,8 +41,13 @@ getSynonyms<-function(asw_taxonomy=defrostR::asw_taxonomy, Order=NA, Superfamily
     synon.list<-xmlToList(synon)
     synon.names<-sapply(synon.list, '[', 'b') #check first level
     synon.names<-c(synon.names, sapply(synon.list$p, '[', 'b')) #check second level
-    synon.names<-grep(x=unlist(synon.names, use.names=F), pattern="[:alpha:]", value = T)
+    synon.names<-grep(x=unlist(synon.names, use.names=F), pattern="[[:alpha:]]", value = T)
 
+
+
+
+    #remove all single strings (binomials that were split due to inconsistent formatting)
+    synon.names<-synon.names[grepl(synon.names, pattern="[[:blank:]]") & !grepl(synon.names, pattern="^\\w+$|^\\w+[[:blank:]]+$|^[[:blank:]]\\w+$")]
 
     #extract sub genera
     synon.names<-gsub(synon.names, pattern="(\\w+ )(\\()(\\w+)(\\) )(\\w+)", replacement="\\3 \\5")
@@ -86,7 +91,5 @@ getSynonyms<-function(asw_taxonomy=defrostR::asw_taxonomy, Order=NA, Superfamily
   return(asw.syn.tab)
   ###end
 }
-
-
 
 
