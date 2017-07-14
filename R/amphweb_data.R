@@ -8,4 +8,5 @@
 #' @keywords datasets
 #' @examples
 #' head(amphweb)
+#' amphweb<-load(amphweb)
 'amphweb'
