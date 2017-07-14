@@ -49,8 +49,10 @@ getSynonyms<-function(asw_taxonomy=defrostR::asw_taxonomy, Order=NA, Superfamily
     #remove all single strings (binomials that were split due to inconsistent formatting)
     synon.names<-synon.names[grepl(synon.names, pattern="[[:blank:]]") & !grepl(synon.names, pattern="^\\w+$|^\\w+[[:blank:]]+$|^[[:blank:]]\\w+$")]
 
-    #extract sub genera
-    synon.names<-gsub(synon.names, pattern="(\\w+ )(\\()(\\w+)(\\) )(\\w+)", replacement="\\3 \\5")
+    #extract and divide sub genera
+    sub.gen.pat<-"(\\w+ )(\\()(\\w+)(\\) )(\\w+)"
+    sub.gen<-grep(synon.names, pattern=sub.gen.pat)
+    synon.names<-c(synon.names,gsub(synon.names[sub.gen], pattern=sub.gen.pat, replacement=c("\\3 \\5")),gsub(synon.names[sub.gen], pattern=sub.gen.pat, replacement=c("\\1\\5")))
 
     #remove any non-alpha numerics at the end of the strings
     synon.names<-gsub(synon.names, pattern="[^[:alnum:]]+$", replacement="")
