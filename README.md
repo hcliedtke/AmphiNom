@@ -20,4 +20,5 @@ install_github("hcliedtke/defrostR", build_vignettes = TRUE)
 
 ## Package citation
 
-<insert publication>
+H. Christoph Liedtke (2017). defrostR: A tool for staying on top of amphibian taxonomy. R package version 1.0.0.
+  http://github.com/hcliedtke/defrostR
