@@ -1,6 +1,6 @@
-Package: defrostR
+nPackage: defrostR
 Type: Package
-Title: A tool for staying on top of amphibian taxonomy
+Title: A tool for keeping up with amphibian taxonomy
 Version: 1.0.0
 Date: 2017-07-12
 Author: H. Christoph Liedtke
