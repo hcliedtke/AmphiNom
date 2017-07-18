@@ -14,7 +14,7 @@
 #' @return returns either a data frame or list of summary statitics
 #' @examples
 #' aswStats()
-#' aswStats(verbose=T, Family="Rhacophoridae")
+#' aswStats(verbose=TRUE, Family="Rhacophoridae")
 #' @export
 
 aswStats<-function(asw_taxonomy=defrostR::asw_taxonomy,verbose=F, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA){

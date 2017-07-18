@@ -33,5 +33,5 @@ One logical arguments can be turned on to summarize at given taxonomic levels or
 }
 \examples{
 aswStats()
-aswStats(verbose=T, Family="Rhacophoridae")
+aswStats(verbose=TRUE, Family="Rhacophoridae")
 }

@@ -35,7 +35,7 @@ flush(stderr()); flush(stdout())
 ### ** Examples
 
 aswStats()
-aswStats(verbose=T, Family="Rhacophoridae")
+aswStats(verbose=TRUE, Family="Rhacophoridae")
 
 
 
@@ -53,7 +53,7 @@ flush(stderr()); flush(stdout())
 ### ** Examples
 
 head(asw_synonyms)
-str(asw_syonyms)
+str(asw_synonyms)
 asw_synonyms<-defrostR::asw_synonyms
 
 

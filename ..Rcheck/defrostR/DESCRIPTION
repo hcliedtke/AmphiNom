@@ -15,4 +15,4 @@ LazyData: true
 RoxygenNote: 6.0.1
 URL: http://github.com/hcliedtke/defrostR
 BugReports: http://github.com/hcliedtke/defrostR/issues
-Built: R 3.4.0; ; 2017-07-18 14:32:33 UTC; unix
+Built: R 3.4.0; ; 2017-07-18 14:47:00 UTC; unix

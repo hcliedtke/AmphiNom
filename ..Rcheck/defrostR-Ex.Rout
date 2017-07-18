@@ -96,7 +96,328 @@ Oders                  3
 Families              75
 Genera               547
 Species             7671
-> aswStats(verbose=T, Family="Rhacophoridae")
-Error in aswStats(verbose = T, Family = "Rhacophoridae") : 
-  T used instead of TRUE
+> aswStats(verbose=TRUE, Family="Rhacophoridae")
+$Orders
+
+Anura 
+  406 
+
+$Super_families
+< table of extent 0 >
+
+$Families
+
+Rhacophoridae 
+          406 
+
+$Sub_families
+
+ Buergeriinae Rhacophorinae 
+            4           402 
+
+$Genera
+
+   Beddomixalus       Buergeria     Chiromantis         Feihyla      Ghatixalus 
+              1               4              18               5               3 
+     Gracixalus       Kurixalus       Liuixalus       Mercurana     Nasutixalus 
+             13              14               7               1               2 
+     Nyctixalus       Philautus     Polypedates Pseudophilautus     Raorchestes 
+              3              52              24              79              62 
+    Rhacophorus          Taruga      Theloderma 
+             90               3              25 
+
+$Species
+  [1] "Buergeria buergeri"                 "Buergeria japonica"                
+  [3] "Buergeria oxycephala"               "Buergeria robusta"                 
+  [5] "Theloderma andersoni"               "Beddomixalus bijui"                
+  [7] "Chiromantis baladika"               "Chiromantis cherrapunjiae"         
+  [9] "Chiromantis doriae"                 "Chiromantis dudhwaensis"           
+ [11] "Chiromantis inexpectatus"           "Chiromantis kelleri"               
+ [13] "Chiromantis marginis"               "Chiromantis nauli"                 
+ [15] "Chiromantis nongkhorensis"          "Chiromantis petersii"              
+ [17] "Chiromantis punctatus"              "Chiromantis rufescens"             
+ [19] "Chiromantis samkosensis"            "Chiromantis senapatiensis"         
+ [21] "Chiromantis shyamrupus"             "Chiromantis simus"                 
+ [23] "Chiromantis trilaksonoi"            "Chiromantis xerampelina"           
+ [25] "Feihyla fuhua"                      "Feihyla hansenae"                  
+ [27] "Feihyla kajau"                      "Feihyla palpebralis"               
+ [29] "Feihyla vittata"                    "Ghatixalus asterops"               
+ [31] "Ghatixalus magnus"                  "Ghatixalus variabilis"             
+ [33] "Gracixalus carinensis"              "Gracixalus gracilipes"             
+ [35] "Gracixalus jinggangensis"           "Gracixalus jinxiuensis"            
+ [37] "Gracixalus lumarius"                "Gracixalus medogensis"             
+ [39] "Gracixalus nonggangensis"           "Gracixalus quangi"                 
+ [41] "Gracixalus quyeti"                  "Gracixalus sapaensis"              
+ [43] "Gracixalus seesom"                  "Gracixalus supercornutus"          
+ [45] "Gracixalus waza"                    "Kurixalus ananjevae"               
+ [47] "Kurixalus appendiculatus"           "Kurixalus baliogaster"             
+ [49] "Kurixalus banaensis"                "Kurixalus berylliniris"            
+ [51] "Kurixalus bisacculus"               "Kurixalus eiffingeri"              
+ [53] "Kurixalus idiootocus"               "Kurixalus motokawai"               
+ [55] "Kurixalus naso"                     "Kurixalus odontotarsus"            
+ [57] "Kurixalus verrucosus"               "Kurixalus viridescens"             
+ [59] "Kurixalus wangi"                    "Liuixalus calcarius"               
+ [61] "Liuixalus feii"                     "Liuixalus hainanus"                
+ [63] "Liuixalus jinxiuensis"              "Liuixalus ocellatus"               
+ [65] "Liuixalus romeri"                   "Liuixalus shiwandashan"            
+ [67] "Mercurana myristicapalustris"       "Nasutixalus jerdonii"              
+ [69] "Nasutixalus medogensis"             "Nyctixalus margaritifer"           
+ [71] "Nyctixalus pictus"                  "Nyctixalus spinosus"               
+ [73] "Philautus abditus"                  "Philautus acutirostris"            
+ [75] "Philautus acutus"                   "Philautus amoenus"                 
+ [77] "Philautus aurantium"                "Philautus aurifasciatus"           
+ [79] "Philautus bunitus"                  "Philautus cardamonus"              
+ [81] "Philautus catbaensis"               "Philautus cinerascens"             
+ [83] "Philautus cornutus"                 "Philautus davidlabangi"            
+ [85] "Philautus disgregus"                "Philautus dubius"                  
+ [87] "Philautus erythrophthalmus"         "Philautus everetti"                
+ [89] "Philautus garo"                     "Philautus gunungensis"             
+ [91] "Philautus hosii"                    "Philautus ingeri"                  
+ [93] "Philautus jacobsoni"                "Philautus juliandringi"            
+ [95] "Philautus kakipanjang"              "Philautus kempiae"                 
+ [97] "Philautus kempii"                   "Philautus kerangae"                
+ [99] "Philautus leitensis"                "Philautus longicrus"               
+[101] "Philautus macroscelis"              "Philautus maosonensis"             
+[103] "Philautus microdiscus"              "Philautus mjobergi"                
+[105] "Philautus namdaphaensis"            "Philautus nephophilus"             
+[107] "Philautus nianeae"                  "Philautus pallidipes"              
+[109] "Philautus petersi"                  "Philautus poecilius"               
+[111] "Philautus refugii"                  "Philautus sanctisilvaticus"        
+[113] "Philautus saueri"                   "Philautus schmackeri"              
+[115] "Philautus similipalensis"           "Philautus similis"                 
+[117] "Philautus surdus"                   "Philautus surrufus"                
+[119] "Philautus tectus"                   "Philautus tytthus"                 
+[121] "Philautus umbra"                    "Philautus vermiculatus"            
+[123] "Philautus vittiger"                 "Philautus worcesteri"              
+[125] "Polypedates assamensis"             "Polypedates braueri"               
+[127] "Polypedates chlorophthalmus"        "Polypedates colletti"              
+[129] "Polypedates cruciger"               "Polypedates discantus"             
+[131] "Polypedates hecticus"               "Polypedates impresus"              
+[133] "Polypedates insularis"              "Polypedates iskandari"             
+[135] "Polypedates leucomystax"            "Polypedates macrotis"              
+[137] "Polypedates maculatus"              "Polypedates megacephalus"          
+[139] "Polypedates mutus"                  "Polypedates occidentalis"          
+[141] "Polypedates otilophus"              "Polypedates pseudocruciger"        
+[143] "Polypedates pseudotilophus"         "Polypedates ranwellai"             
+[145] "Polypedates subansiriensis"         "Polypedates taeniatus"             
+[147] "Polypedates teraiensis"             "Polypedates zed"                   
+[149] "Pseudophilautus abundus"            "Pseudophilautus adspersus"         
+[151] "Pseudophilautus alto"               "Pseudophilautus amboli"            
+[153] "Pseudophilautus asankai"            "Pseudophilautus auratus"           
+[155] "Pseudophilautus bambaradeniyai"     "Pseudophilautus caeruleus"         
+[157] "Pseudophilautus cavirostris"        "Pseudophilautus cuspis"            
+[159] "Pseudophilautus dayawansai"         "Pseudophilautus decoris"           
+[161] "Pseudophilautus dilmah"             "Pseudophilautus dimbullae"         
+[163] "Pseudophilautus eximius"            "Pseudophilautus extirpo"           
+[165] "Pseudophilautus femoralis"          "Pseudophilautus fergusonianus"     
+[167] "Pseudophilautus folicola"           "Pseudophilautus frankenbergi"      
+[169] "Pseudophilautus fulvus"             "Pseudophilautus hallidayi"         
+[171] "Pseudophilautus halyi"              "Pseudophilautus hankeni"           
+[173] "Pseudophilautus hoffmanni"          "Pseudophilautus hoipolloi"         
+[175] "Pseudophilautus hypomelas"          "Pseudophilautus jagathgunawardanai"
+[177] "Pseudophilautus kani"               "Pseudophilautus karunarathnai"     
+[179] "Pseudophilautus leucorhinus"        "Pseudophilautus limbus"            
+[181] "Pseudophilautus lunatus"            "Pseudophilautus macropus"          
+[183] "Pseudophilautus maia"               "Pseudophilautus malcolmsmithi"     
+[185] "Pseudophilautus microtympanum"      "Pseudophilautus mittermeieri"      
+[187] "Pseudophilautus mooreorum"          "Pseudophilautus nanus"             
+[189] "Pseudophilautus nasutus"            "Pseudophilautus nemus"             
+[191] "Pseudophilautus newtonjayawardanei" "Pseudophilautus ocularis"          
+[193] "Pseudophilautus oxyrhynchus"        "Pseudophilautus papillosus"        
+[195] "Pseudophilautus pardus"             "Pseudophilautus pleurotaenia"      
+[197] "Pseudophilautus poppiae"            "Pseudophilautus popularis"         
+[199] "Pseudophilautus procax"             "Pseudophilautus puranappu"         
+[201] "Pseudophilautus regius"             "Pseudophilautus reticulatus"       
+[203] "Pseudophilautus rugatus"            "Pseudophilautus rus"               
+[205] "Pseudophilautus samarakoon"         "Pseudophilautus sarasinorum"       
+[207] "Pseudophilautus schmarda"           "Pseudophilautus schneideri"        
+[209] "Pseudophilautus semiruber"          "Pseudophilautus silus"             
+[211] "Pseudophilautus silvaticus"         "Pseudophilautus simba"             
+[213] "Pseudophilautus singu"              "Pseudophilautus sirilwijesundarai" 
+[215] "Pseudophilautus sordidus"           "Pseudophilautus steineri"          
+[217] "Pseudophilautus stellatus"          "Pseudophilautus stictomerus"       
+[219] "Pseudophilautus stuarti"            "Pseudophilautus tanu"              
+[221] "Pseudophilautus temporalis"         "Pseudophilautus variabilis"        
+[223] "Pseudophilautus viridis"            "Pseudophilautus wynaadensis"       
+[225] "Pseudophilautus zal"                "Pseudophilautus zimmeri"           
+[227] "Pseudophilautus zorro"              "Raorchestes agasthyaensis"         
+[229] "Raorchestes akroparallagi"          "Raorchestes anili"                 
+[231] "Raorchestes annandalii"             "Raorchestes archeos"               
+[233] "Raorchestes aureus"                 "Raorchestes beddomii"              
+[235] "Raorchestes blandus"                "Raorchestes bobingeri"             
+[237] "Raorchestes bombayensis"            "Raorchestes chalazodes"            
+[239] "Raorchestes charius"                "Raorchestes chlorosomma"           
+[241] "Raorchestes chotta"                 "Raorchestes chromasynchysi"        
+[243] "Raorchestes coonoorensis"           "Raorchestes crustai"               
+[245] "Raorchestes dubois"                 "Raorchestes echinatus"             
+[247] "Raorchestes flaviocularis"          "Raorchestes flaviventris"          
+[249] "Raorchestes ghatei"                 "Raorchestes glandulosus"           
+[251] "Raorchestes graminirupes"           "Raorchestes griet"                 
+[253] "Raorchestes gryllus"                "Raorchestes hassanensis"           
+[255] "Raorchestes honnametti"             "Raorchestes indigo"                
+[257] "Raorchestes jayarami"               "Raorchestes johnceei"              
+[259] "Raorchestes kadalarensis"           "Raorchestes kaikatti"              
+[261] "Raorchestes kakachi"                "Raorchestes lechiya"               
+[263] "Raorchestes leucolatus"             "Raorchestes longchuanensis"        
+[265] "Raorchestes luteolus"               "Raorchestes manipurensis"          
+[267] "Raorchestes manohari"               "Raorchestes marki"                 
+[269] "Raorchestes menglaensis"            "Raorchestes munnarensis"           
+[271] "Raorchestes nerostagona"            "Raorchestes ochlandrae"            
+[273] "Raorchestes parvulus"               "Raorchestes ponmudi"               
+[275] "Raorchestes primarrumpfi"           "Raorchestes ravii"                 
+[277] "Raorchestes resplendens"            "Raorchestes sahai"                 
+[279] "Raorchestes shillongensis"          "Raorchestes signatus"              
+[281] "Raorchestes silentvalley"           "Raorchestes sushili"               
+[283] "Raorchestes terebrans"              "Raorchestes theuerkaufi"           
+[285] "Raorchestes thodai"                 "Raorchestes tinniens"              
+[287] "Raorchestes travancoricus"          "Raorchestes tuberohumerus"         
+[289] "Raorchestes uthamani"               "Rhacophorus achantharrhena"        
+[291] "Rhacophorus angulirostris"          "Rhacophorus annamensis"            
+[293] "Rhacophorus arboreus"               "Rhacophorus arvalis"               
+[295] "Rhacophorus aurantiventris"         "Rhacophorus baluensis"             
+[297] "Rhacophorus barisani"               "Rhacophorus belalongensis"         
+[299] "Rhacophorus bengkuluensis"          "Rhacophorus bifasciatus"           
+[301] "Rhacophorus bimaculatus"            "Rhacophorus bipunctatus"           
+[303] "Rhacophorus borneensis"             "Rhacophorus burmanus"              
+[305] "Rhacophorus calcadensis"            "Rhacophorus calcaneus"             
+[307] "Rhacophorus catamitus"              "Rhacophorus chenfui"               
+[309] "Rhacophorus cyanopunctatus"         "Rhacophorus dennysi"               
+[311] "Rhacophorus dorsoviridis"           "Rhacophorus duboisi"               
+[313] "Rhacophorus dugritei"               "Rhacophorus dulitensis"            
+[315] "Rhacophorus edentulus"              "Rhacophorus exechopygus"           
+[317] "Rhacophorus fasciatus"              "Rhacophorus feae"                  
+[319] "Rhacophorus gadingensis"            "Rhacophorus gauni"                 
+[321] "Rhacophorus georgii"                "Rhacophorus harrissoni"            
+[323] "Rhacophorus helenae"                "Rhacophorus hoanglienensis"        
+[325] "Rhacophorus hongchibaensis"         "Rhacophorus hui"                   
+[327] "Rhacophorus hungfuensis"            "Rhacophorus indonesiensis"         
+[329] "Rhacophorus jarujini"               "Rhacophorus kio"                   
+[331] "Rhacophorus laoshan"                "Rhacophorus larissae"              
+[333] "Rhacophorus lateralis"              "Rhacophorus leucofasciatus"        
+[335] "Rhacophorus malabaricus"            "Rhacophorus malkmusi"              
+[337] "Rhacophorus margaritifer"           "Rhacophorus marmoridorsum"         
+[339] "Rhacophorus maximus"                "Rhacophorus minimus"               
+[341] "Rhacophorus modestus"               "Rhacophorus moltrechti"            
+[343] "Rhacophorus monticola"              "Rhacophorus nigropalmatus"         
+[345] "Rhacophorus nigropunctatus"         "Rhacophorus norhayatii"            
+[347] "Rhacophorus omeimontis"             "Rhacophorus orlovi"                
+[349] "Rhacophorus owstoni"                "Rhacophorus pardalis"              
+[351] "Rhacophorus penanorum"              "Rhacophorus pinglongensis"         
+[353] "Rhacophorus poecilonotus"           "Rhacophorus prasinatus"            
+[355] "Rhacophorus prominanus"             "Rhacophorus pseudacutirostris"     
+[357] "Rhacophorus pseudomalabaricus"      "Rhacophorus puerensis"             
+[359] "Rhacophorus reinwardtii"            "Rhacophorus rhodopus"              
+[361] "Rhacophorus robertingeri"           "Rhacophorus robinsonii"            
+[363] "Rhacophorus rufipes"                "Rhacophorus schlegelii"            
+[365] "Rhacophorus spelaeus"               "Rhacophorus subansiriensis"        
+[367] "Rhacophorus suffry"                 "Rhacophorus taipeianus"            
+[369] "Rhacophorus translineatus"          "Rhacophorus tuberculatus"          
+[371] "Rhacophorus turpes"                 "Rhacophorus vampyrus"              
+[373] "Rhacophorus verrucopus"             "Rhacophorus viridimaculatus"       
+[375] "Rhacophorus viridis"                "Rhacophorus wui"                   
+[377] "Rhacophorus yaoshanensis"           "Rhacophorus yinggelingensis"       
+[379] "Rhacophorus zhoukaiyae"             "Taruga eques"                      
+[381] "Taruga fastigo"                     "Taruga longinasus"                 
+[383] "Theloderma albopunctatum"           "Theloderma annae"                  
+[385] "Theloderma asperum"                 "Theloderma baibungense"            
+[387] "Theloderma bicolor"                 "Theloderma corticale"              
+[389] "Theloderma gordoni"                 "Theloderma horridum"               
+[391] "Theloderma lacustrinum"             "Theloderma laeve"                  
+[393] "Theloderma lateriticum"             "Theloderma leporosum"              
+[395] "Theloderma licin"                   "Theloderma moloch"                 
+[397] "Theloderma nagalandense"            "Theloderma nebulosum"              
+[399] "Theloderma palliatum"               "Theloderma petilum"                
+[401] "Theloderma phrynoderma"             "Theloderma rhododiscus"            
+[403] "Theloderma ryabovi"                 "Theloderma stellatum"              
+[405] "Theloderma truongsonense"           "Theloderma vietnamense"            
+
+> 
+> 
+> 
+> cleanEx()
+> nameEx("asw_synonyms")
+> ### * asw_synonyms
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: asw_synonyms
+> ### Title: Amphibian Species of the World synonyms
+> ### Aliases: asw_synonyms
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> head(asw_synonyms)
+                 species                synonyms
+1     Allophryne relicta      Allophryne relicta
+2 Allophryne resplendens  Allophryne resplendens
+3    Allophryne ruthveni     Allophryne ruthveni
+4    Allophryne ruthveni    Dryomelictes seabrai
+5    Allophryne ruthveni Sphaenorhynchus scabrai
+6    Allophryne ruthveni     Sphoenohyla seabrai
+> str(asw_synonyms)
+'data.frame':	29835 obs. of  2 variables:
+ $ species : Factor w/ 7671 levels "Abavorana luctuosa",..: 155 156 157 157 157 157 158 159 160 161 ...
+ $ synonyms: Factor w/ 29454 levels "? Magnadigita adspersa",..: 460 461 462 6884 27641 27693 468 469 471 472 ...
+> asw_synonyms<-defrostR::asw_synonyms
+> 
+> 
+> 
+> cleanEx()
+> nameEx("asw_taxonomy")
+> ### * asw_taxonomy
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: asw_taxonomy
+> ### Title: Amphibian Species of the World Taxonomy
+> ### Aliases: asw_taxonomy
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> head(asw_taxonomy)
+  order superfamily        family subfamily      genus                species
+1 Anura        <NA> Allophrynidae      <NA> Allophryne     Allophryne relicta
+2 Anura        <NA> Allophrynidae      <NA> Allophryne Allophryne resplendens
+3 Anura        <NA> Allophrynidae      <NA> Allophryne    Allophryne ruthveni
+4 Anura        <NA>     Alsodidae      <NA>    Alsodes      Alsodes australis
+5 Anura        <NA>     Alsodidae      <NA>    Alsodes        Alsodes barrioi
+6 Anura        <NA>     Alsodidae      <NA>    Alsodes Alsodes cantillanensis
+                                                                                                              url
+1     http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-relicta
+2 http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-resplendens
+3    http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-ruthveni
+4             http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Alsodidae/Alsodes/Alsodes-australis
+5               http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Alsodidae/Alsodes/Alsodes-barrioi
+6        http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Alsodidae/Alsodes/Alsodes-cantillanensis
+> str(asw_taxonomy)
+'data.frame':	7671 obs. of  7 variables:
+ $ order      : chr  "Anura" "Anura" "Anura" "Anura" ...
+ $ superfamily: chr  NA NA NA NA ...
+ $ family     : chr  "Allophrynidae" "Allophrynidae" "Allophrynidae" "Alsodidae" ...
+ $ subfamily  : chr  NA NA NA NA ...
+ $ genus      : chr  "Allophryne" "Allophryne" "Allophryne" "Alsodes" ...
+ $ species    : chr  "Allophryne relicta" "Allophryne resplendens" "Allophryne ruthveni" "Alsodes australis" ...
+ $ url        : chr  "http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-relicta" "http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-resplendens" "http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-ruthveni" "http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Alsodidae/Alsodes/Alsodes-australis" ...
+> asw_taxonomy<-defrostR::asw_taxonomy
+> 
+> 
+> 
+> cleanEx()
+> nameEx("getSynonyms")
+> ### * getSynonyms
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: getSynonyms
+> ### Title: Compile dataframe of all synonyms listed on Amphibia Species of
+> ###   the World
+> ### Aliases: getSynonyms
+> 
+> ### ** Examples
+> 
+> asw_synonyms<-getSynonyms()
+[1] "Looking up synonyms. If performing a full search, this could take a while..."
+  |                                                                              |                                                                      |   0%  |                                                                              |                                                                      |   1%  |                                                                              |=                                                                     |   1%  |                                                                              |=                                                                     |   2%  |                                                                              |==                                                                    |   2%  |                                                                              |==                                                                    |   3%  |                                                                              |==                                                                    |   4%  |                                                                              |===                                                                   |   4%  |                                                                              |===                                                                   |   5%  |                                                                              |====                                                                  |   5%  |                                                                              |====                                                                  |   6%  |                                                                              |=====                                                                 |   6%  |                                                                              |=====                                                                 |   7%  |                                                                              |=====                                                                 |   8%  |                                                                              |======                                                                |   8%  |                                                                              |======                                                                |   9%  |                                                                              |=======                                                               |   9%  |                                                                              |=======                                                               |  10%  |                                                                              |=======                                                               |  11%  |                                                                              |========                                                              |  11%  |                                                                              |========                                                              |  12%  |                                                                              |=========                                                             |  12%  |                                                                              |=========                                                             |  13%  |                                                                              |=========                                                             |  14%  |                                                                              |==========                                                            |  14%  |                                                                              |==========                                                            |  15%  |                                                                              |===========                                                           |  15%  |                                                                              |===========                                                           |  16%  |                                                                              |============                                                          |  16%  |                                                                              |============                                                          |  17%  |                                                                              |============                                                          |  18%  |                                                                              |=============                                                         |  18%  |                                                                              |=============                                                         |  19%  |                                                                              |==============                                                        |  19%  |                                                                              |==============                                                        |  20%  |                                                                              |==============                                                        |  21%  |                                                                              |===============                                                       |  21%  |                                                                              |===============                                                       |  22%  |                                                                              |================                                                      |  22%  |                                                                              |================                                                      |  23%
 Execution halted
