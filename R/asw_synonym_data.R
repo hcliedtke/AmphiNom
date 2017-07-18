@@ -10,5 +10,5 @@
 #' @examples
 #' head(asw_synonyms)
 #' str(asw_syonyms)
-#' asw_synonyms<-load(asw_synonyms)
+#' asw_synonyms<-defrostR::asw_synonyms
 'asw_synonyms'

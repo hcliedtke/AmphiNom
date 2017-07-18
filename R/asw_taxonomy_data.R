@@ -10,5 +10,5 @@
 #' @examples
 #' head(asw_taxonomy)
 #' str(asw_taxonomy)
-#' asw_taxonomy<-load(asw_taxonomy)
+#' asw_taxonomy<-defrostR::asw_taxonomy
 'asw_taxonomy'

@@ -1,4 +1,4 @@
-nPackage: defrostR
+Package: defrostR
 Type: Package
 Title: A tool for keeping up with amphibian taxonomy
 Version: 1.0.0

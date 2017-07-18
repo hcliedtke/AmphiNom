@@ -13,6 +13,6 @@ Data table of taxonomy downloaded from http://amphibiaweb.org/. The dataset cont
 }
 \examples{
 head(amphweb)
-amphweb<-load(amphweb)
+amphweb<-defrostR::amphweb
 }
 \keyword{datasets}
