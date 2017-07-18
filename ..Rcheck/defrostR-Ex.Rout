@@ -1,0 +1,102 @@
+
+R version 3.4.0 (2017-04-21) -- "You Stupid Darkness"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "defrostR"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> library('defrostR')
+Loading required package: XML
+Warning: package ‘XML’ was built under R version 3.4.1
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("amphweb")
+> ### * amphweb
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: amphweb
+> ### Title: AmphibiaWeb Taxonomy
+> ### Aliases: amphweb
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> head(amphweb)
+  order        family subfamily      genus subgenus                species
+1 Anura Allophrynidae           Allophryne              Allophryne relicta
+2 Anura Allophrynidae           Allophryne          Allophryne resplendens
+3 Anura Allophrynidae           Allophryne             Allophryne ruthveni
+4 Anura     Alsodidae              Alsodes               Alsodes australis
+5 Anura     Alsodidae              Alsodes                 Alsodes barrioi
+6 Anura     Alsodidae              Alsodes          Alsodes cantillanensis
+       common_name            gaa_name synonymies
+1                                                
+2                                                
+3 Tukeit-Hill Frog Allophryne ruthveni           
+4                    Alsodes australis           
+5                      Alsodes barrioi           
+6                                                
+                                    itis_names                iucn
+1                                                                 
+2                                                                 
+3 Sphaenorhynchus seabrai, Sphoenohyla seabrai  Least Concern (LC)
+4                                              Data Deficient (DD)
+5                                                  Vulnerable (VU)
+6                                                                 
+           isocc intro_isocc aweb_uid                            uri.guid
+1             BR                 8097 http://amphibiaweb.org/species/8097
+2             PE                 7786 http://amphibiaweb.org/species/7786
+3 VE,SR,GY,GF,BR                 2059 http://amphibiaweb.org/species/2059
+4          CL,AR                 5715 http://amphibiaweb.org/species/5715
+5             CL                 2552 http://amphibiaweb.org/species/2552
+6             CL                 8311 http://amphibiaweb.org/species/8311
+  taxon_notes_public
+1                   
+2                   
+3                   
+4                   
+5                   
+6                   
+> amphweb<-defrostR::amphweb
+> 
+> 
+> 
+> cleanEx()
+> nameEx("aswStats")
+> ### * aswStats
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: aswStats
+> ### Title: Get summary statistics of current taxonomy
+> ### Aliases: aswStats
+> 
+> ### ** Examples
+> 
+> aswStats()
+         number_of_units
+Oders                  3
+Families              75
+Genera               547
+Species             7671
+> aswStats(verbose=T, Family="Rhacophoridae")
+Error in aswStats(verbose = T, Family = "Rhacophoridae") : 
+  T used instead of TRUE
+Execution halted

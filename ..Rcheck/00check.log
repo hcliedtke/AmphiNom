@@ -2,8 +2,400 @@
 * using R version 3.4.0 (2017-04-21)
 * using platform: x86_64-apple-darwin15.6.0 (64-bit)
 * using session charset: UTF-8
-* checking for file ‘./DESCRIPTION’ ... ERROR
-Required field missing or empty:
-  ‘Package’
+* checking for file ‘./DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘defrostR’ version ‘1.0.0’
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... WARNING
+Found the following executable files:
+  .git/objects/00/6b17700c17854fef931467a6acf4b8f76b3710
+  .git/objects/00/ff31bf2ac7ea8976a8065e94072b5894f20fd7
+  .git/objects/02/8274fdf8edb245cc8e84ad2b57992af8f0a49f
+  .git/objects/04/01b47f7f438ed35a5a7547c40b259500352fcf
+  .git/objects/04/0a6992d85787fae5697fa7eeb1579c06a0d23a
+  .git/objects/05/88a113756c82d5df466b5c0893214d37659cb0
+  .git/objects/06/c9d1d35fd29347ab386c0409d556581e077dbb
+  .git/objects/06/ed2ac0a67d757077357b39d14c8b976629a83a
+  .git/objects/07/66bd4cf15a0683977b50d99662cf185168ff47
+  .git/objects/08/cece47d6ec8e5bcbfa9a2dd22c34f606ab5e57
+  .git/objects/09/a484266c8021e5bfdc9c8766ad20ce06099c4d
+  .git/objects/0b/ed2a5f12919818fdf195dee7712ccc08b72cf4
+  .git/objects/0c/d4728079e2e86162c4c08ca79db4b94edd0046
+  .git/objects/0e/2271e60caa1c5d0fd13d1bc82793bd0ee0ed02
+  .git/objects/0f/b6813bcd63e750f81d6b14f37350edb5c79a58
+  .git/objects/10/e3bd1430b9707f9cc9b8dfd624e2545c3f1f50
+  .git/objects/13/d0aec498969f47fb6c07ea5d79ee72522c7f17
+  .git/objects/1a/e9fc3354783d75ae9341905537b1311b481f11
+  .git/objects/1b/00099a00e75bc37e8affaadf1a37099e5048c6
+  .git/objects/1e/8060888fd28a7b792d02dc0f5e80920390c4e5
+  .git/objects/2b/087a9f9baa399750542fa2e688cfdd8f94fea2
+  .git/objects/2b/abe383b13a66e490da260e69c5ea24a5d0c7a2
+  .git/objects/2c/6e4f27b64abf54803322054fe3a6146b9ed29a
+  .git/objects/31/e17e33fd8a75603c7c1040b19bd5c451d0aeae
+  .git/objects/34/7047f5ebbb2b2f2c49a745ddb27c18936ec8a7
+  .git/objects/36/f2c5a9857573ee3e014ac0d87b4dd8d6e8bcbc
+  .git/objects/3c/027937964ee0635fb30d137f5b0f70b0e3ec26
+  .git/objects/3e/800c936685a53068b7830d13c6bc3be56dc695
+  .git/objects/45/59606cfdc20050a1039d247a7b3373d4647e29
+  .git/objects/47/dc34d95287e9ae2730b940b454dde7bf4f7e02
+  .git/objects/49/15aa70ecde20b42a8e5f603e6f3fce6a05f6cc
+  .git/objects/49/4501a310634284b405af3d627cdb972ce168d0
+  .git/objects/4d/f704b9bcedcc572f44e76ad26f92a086750599
+  .git/objects/4e/17edc539f3563bce22db3fec2d25720313d7ea
+  .git/objects/50/08ddfcf53c02e82d7eee2e57c38e5672ef89f6
+  .git/objects/53/a71999071762a7d8cef431be459baaba503458
+  .git/objects/57/1fa142747393b9f11b9a27a27078f94d46a533
+  .git/objects/58/31e303314cc14c84c525ca48ea2a53aa882543
+  .git/objects/59/b45cc345cfff066954eb59341e8659c9e72e28
+  .git/objects/5b/6a0652566d10360493952aec6d4a4febc77083
+  .git/objects/5c/1f9c5fcad5d5963e00d7439d1e9b66ac01ce98
+  .git/objects/5f/79aaf23819d290b6e0a39f0f455e0be1fdaf7a
+  .git/objects/61/fee5f3fe4263aa8e0988bbca453abed36df702
+  .git/objects/62/8ea19de7dbfd7d37b2278e2e224f67279c0a42
+  .git/objects/63/da94547fae157b7bfba25b34f0fbb9f0bc5402
+  .git/objects/64/8a6822f05bd35279436f1d3126904062032e21
+  .git/objects/65/70af0f0ae5ddf1ec8bb99f2cfecdd1be16135e
+  .git/objects/66/405300baa743d29b3cad23cd0ce50f012ee4eb
+  .git/objects/66/cb00dff075669b2407c7cd5a5e3b7cc6a65032
+  .git/objects/6a/38f20735a4445bbd7c8fef3b25e25d5efb5f33
+  .git/objects/6a/4b488dde0703ced2711132d0acd79546af0764
+  .git/objects/6c/212c914bde2a79f9f6da410e62f74df4730eed
+  .git/objects/6c/a53ce14abffb6b062a61acf4e41e4072fb1dd4
+  .git/objects/6e/67da89638d054901fb4356534d81fc579e5357
+  .git/objects/70/0fb95805d73fc40010e49ff9a9d59ee2315251
+  .git/objects/70/35c146d301bfb938f08acc5688e885a57a7fda
+  .git/objects/71/2dbad3635027c45933ca028da4cd168e306497
+  .git/objects/71/addf5cb0cbd6945d751338b6b3fe3e0fb97cb3
+  .git/objects/74/f979f2703971b18cc016e0142473a63af59926
+  .git/objects/75/0dc15764459dc57d3b01fb99c7c71b613784d8
+  .git/objects/75/aeea95842102b8e3d918d128e58e8b4efa2524
+  .git/objects/76/c24c3e1db30dc86b2d6935235c64ae98ae6882
+  .git/objects/7d/ac45c2dfe23751e361b36a8e4061080544ba97
+  .git/objects/7f/36437886a1548d3e7556e3808098a2429ac1fd
+  .git/objects/7f/48a284ff093b1d0e252f5f5e4d17b0f7554813
+  .git/objects/80/d87646664566cb583ecbd1364d9bb9ca2a15ae
+  .git/objects/83/78e7de5aa3a946e87285b0b68ff8651c730913
+  .git/objects/8a/29aca89b780d989149549dfb732ce98387eeec
+  .git/objects/8a/ce3226a937711431811374d2ba493376f21da3
+  .git/objects/8b/35467a777ce359fdff60e503a2df7783857f50
+  .git/objects/8f/0a3e4fa7a94018c875ff0c53f2d6da8791e5b9
+  .git/objects/8f/21d577f2a6aff7ca3a50b22ebb7e558c7f6b9e
+  .git/objects/91/114bf2f2bba5e0c5252e75018da19b869776f1
+  .git/objects/91/134f52a8f8a009ccf49a4c98a2c29e5d304bca
+  .git/objects/91/ab251da767e7a313020fc89c0b972143bea21f
+  .git/objects/91/d99985f66e0b62a162e0cf94e5728013e8ffd2
+  .git/objects/92/a1bf05c0d591dbddc882cf756890303308d4f3
+  .git/objects/95/e542bc859035ba22a701d3d9a14b3a9f8f04c6
+  .git/objects/96/1786995c26f7f3401ad6f9160be7f1f9449aa0
+  .git/objects/99/d76a99ca4e3cd91ac8adef14e274f292153748
+  .git/objects/9a/d5c34b1088146d448957d33cad5ab899e0c7ac
+  .git/objects/9d/c002795c0cbdb3c39a87dd51c095564edb0b0e
+  .git/objects/9d/edef864c4f5223347287966b0051705aaaa6c1
+  .git/objects/9f/110c1a14edb0b2458e2351372450a99b5407d3
+  .git/objects/9f/a31317c3449cee56a27374303e9b929ae350d6
+  .git/objects/a4/16d4a4695eb6bda9aefa30eba565893bdbf85d
+  .git/objects/a8/b4ada8b1dcf5f56845b6d4e23c364aef9ce124
+  .git/objects/a9/01f620037c86496adca7cca7b83237be19fc71
+  .git/objects/aa/0d70bad12b8eba13f12de38f91f901d3f79d11
+  .git/objects/ac/229855dd04013abbd97485e87ab2b57c066cb7
+  .git/objects/ae/1c79145d46952e07303a364fd043d2aaa426f3
+  .git/objects/ae/d25d6be8b95b084d10fcba2bfe37476342c4aa
+  .git/objects/b2/c6f7bfb1ad2f32823f6687f0bec08b7e6d4b80
+  .git/objects/b5/78dcc83366d670e7d49d7819fd53311269bd11
+  .git/objects/b7/8840f586cfc2a162ced29b6d86b50d67863936
+  .git/objects/b7/f4251d9305b2c1900f347e20fad45bf310b308
+  .git/objects/b8/5a0ae16b79265c9307d14c942c3ba770233a69
+  .git/objects/b9/913730d308844e75ac9e944a1de7b53b9bc6c3
+  .git/objects/c0/24e07ad3099e366ec1bea80b2e4606810bd2d8
+  .git/objects/c1/9d868627e3293eceaac5d227b238d1d34e6784
+  .git/objects/c5/d1aa1eda85dfc3b0f1e7364b4e8cb2a9be13c5
+  .git/objects/c8/2533c5b6e69ef909888869becefd69cbd9aab0
+  .git/objects/c8/d2ed17c6cb31270cd873d278c56927d6b768d8
+  .git/objects/ca/3f24470ab09121b77664fa07d050eb1b1a8c69
+  .git/objects/cb/a0be1d1b87e3b74c067e48ab07697fbe5c57dc
+  .git/objects/cd/d8a09a8372bd095d1d5b61289452ab0899332e
+  .git/objects/ce/4fdd874ac85880df326756da9816de9dd774f1
+  .git/objects/cf/3a7ea3619d4fe5071d19e8a3e7c879ad1529c1
+  .git/objects/d3/25efd5fbde7da9b6d8f483e8a6066d6959e3b4
+  .git/objects/d3/7d429fca75948fb0c73165636e3fc51d126efc
+  .git/objects/d6/373fd0b933fd12bc652c11508eba87ebaa98ab
+  .git/objects/d7/5f824ec6278db24891505b14ab3d915514dba7
+  .git/objects/db/7857113c1d4a2ef7d74d306bb81ee39b7b0998
+  .git/objects/dd/13e01268b3a5e4e0e24823312b7c32ea4ada67
+  .git/objects/de/1136fa446c5bada19008febc65b5c5c36be21d
+  .git/objects/e1/aad28504886d398dd322d84b9a9954fd832a3b
+  .git/objects/e2/7d85bdcb53158eb13f2162535d4d9377736c2f
+  .git/objects/e8/c10556174f0b96328d474c9fa2c047c8c5c16c
+  .git/objects/e9/f0a245ef8c34850f8b1fdcefa6fefc5da05ffd
+  .git/objects/ea/b212db2f3c820b695f89069f3c2dbf7c424459
+  .git/objects/ee/59907017bd8d5ad6980c2826ae97960c57b78a
+  .git/objects/ee/bb438c7d2a23b33790c223681f86215a0d16f2
+  .git/objects/f0/d61875e95f0b39c01b07500a77adbaf7b46e7a
+  .git/objects/f2/853939f3a5dc9c11b8df652ffa0b47f5d0a159
+  .git/objects/f3/c9e39122be51bb81b1fb520be1941a9900c4d0
+  .git/objects/f4/bb79c8a422c08d6bc37f905077f8080ebb998c
+  .git/objects/f5/ce6eb16410a74a0db1666d77462543b027709b
+  .git/objects/f6/5106fe3012282f7d31000e97a60f5f6f797c4a
+  .git/objects/f6/c6f2d3ec4e29156dd46849c0d2f017d3b0b33a
+  .git/objects/f9/181992b222e2e55d10e646dea6084ac35eab40
+  .git/objects/f9/4b87bf41bac04e2d878e20553005c58dcbfd08
+  .git/objects/fa/61675bb3f88f7c027ba4e29545d6b8048d5bb2
+  .git/objects/fb/36bf073c26ab9d3e687b6d3dbebac70a9b7283
+  .git/objects/fc/1a7067f99100bc4e5db049aad88524efda3125
+  .git/objects/fc/7892e229b6bf0e469ea192b08e6a14a2e4f660
+  .git/objects/fc/e82f2c5793c6cbcfb88c151dd3c60f1e3490b2
+  .git/objects/fd/3a217c6bcc45ebe59070a420a17f58fbc32ff8
+Source packages should not contain undeclared executable files.
+See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  ..pdf
+  .DS_Store
+  .RData
+  .Rhistory
+  .gitignore
+  .travis.yml
+  R/.DS_Store
+  data/.DS_Store
+  man/.DS_Store
+  ..Rcheck
+  .Rd2pdf58386
+  .Rproj.user
+  .git
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘defrostR’ can be installed ... WARNING
+Found the following significant warnings:
+  Warning: package ‘XML’ was built under R version 3.4.1
+See ‘/Users/christophliedtke/Documents/defrostR_project/defrostR/..Rcheck/00install.out’ for details.
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Malformed Description field: should contain one or more complete sentences.
+Checking should be performed on sources prepared by ‘R CMD build’.
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... WARNING
+Found the following directory with the name of a check directory:
+  ./..Rcheck
+Most likely, these were included erroneously.
+Found the following directory with the name of a Rd2pdf directory:
+  ./.Rd2pdf58386
+Most likely, these were included erroneously.
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking dependencies in R code ... NOTE
+Package in Depends field not imported from: ‘XML’
+  These packages need to be imported from (in the NAMESPACE file)
+  for when this namespace is loaded but not attached.
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+aswStats: no visible global function definition for ‘na.omit’
+getSynonyms: no visible global function definition for ‘txtProgressBar’
+getSynonyms: no visible global function definition for ‘htmlParse’
+getSynonyms: no visible global function definition for ‘xpathSApply’
+getSynonyms: no visible global function definition for ‘xmlToList’
+getSynonyms: no visible global function definition for ‘free’
+getSynonyms: no visible global function definition for
+  ‘setTxtProgressBar’
+getTaxonomy : urlExtender: no visible global function definition for
+  ‘txtProgressBar’
+getTaxonomy : urlExtender: no visible global function definition for
+  ‘setTxtProgressBar’
+getTaxonomy : tabulator: no visible global function definition for
+  ‘tail’
+tabulator: no visible global function definition for ‘tail’
+urlExtender: no visible global function definition for ‘txtProgressBar’
+urlExtender: no visible global function definition for
+  ‘setTxtProgressBar’
+Undefined global functions or variables:
+  free htmlParse na.omit setTxtProgressBar tail txtProgressBar
+  xmlToList xpathSApply
+Consider adding
+  importFrom("stats", "na.omit")
+  importFrom("utils", "setTxtProgressBar", "tail", "txtProgressBar")
+to your NAMESPACE file.
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'getSynonyms'
+  ‘Order’ ‘Superfamily’ ‘Family’ ‘Subfamily’ ‘Genus’ ‘Species’
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking contents of ‘data’ directory ... OK
+* checking data for non-ASCII characters ... WARNING
+  Note: found 71 marked UTF-8 strings
+  Warning: found non-ASCII strings
+  'Achoque (local Mexican name), Anderson<89><db><aa>s salamander' in object 'amphweb'
+  'Alpine salamander, black salamander, Alpensalamander, Salamandre noire, salamandra alpina, alpesalamander, alpi salamander, alpesi szalamandra, crni da*devnjak, alpenlandsalamander, salamandra czarna, salamander nair, salamandra e zez<cc><c7>, alppisalamanteri,' in object 'amphweb'
+  'Ambrosi Salamander, Franz<cc><a6>sischer H<cc><a6>lensalamander, Ambrosis H<cc><a6>lensalamander, Sp<cc><a9>lerpes brun, Geotritone de Ambrosi, Geotritone settentrionale' in object 'amphweb'
+  'Anderson<89><db><aa>s Salamander' in object 'amphweb'
+  'Angoul<cc><bb>me microcaecilia' in object 'amphweb'
+  'Bamil<cc><a9>k<cc><a9> Clawed Frog' in object 'amphweb'
+  'Bilbo<89><db><aa>s Rain Frog' in object 'amphweb'
+  'Black Leg Poison Dart Frog, Near<cc><c1>' in object 'amphweb'
+  'Bosca's newt, Spanischer wassermolch, boscas wassermolch, trit<cc>_n ib<cc><a9>rico, trit<cc>_n de Bosc<cc><c1>, trit<cc><a3>o-de-la-ventre-laranja, Boscas vandsalamander, hispaania vesilik, triton de Bosca, tritone di Bosc<cc><c1>, spaanse watersalamander, espanjanvesilisko, spansk vattens' in object 'amphweb'
+  'Bullock<89><db><aa>s False Toad' in object 'amphweb'
+  'Burrowes<89><db><aa> Giant Glass Frog, Golden-flecked Glass Frog' in object 'amphweb'
+  'Calf frog, R<cc><a3>-vitelo, Rana ternero' in object 'amphweb'
+  'Cape Clawed Toad, Cape Platanna, Gill<89><db><aa>s Plantanna' in object 'amphweb'
+  'Central Dwarf Frog; r<cc><a3>zinha' in object 'amphweb'
+  'Chalazodes Bubble Nest Frog, G<cc>_nther's Bush Frog, White-spotted Bush Frog' in object 'amphweb'
+  'Cloaked Moss Frog; <cc><e4>ch c<cc><a2>y s<cc><a2>n tr<cc><c1> hinh' in object 'amphweb'
+  'Coastal Ecuador smoky jungle frog, R<cc><a3>-defumada-de-selva-costeira-de-Ecuador, Rana ahumada de la selva costera de Ecuador' in object 'amphweb'
+  'Coqu<cc>_ Chur<cc>_' in object 'amphweb'
+  'Coqu<cc>_ Duende' in object 'amphweb'
+  'Coqu<cc>_ Guaj<cc>_n' in object 'amphweb'
+  'Coqu<cc>_ Pitito, Whistle Coqui' in object 'amphweb'
+  'Corsican brook salamander, Corsican mountain newt, Korsischer Gebirgsmolch, Korsikansk bjergsalamander, Korsika m<cc>_givesilik, Trit<cc>_n de C<cc>_rsega, Euprocte de Corse, Euprotte de Corse, Tritone C<cc><ab>rso, Euprotto C<cc><ab>rso, Korzikai g<cc><a6>te, Corsicaanse beeksalamander,' in object 'amphweb'
+  'Corsican painted frog, Discoglosse corse, Corsischer scheibenz<cc>_ngler, Korsika ketaskeelkonn, Discoglosso di Montalenti, Discoglosso c<cc><ab>rso, Corsicaanse Schijftongkikker' in object 'amphweb'
+  'Cricket Coqu<cc>_' in object 'amphweb'
+  'Daniel<89><db><aa>s Night Frog' in object 'amphweb'
+  'Demonic Poison Frog or Yapacana<89><db><aa>s Little Red Frog' in object 'amphweb'
+  'Deven<89><db><aa>s Night Frog' in object 'amphweb'
+  'El Cop<cc><a9> Giant Salamander' in object 'amphweb'
+  'Fleay<89><db><aa>s Barred-Frog' in object 'amphweb'
+  'French Cave Salamander, Franz<cc><a6>sischer H<cc><a6>lensalamander, Sp<cc><a9>lerpes brun' in object 'amphweb'
+  'G<cc>_mez's Web-footed Salamander' in object 'amphweb'
+  'G<cc>_nther's Toadlet' in object 'amphweb'
+  'G<cc>_nther<89><db><aa>s toad or rock toad' in object 'amphweb'
+  'Gold-striped salamander, goldstreifensalamander, salamandra rabilarga, salamandra portuguesa, salam<cc><ca>ndria, gulstribet salamander, kuldtriip- salamander, arrubi, chioglosse portugais, pinchorra de rabolarga, chioglossa, aranycsikos szalamandra, ib<cc><a9>riai sza' in object 'amphweb'
+  'Golden Coqu<cc>_, Coqu<cc>_ Dorado' in object 'amphweb'
+  'Greek frog, stream frog, Gr<cc>_sk fr<cc><fc>, Griechischer frosch, Kreeka konn, Rana griega, Grenouille grecque, Rana greca, G<cc><a6>r<cc><a6>g b<cc><a9>ka, Griekse kikker, Bretkosa e p<cc><c7>rrenjve, Gorska *aba, Kreikansammakko, Grekisk groda' in object 'amphweb'
+  'Humboldt<cc><f8><e5><c0><e5>_s Glass Frog, r<cc><f8><e5><c0><e5>_-de-vidro, perereca-de-vidro, pererequinha-verde de ventre transparente com focinho espatulado' in object 'amphweb'
+  'Iberian midwife toad, Ibersiche geburtshelferkroete, Gripau paridor ib<cc><ac>rec, Iberisk F<cc><fc>dselshj<cc>_lperfr<cc><fc>, Ibeeria k<cc><a6>idikkonn, sapo partero ib<cc><a9>rico, sapo partero de cisternas, Apotzar, Alyte de cisternas,' in object 'amphweb'
+  'Iberian painted frog, Sapillo Pintojo, Sapinho Sarapintado, Discoglosse de Galgano, Discoglosso di Galgano, Discoglosso Iberico, R<cc><a2>-de-focinho-pontiagudo, Iberischer Scheibenz<cc>_ngler, Iberische schijftongkikker' in object 'amphweb'
+  'Imperial Cave Salamander, Duftender H<cc><a6>hlensalamander, Kuningkoopaojalik, Sp<cc><a9>lerp<cc><ac>s imp<cc><a9>rial, Geotritone imperiale, Geotritone oderoso' in object 'amphweb'
+  'Indraneil<89><db><aa>s Night Frog' in object 'amphweb'
+  'Italian Cave Salamander, Italienischer Schleuderzungensalamander, Itaalia koopaojalik, Salamandra cavernicola italiana, Sp<cc><a9>lerpes italien, Geotritone italico, Italiaanse grottensalamander, Italianluol' in object 'amphweb'
+  'Italian Crested Newt, Alpine Crested Newt, Tritone cristato, Triton cr<cc><bb>te Italien, Alpenkammolch' in object 'amphweb'
+  'Italian newt, Italienischer wassermolch, italiniescher teichmolch, tritone italico, italiensk vandsalamander, itaalia t<cc>_hnikvesilik, trit<cc>_n italiano, triton italien, italiaanse watersalamander, italianvesilisko, italiensk vattensalamander' in object 'amphweb'
+  'Jeet Sukumaran<89><db><aa>s Torrent-Dwelling Toad' in object 'amphweb'
+  'Jog<89><db><aa>s Night Frog' in object 'amphweb'
+  'Jordans Dwarf Frog, r<cc><a3>zinha' in object 'amphweb'
+  'K<cc><b5>ko<cc><a9>' in object 'amphweb'
+  'Knudsen's thin-toed frog, R<cc><a3>-de-dedos-delgados-de-Knudsen, Rana de dedos delgados de Knudsen' in object 'amphweb'
+  'Korai-Sansyouo, Chosen-Sansyouo, Hanguo Zhaoni, Korean Clawed Salamander, Hanguk Ggorichire Dorongnyong, Kor<cc><ac>yskiy kogt<cc><c2>styi bezl<cc><ac>gochnyi triton' in object 'amphweb'
+  'Lages Glass Frog, r<cc><f8><e5><c0><e5>_-de-vidro, perereca-de-vidro' in object 'amphweb'
+  'Lycian salamander, Lykischer salamander, kleinasiatischer salamander, Luschan's salamander, Kollane pikksabalik, Salamandra de Lic<cc><c2>a, Salamandre de Lycie, Mertensiella di Luschan, Luschani szalamandra, Ege<cc><f8>sche landsalamander, Okasalamanteri, Lykisk salam' in object 'amphweb'
+  'Malcolm<89><db><aa>s Ethiopian toad' in object 'amphweb'
+  'Mallorcan midwife toad, Ferreret, Balearenkroete, Baleaari k<cc><a6>idikkonn, Sapilo Balear, Alyte de Majorque, Alyte Balearico, Rospo Ostetrico Balearico, balearen vroedmeesterpad' in object 'amphweb'
+  'Map Treefrog, rana geogr<cc><c1>fica' in object 'amphweb'
+  'Mara<cc><b1><cc>_n Poison Frog' in object 'amphweb'
+  'Marbeled newt, marmormolch, triton marbr<cc><a9>, trit<cc>_n jaspeado, trit<cc><a3>o-marmorado, trit<cc><a3>o-verde, trit<cc>_ verd, marmorsalamander, marmorvesilik, uhandre marmolairea, lagartixa d'agua, tritone marmorato, tritone marmorizzato, marmersalamander, traszka marmurkowana' in object 'amphweb'
+  'Mediterranean Tree Frog, Stripeless Tree Frog, Reineta meridional, Ustribet l<cc><fc>vfr<cc><fc>, Mittelmeer laubfrosch, Vahemere lehekonn, Ranita meridional, Hegoaldeka zuhaitz-igela, Rainette m<cc><a9>ridionale, R<cc><a2>, Raganella meridionale, Raganella baritono, Mediterrane boo' in object 'amphweb'
+  'Melodious Coqui, Wrinkled Coqui, Wightman<89><db><aa>s Robber Frog, Coqui Melodioso' in object 'amphweb'
+  'Midwife toad of Hillenius, Betic midwife toad, sapo partero b<cc><a9>tico, sapo-parteiro-b<cc><a9>tico' in object 'amphweb'
+  'Midwife toad, T<cc>_til, Gripau llevador, F<cc><fc>dselshj<cc>_lperfr<cc><fc>, geburtshelferkroete, glockenfrosch, harilik k<cc><a6>idikkonn, sapo partero com<cc>_n, txantxiku arrunta, alyte accoucheur, crapaud accroucheur, sapo part' in object 'amphweb'
+  'Misty Moss Frog, &#7870;ch c<cc><a2>y s&#7847;n s&#432;&#417;ng mu' in object 'amphweb'
+  'Monte Albo Cave Salamander, Monte Albo H<cc><a6>lensalamander, Kollakoopaojalik, Sp<cc><a9>l<cc><ac>rpes du Monte Albo, Geotritone del Monte Albo, gele grottensalamander' in object 'amphweb'
+  'Murree Hill<89><db><aa>s frog' in object 'amphweb'
+  'Mutschmann's Frog, <cc><e4>ch d<cc><c1> mut-x-man (Vietnamese), Mutschmanns Frosch (German' in object 'amphweb'
+  'Myers' thin-toed frog, R<cc><a3>-de-dedos-delgados-de-Myers, Rana de dedos delgados de Myers' in object 'amphweb'
+  'Northeastern pepper frog, R<cc><a3>-pimenta-do-Nordeste, Rana pimienta del nordeste' in object 'amphweb'
+  'Nurse frog of the Serran<cc>_a de Perij<cc><c1>, Rana nodriza de la Serran<cc>_a de Perij<cc><c1>' in object 'amphweb'
+  'Olm, Blind cave salamander, Grottenolm, hulepadde, koopaolm, Proteo, Prot<cc><a9>e anguillard, hulesalamander, White Olm, Black Olm, odmieniec jaskiniowy, olmi, covecija ribica, cloveska ribica' in object 'amphweb'
+  'P<cc><c1>palo Minute Salamander' in object 'amphweb'
+  'Painted frog, Discoglosse peint, Gemalter scheibenz<cc>_ngler, Sapillo pintojo, Rana dipinta, Granota pintada, Gripau granoter, Malet fr<cc><fc>, Kirju ketaskeelkonn, Apo pintatua, Discoglosso dipinto, Schijftongkikker, Kirjosammakko, Skivtunggroda' in object 'amphweb'
+  'Palmate newt, fadenmolch, leistenmolch, trit<cc>_n palmeado, trit<cc><a3>o-palmado, trit<cc><a3>o-de-patas-espalmadas, trit<cc>_ palmat, madfall balmwyddog, tr<cc><b4>dvandsalamander, niitvesilik, uhandre palmatua, triton palm<cc><a9>, tritone palmato, vinpootsalamander, draadstaartsalamand' in object 'amphweb'
+  'Para thin-toed frog, R<cc><a3>-de-dedos-delgados-do-para, Rana de dedos delgados de Para' in object 'amphweb'
+  'Paresh<89><db><aa>s Gegeneophis' in object 'amphweb'
+  'Pe<cc><b1>a Verde Salamander; Salamandra de Pe<cc><b1>a Verde' in object 'amphweb'
+  'Pepper frog, R<cc><a3>-pimenta, Rana pimienta' in object 'amphweb'
+  'Perija's Nurse Frog; Sapito Ni<cc><b1>era de Perij<cc><c1>' in object 'amphweb'
+  'Poynton<89><db><aa>s Forest Toad' in object 'amphweb'
+  'Pyrenean brook salamander, Pyrenean mountain newt, Pyren<cc>_en-Gebirgsmolch, Trit<cc>_ pirinenc, Pyren<cc>_sk bjergsalamander, P<cc>_renee m<cc>_givesilik, Trit<cc>_n pirenaico, Euprocte des Pyr<cc><a9>n<cc><a9>es, Euprotte pirenaico, Tritone pirenaico, Pireneusi g<cc><a6>te, Pyrenee<cc><c7>nbeeksalamande' in object 'amphweb'
+  'Red-Eyed Tree Frog, Red-Eyed Leaf Frog, Gaudy Leaf Frog, Rana Arbor<cc>_cola, Rana Calzonudo' in object 'amphweb'
+  'Red-thighed thin-toed frog, R<cc><a3>-de-dedos-delgados-de-coxas-vermelhas, Rana dededos delgados de muslos rojos' in object 'amphweb'
+  'Rilett's climbing salamander, Rilett<89><db><aa>s mushroomtongue salamander, Rilett<89><db><aa>s salamander' in object 'amphweb'
+  'Rio Elongated Frog, r<cc><a3>zinha-bicuda, r<cc><a3>zinha-assobiadora-da-mata' in object 'amphweb'
+  'Sapito rugoso del Kuken<cc><c1>n; Venezeulan pebble toad' in object 'amphweb'
+  'Sardinian brook salamander, Sardinian mountain newt, Hechtkopf-Gebirgsmolch, Sardischer Gebirgsmolch. Sardinsk bjergsalamander, Sardiinia m<cc>_givesilik, Trit<cc>_n de Serde<cc><b1>a, Euprocte de Sardaigne, Tritone Sardo, Euprotto Sardo, Csukafej<cc>_ g<cc><a6>te, Szardiniai heg' in object 'amphweb'
+  'Sardinian Cave Salamander, Sardischer Schleuderzungensalamander, Euroopa koopaojalik, Salamandra cavernicola de Cerde<cc><b1>a, Sp<cc><a9>l<cc><ac>rpes de Gen<cc><a9>, Geotritone di Gen<cc><a9>, Geotritone iglesiente, Barna barlangi-sz' in object 'amphweb'
+  'Sarisari<cc><b1>ama Rain Frog, Ranita de Neblina de Sarisari<cc><b1>ama' in object 'amphweb'
+  'Savage's thin-toed frog, R<cc><a3>-de-dedos-delgados-de-savage, Rana de dedos delgados de Savage' in object 'amphweb'
+  'Savage<89><db><aa>s Worm Salamander' in object 'amphweb'
+  'Schi<cc><fc>tz's Puddle Frog' in object 'amphweb'
+  'Shrub Coqu<cc>_' in object 'amphweb'
+  'Sicilian Green Toad, Rospo smeraldino siciliano, Sizilianische Wechselkr<cc><a6>te, crapaud vert de Sicile, Sapo verde siciliano' in object 'amphweb'
+  'Smoky Jungle Frog, Rana Comepollos, Rana Ternero, Central American Bullfrog, South American Bullfrog, R<cc><a3>-defumada-da-selva, Rana ahumado de la selva' in object 'amphweb'
+  'S<cc><a3>o Paulo Tree Toad' in object 'amphweb'
+  'S<cc><a3>o Tom<cc><a9> Caecilian, cobra bobo' in object 'amphweb'
+  'Southern Spectacled Salamander, Brillensalamander, Salamandrina dagli occhiali, Brillesalamander, Prillsalamander, Salamandra de antejos, salamandrine <cc><ca> lunettes, P<cc><c1>paszemes szalamandra, Brilsalamander, Salamandra okularowa, Sim<cc>_lasisalamanteri, Glas<cc><a6>gons' in object 'amphweb'
+  'Spanish newt, Ribbed newt, Sharp-ribbed salamander, Spanischer rippenmolch, Gallipato, Ofegabous, Spansk ribbenssalamander, Hispaania ribivesilik, pleurod<cc><ac>le de Waltl, triton <cc><ca> c<cc><ab>tes, pleurodele di Waltl, Ribbensalamander, Salamandra-de-costelas-salientes' in object 'amphweb'
+  'Spotted nurse frog, Sapito ni<cc><c4><e5><b1>era moteado' in object 'amphweb'
+  'Spotted Tree Frog, Spencer<89><db><aa>s River Tree Frog' in object 'amphweb'
+  'Steindachner's Robber Frog; ra-da-mata, razinha, ra-do-folhi<cc><a4>o.' in object 'amphweb'
+  'Stuart<89><db><aa>s Moss Salamander' in object 'amphweb'
+  'Tapant<cc>_ Giant Salamander' in object 'amphweb'
+  'T<cc><bc>ngara frog' in object 'amphweb'
+  'Tornier<89><db><aa>s Forest Toad, Kijula' in object 'amphweb'
+  'Tyrrhenian painted frog, Discoglosse sarde, Sardischer scheibenz<cc>_ngler, Sapillo pintojo de Cerde<cc><b1>a, Thyrrensk Malet fr<cc><fc>, Sardi ketaskeelkonn, Discoglosso sardo, Discoglosso tirrenico, Sardijnse Schijftongkikker, Tyrrhenankirjosammako, Tyrrensk Skivtunggro' in object 'amphweb'
+  'Underwood<89><db><aa>s Litter Frog' in object 'amphweb'
+  'Watterson<89><db><aa>s tree frog' in object 'amphweb'
+  'Y<cc><c1>nez Rain Frog. Spanish: Cut<cc>_n de Y<cc><c1>nez' in object 'amphweb'
+  'Yellowish Tree Cophyline Frog (English), cofil<cc><c2>no arboreo giallastro (Italian), sahonkely mavomavo (Malagasy)' in object 'amphweb'
+  'Wake and Jockusch (2000 Biol Plethodontid Salamanders) & Jockusch and Wake  (2002, Biol J Linn Soc) treated B. aridus as a subspecies of Batrachoseps major.   Because of its status as an Endangered Species, AmphibiaWeb recognizes it as a  full species.  The taxon is under continued study (Martinez-Solano et al. 2012  Molecular Phylogenetics and Evolution 63: 131<89><db><d2>149).' in object 'amphweb'
+* checking data for ASCII and uncompressed saves ... WARNING
+  
+  Note: significantly better compression could be obtained
+        by using R CMD build --resave-data
+                   old_size new_size compress
+  amphweb.rda         275Kb    157Kb       xz
+  asw_synonyms.rda    341Kb    205Kb       xz
+  asw_taxonomy.rda    135Kb    107Kb    bzip2
+* checking installed files from ‘inst/doc’ ... OK
+* checking files in ‘vignettes’ ... WARNING
+Files in the 'vignettes' directory newer than all files in 'inst/doc':
+  ‘defrostR_tutorial.R’, ‘defrostR_tutorial.Rmd’,
+    ‘defrostR_tutorial.html’
+* checking examples ... ERROR
+Running examples in ‘defrostR-Ex.R’ failed
+The error most likely occurred in:
+
+> ### Name: aswStats
+> ### Title: Get summary statistics of current taxonomy
+> ### Aliases: aswStats
+> 
+> ### ** Examples
+> 
+> aswStats()
+         number_of_units
+Oders                  3
+Families              75
+Genera               547
+Species             7671
+> aswStats(verbose=T, Family="Rhacophoridae")
+Error in aswStats(verbose = T, Family = "Rhacophoridae") : 
+  T used instead of TRUE
+Execution halted
+* checking for unstated dependencies in vignettes ... OK
+* checking package vignettes in ‘inst/doc’ ... OK
+* checking running R code from vignettes ... NONE
+* checking re-building of vignette outputs ... OK
+* checking PDF version of manual ... OK
 * DONE
-Status: 1 ERROR
+Status: 1 ERROR, 7 WARNINGs, 4 NOTEs
