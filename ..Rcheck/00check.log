@@ -1,0 +1,9 @@
+* using log directory ‘/Users/christophliedtke/Documents/defrostR_project/defrostR/..Rcheck’
+* using R version 3.4.0 (2017-04-21)
+* using platform: x86_64-apple-darwin15.6.0 (64-bit)
+* using session charset: UTF-8
+* checking for file ‘./DESCRIPTION’ ... ERROR
+Required field missing or empty:
+  ‘Package’
+* DONE
+Status: 1 ERROR
