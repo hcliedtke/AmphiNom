@@ -480,7 +480,7 @@ duplicates_produced                        0
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.82 0.072 15.555 0 0 
+Time elapsed:  1.782 0.056 15.365 0 0 
 > grDevices::dev.off()
 null device 
           1 
