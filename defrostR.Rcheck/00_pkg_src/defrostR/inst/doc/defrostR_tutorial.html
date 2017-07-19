@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Introduction</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<style type="text/css">
+.text {
+  text-align: justify;
+
+}
+</style>
+
+<h2>Introduction</h2>
+
+<p>This package is aimed at trying to simplify the workflow of combining amphibian taxonomic data sets from different sources that use different taxonomic nomenclature. For example, two sources of important information for amphibian systematic are: Amphibian Species of the World (<a href="http://research.amnh.org/vz/herpetology/amphibia/">http://research.amnh.org/vz/herpetology/amphibia/</a>) and Amphibia Web (<a href="http://amphibiaweb.org/">http://amphibiaweb.org/</a>). These use slightly different nomenclature. Moreover, in comparative studies, one often works with data from a range of sources such as spatial or conservation data from the IUCN red list (<a href="http://www.iucnredlist.org/">http://www.iucnredlist.org/</a>) or phylogenetic information from published amphibian phylogenies such as those of Pyron and Wiens 2011 (MPE) and Pyron 2014 (Syst Biol). These sources have either made the decision to follow a specific taxonomic system or, more often, are no longer up to date. It can therefore be complicated to establish a universal or current nomenclature to be able to effectively combine data sets. As such, the main objective of this package is to harvest taxonomic classifications of all amphibian species listed on the ASW website, harvest all listed synonyms per species and then using this information, suggest &ldquo;Frost&rdquo; (ASW) names for any given list of taxa.</p>
+
+<p>This package could also be useful for easily updating museum catalogs etc, or for producing summary statistics on species numbers for various taxonomic groupings, or to update species names in manuscripts etc. after a taxonomic group has received nomenclature revisions</p>
+
+<p>Below are some examples of how to use the package.</p>
+
+<h3>Load package</h3>
+
+<p>defrostR only depends on the &ldquo;XML&rdquo; package. Until defrostR is up on CRAN, this package is available from gitHub. Note, this requires the library &ldquo;devtools&rdquo; to be installed first, and may require the library &ldquo;XML&rdquo;. </p>
+
+<p>library(devtools)
+install_github(&ldquo;hcliedtke/defrostR&rdquo;, build_vignettes = TRUE)</p>
+
+<pre><code class="r">library(defrostR)
+</code></pre>
+
+<h2>Compile ASW taxonomy</h2>
+
+<p>The starting point of this package is a list of all currently registered species on the ASW website. A version of this is stored in the defrostR package internally. This may of course be outdated and so to generate your own, up-to-date version run the getTaxonomy() function, but this may take 10 to 15 minutes&hellip;</p>
+
+<h5>build taxonomy:</h5>
+
+<pre><code class="r">#asw_taxonomy&lt;-getTaxonomy()
+head(asw_taxonomy)
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left">order</th>
+<th align="left">superfamily</th>
+<th align="left">family</th>
+<th align="left">subfamily</th>
+<th align="left">genus</th>
+<th align="left">species</th>
+<th align="left">url</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">Anura</td>
+<td align="left">NA</td>
+<td align="left">Allophrynidae</td>
+<td align="left">NA</td>
+<td align="left">Allophryne</td>
+<td align="left">Allophryne relicta</td>
+<td align="left"><a href="http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-relicta">http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-relicta</a></td>
+</tr>
+<tr>
+<td align="left">Anura</td>
+<td align="left">NA</td>
+<td align="left">Allophrynidae</td>
+<td align="left">NA</td>
+<td align="left">Allophryne</td>
+<td align="left">Allophryne resplendens</td>
+<td align="left"><a href="http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-resplendens">http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-resplendens</a></td>
+</tr>
+<tr>
+<td align="left">Anura</td>
+<td align="left">NA</td>
+<td align="left">Allophrynidae</td>
+<td align="left">NA</td>
+<td align="left">Allophryne</td>
+<td align="left">Allophryne ruthveni</td>
+<td align="left"><a href="http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-ruthveni">http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Allophrynidae/Allophryne/Allophryne-ruthveni</a></td>
+</tr>
+<tr>
+<td align="left">Anura</td>
+<td align="left">NA</td>
+<td align="left">Alsodidae</td>
+<td align="left">NA</td>
+<td align="left">Alsodes</td>
+<td align="left">Alsodes australis</td>
+<td align="left"><a href="http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Alsodidae/Alsodes/Alsodes-australis">http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Alsodidae/Alsodes/Alsodes-australis</a></td>
+</tr>
+<tr>
+<td align="left">Anura</td>
+<td align="left">NA</td>
+<td align="left">Alsodidae</td>
+<td align="left">NA</td>
+<td align="left">Alsodes</td>
+<td align="left">Alsodes barrioi</td>
+<td align="left"><a href="http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Alsodidae/Alsodes/Alsodes-barrioi">http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Alsodidae/Alsodes/Alsodes-barrioi</a></td>
+</tr>
+<tr>
+<td align="left">Anura</td>
+<td align="left">NA</td>
+<td align="left">Alsodidae</td>
+<td align="left">NA</td>
+<td align="left">Alsodes</td>
+<td align="left">Alsodes cantillanensis</td>
+<td align="left"><a href="http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Alsodidae/Alsodes/Alsodes-cantillanensis">http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Anura/Alsodidae/Alsodes/Alsodes-cantillanensis</a></td>
+</tr>
+</tbody></table>
+
+<p>The function takes no arguments and essentially iterates through the ASW website, building the URL for each species through a bottom-up approach (i.e. first looking for all orders, then superfamilies, then families, subfamilies, genera and finally species). The resulting table contains 7 columns: one for each taxonomic level (Order through to Species) and a final column with the URL for the ASW website for each species.  </p>
+
+<h4>Get some species stats</h4>
+
+<p>The first think one might be interested in is to get some basic numbers for listed taxonomic units nested within a particular level.</p>
+
+<h5>the basics:</h5>
+
+<pre><code class="r">aswStats(asw_taxonomy)
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left"></th>
+<th align="right">number_of_units</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">Oders</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="left">Families</td>
+<td align="right">75</td>
+</tr>
+<tr>
+<td align="left">Genera</td>
+<td align="right">547</td>
+</tr>
+<tr>
+<td align="left">Species</td>
+<td align="right">7671</td>
+</tr>
+</tbody></table>
+
+<p>Additional arguments can be given to narrow your search. For example to get information on only a specific Family: </p>
+
+<h5>information on a specific group of interest:</h5>
+
+<pre><code class="r">aswStats(asw_taxonomy, Family=&quot;Plethodontidae&quot;)
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left"></th>
+<th align="right">number_of_units</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">Oders</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="left">Families</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="left">Genera</td>
+<td align="right">29</td>
+</tr>
+<tr>
+<td align="left">Species</td>
+<td align="right">468</td>
+</tr>
+</tbody></table>
+
+<p>This can be applied to any taxonomic level and to make sure everything is working properly, you could double check if this matches the information on the website: <a href="http://research.amnh.org/vz/herpetology/amphibia/index.php/">http://research.amnh.org/vz/herpetology/amphibia/index.php/</a>  </p>
+
+<h5>taking a closer look:</h5>
+
+<p>We can also turn on &ldquo;verbose&rdquo; to return a list of all nested units instead of a table. This is useful in its own right when wanting to get an overview or making graphical representations:  </p>
+
+<pre><code class="r">aswStats(asw_taxonomy, Family = &quot;Plethodontidae&quot;,verbose = T)
+</code></pre>
+
+<pre><code>## $Orders
+## 
+## Caudata 
+##     468 
+## 
+## $Super_families
+## &lt; table of extent 0 &gt;
+## 
+## $Families
+## 
+## Plethodontidae 
+##            468 
+## 
+## $Sub_families
+## 
+## Hemidactyliinae  Plethodontinae 
+##             367             101 
+## 
+## $Genera
+## 
+##          Aneides    Aquiloeurycea     Batrachoseps     Bolitoglossa      Bradytriton 
+##                8                6               21              131                1 
+## Chiropterotriton     Cryptotriton     Dendrotriton     Desmognathus         Ensatina 
+##               15                7                8               24                1 
+##          Eurycea     Gyrinophilus    Hemidactylium      Hydromantes         Isthmura 
+##               31                4                1                3                7 
+##      Ixalotriton         Karsenia       Nototriton       Nyctanolis         Oedipina 
+##                2                1               19                1               38 
+##       Parvimolge     Phaeognathus        Plethodon    Pseudoeurycea     Pseudotriton 
+##                1                1               55               40                3 
+##     Speleomantes     Stereochilus          Thorius      Urspelerpes 
+##                8                1               29                1 
+## 
+## $Species
+##   [1] &quot;Aquiloeurycea cafetalera&quot;        &quot;Aquiloeurycea cephalica&quot;        
+##   [3] &quot;Aquiloeurycea galeanae&quot;          &quot;Aquiloeurycea praecellens&quot;      
+##   [5] &quot;Aquiloeurycea quetzalanensis&quot;    &quot;Aquiloeurycea scandens&quot;         
+##   [7] &quot;Batrachoseps altasierrae&quot;        &quot;Batrachoseps attenuatus&quot;        
+##   [9] &quot;Batrachoseps bramei&quot;             &quot;Batrachoseps campi&quot;             
+##  [11] &quot;Batrachoseps diabolicus&quot;         &quot;Batrachoseps gabrieli&quot;          
+##  [13] &quot;Batrachoseps gavilanensis&quot;       &quot;Batrachoseps gregarius&quot;         
+##  [15] &quot;Batrachoseps incognitus&quot;         &quot;Batrachoseps kawia&quot;             
+##  [17] &quot;Batrachoseps luciae&quot;             &quot;Batrachoseps major&quot;             
+##  [19] &quot;Batrachoseps minor&quot;              &quot;Batrachoseps nigriventris&quot;      
+##  [21] &quot;Batrachoseps pacificus&quot;          &quot;Batrachoseps regius&quot;            
+##  [23] &quot;Batrachoseps relictus&quot;           &quot;Batrachoseps robustus&quot;          
+##  [25] &quot;Batrachoseps simatus&quot;            &quot;Batrachoseps stebbinsi&quot;         
+##  [27] &quot;Batrachoseps wrighti&quot;            &quot;Bolitoglossa adspersa&quot;          
+##  [29] &quot;Bolitoglossa alberchi&quot;           &quot;Bolitoglossa altamazonica&quot;      
+##  [31] &quot;Bolitoglossa alvaradoi&quot;          &quot;Bolitoglossa anthracina&quot;        
+##  [33] &quot;Bolitoglossa aurae&quot;              &quot;Bolitoglossa aureogularis&quot;      
+##  [35] &quot;Bolitoglossa biseriata&quot;          &quot;Bolitoglossa borburata&quot;         
+##  [37] &quot;Bolitoglossa bramei&quot;             &quot;Bolitoglossa caldwellae&quot;        
+##  [39] &quot;Bolitoglossa capitana&quot;           &quot;Bolitoglossa carri&quot;             
+##  [41] &quot;Bolitoglossa cataguana&quot;          &quot;Bolitoglossa celaque&quot;           
+##  [43] &quot;Bolitoglossa centenorum&quot;         &quot;Bolitoglossa cerroensis&quot;        
+##  [45] &quot;Bolitoglossa chica&quot;              &quot;Bolitoglossa chinanteca&quot;        
+##  [47] &quot;Bolitoglossa chucantiensis&quot;      &quot;Bolitoglossa colonnea&quot;          
+##  [49] &quot;Bolitoglossa compacta&quot;           &quot;Bolitoglossa conanti&quot;           
+##  [51] &quot;Bolitoglossa copia&quot;              &quot;Bolitoglossa cuchumatana&quot;       
+##  [53] &quot;Bolitoglossa cuna&quot;               &quot;Bolitoglossa daryorum&quot;          
+##  [55] &quot;Bolitoglossa decora&quot;             &quot;Bolitoglossa diaphora&quot;          
+##  [57] &quot;Bolitoglossa digitigrada&quot;        &quot;Bolitoglossa diminuta&quot;          
+##  [59] &quot;Bolitoglossa dofleini&quot;           &quot;Bolitoglossa dunni&quot;             
+##  [61] &quot;Bolitoglossa engelhardti&quot;        &quot;Bolitoglossa epimela&quot;           
+##  [63] &quot;Bolitoglossa equatoriana&quot;        &quot;Bolitoglossa eremia&quot;            
+##  [65] &quot;Bolitoglossa flavimembris&quot;       &quot;Bolitoglossa flaviventris&quot;      
+##  [67] &quot;Bolitoglossa franklini&quot;          &quot;Bolitoglossa gomezi&quot;            
+##  [69] &quot;Bolitoglossa gracilis&quot;           &quot;Bolitoglossa guaneae&quot;           
+##  [71] &quot;Bolitoglossa guaramacalensis&quot;    &quot;Bolitoglossa hartwegi&quot;          
+##  [73] &quot;Bolitoglossa heiroreias&quot;         &quot;Bolitoglossa helmrichi&quot;         
+##  [75] &quot;Bolitoglossa hermosa&quot;            &quot;Bolitoglossa hiemalis&quot;          
+##  [77] &quot;Bolitoglossa huehuetenanguensis&quot; &quot;Bolitoglossa hypacra&quot;           
+##  [79] &quot;Bolitoglossa indio&quot;              &quot;Bolitoglossa insularis&quot;         
+##  [81] &quot;Bolitoglossa jacksoni&quot;           &quot;Bolitoglossa jugivagans&quot;        
+##  [83] &quot;Bolitoglossa kamuk&quot;              &quot;Bolitoglossa kaqchikelorum&quot;     
+##  [85] &quot;Bolitoglossa la&quot;                 &quot;Bolitoglossa leandrae&quot;          
+##  [87] &quot;Bolitoglossa lignicolor&quot;         &quot;Bolitoglossa lincolni&quot;          
+##  [89] &quot;Bolitoglossa longissima&quot;         &quot;Bolitoglossa lozanoi&quot;           
+##  [91] &quot;Bolitoglossa macrinii&quot;           &quot;Bolitoglossa madeira&quot;           
+##  [93] &quot;Bolitoglossa magnifica&quot;          &quot;Bolitoglossa marmorea&quot;          
+##  [95] &quot;Bolitoglossa medemi&quot;             &quot;Bolitoglossa meliana&quot;           
+##  [97] &quot;Bolitoglossa mexicana&quot;           &quot;Bolitoglossa minutula&quot;          
+##  [99] &quot;Bolitoglossa mombachoensis&quot;      &quot;Bolitoglossa morio&quot;             
+## [101] &quot;Bolitoglossa mucuyensis&quot;         &quot;Bolitoglossa mulleri&quot;           
+## [103] &quot;Bolitoglossa nicefori&quot;           &quot;Bolitoglossa nigrescens&quot;        
+## [105] &quot;Bolitoglossa ninadormida&quot;        &quot;Bolitoglossa nussbaumi&quot;         
+## [107] &quot;Bolitoglossa nympha&quot;             &quot;Bolitoglossa oaxacensis&quot;        
+## [109] &quot;Bolitoglossa obscura&quot;            &quot;Bolitoglossa occidentalis&quot;      
+## [111] &quot;Bolitoglossa odonnelli&quot;          &quot;Bolitoglossa omniumsanctorum&quot;   
+## [113] &quot;Bolitoglossa oresbia&quot;            &quot;Bolitoglossa orestes&quot;           
+## [115] &quot;Bolitoglossa pacaya&quot;             &quot;Bolitoglossa palmata&quot;           
+## [117] &quot;Bolitoglossa pandi&quot;              &quot;Bolitoglossa paraensis&quot;         
+## [119] &quot;Bolitoglossa peruviana&quot;          &quot;Bolitoglossa pesrubra&quot;          
+## [121] &quot;Bolitoglossa phalarosoma&quot;        &quot;Bolitoglossa platydactyla&quot;      
+## [123] &quot;Bolitoglossa porrasorum&quot;         &quot;Bolitoglossa psephena&quot;          
+## [125] &quot;Bolitoglossa pygmaea&quot;            &quot;Bolitoglossa ramosi&quot;            
+## [127] &quot;Bolitoglossa riletti&quot;            &quot;Bolitoglossa robinsoni&quot;         
+## [129] &quot;Bolitoglossa robusta&quot;            &quot;Bolitoglossa rostrata&quot;          
+## [131] &quot;Bolitoglossa rufescens&quot;          &quot;Bolitoglossa salvinii&quot;          
+## [133] &quot;Bolitoglossa savagei&quot;            &quot;Bolitoglossa schizodactyla&quot;     
+## [135] &quot;Bolitoglossa silverstonei&quot;       &quot;Bolitoglossa sima&quot;              
+## [137] &quot;Bolitoglossa sombra&quot;             &quot;Bolitoglossa sooyorum&quot;          
+## [139] &quot;Bolitoglossa splendida&quot;          &quot;Bolitoglossa striatula&quot;         
+## [141] &quot;Bolitoglossa stuarti&quot;            &quot;Bolitoglossa subpalmata&quot;        
+## [143] &quot;Bolitoglossa suchitanensis&quot;      &quot;Bolitoglossa synoria&quot;           
+## [145] &quot;Bolitoglossa tamaense&quot;           &quot;Bolitoglossa tapajonica&quot;        
+## [147] &quot;Bolitoglossa tatamae&quot;            &quot;Bolitoglossa taylori&quot;           
+## [149] &quot;Bolitoglossa tenebrosa&quot;          &quot;Bolitoglossa tica&quot;              
+## [151] &quot;Bolitoglossa tzultacaj&quot;          &quot;Bolitoglossa vallecula&quot;         
+## [153] &quot;Bolitoglossa veracrucis&quot;         &quot;Bolitoglossa walkeri&quot;           
+## [155] &quot;Bolitoglossa xibalba&quot;            &quot;Bolitoglossa yucatana&quot;          
+## [157] &quot;Bolitoglossa zacapensis&quot;         &quot;Bolitoglossa zapoteca&quot;          
+## [159] &quot;Bradytriton silus&quot;               &quot;Chiropterotriton arboreus&quot;      
+## [161] &quot;Chiropterotriton chiropterus&quot;    &quot;Chiropterotriton chondrostega&quot;  
+## [163] &quot;Chiropterotriton cieloensis&quot;     &quot;Chiropterotriton cracens&quot;       
+## [165] &quot;Chiropterotriton dimidiatus&quot;     &quot;Chiropterotriton infernalis&quot;    
+## [167] &quot;Chiropterotriton lavae&quot;          &quot;Chiropterotriton magnipes&quot;      
+## [169] &quot;Chiropterotriton miquihuanus&quot;    &quot;Chiropterotriton mosaueri&quot;      
+## [171] &quot;Chiropterotriton multidentatus&quot;  &quot;Chiropterotriton orculus&quot;       
+## [173] &quot;Chiropterotriton priscus&quot;        &quot;Chiropterotriton terrestris&quot;    
+## [175] &quot;Cryptotriton alvarezdeltoroi&quot;    &quot;Cryptotriton monzoni&quot;           
+## [177] &quot;Cryptotriton nasalis&quot;            &quot;Cryptotriton necopinus&quot;         
+## [179] &quot;Cryptotriton sierraminensis&quot;     &quot;Cryptotriton veraepacis&quot;        
+## [181] &quot;Cryptotriton xucaneborum&quot;        &quot;Dendrotriton bromeliacius&quot;      
+## [183] &quot;Dendrotriton chujorum&quot;           &quot;Dendrotriton cuchumatanus&quot;      
+## [185] &quot;Dendrotriton kekchiorum&quot;         &quot;Dendrotriton megarhinus&quot;        
+## [187] &quot;Dendrotriton rabbi&quot;              &quot;Dendrotriton sanctibarbarus&quot;    
+## [189] &quot;Dendrotriton xolocalcae&quot;         &quot;Eurycea aquatica&quot;               
+## [191] &quot;Eurycea bislineata&quot;              &quot;Eurycea chamberlaini&quot;           
+## [193] &quot;Eurycea chisholmensis&quot;           &quot;Eurycea cirrigera&quot;              
+## [195] &quot;Eurycea guttolineata&quot;            &quot;Eurycea hillisi&quot;                
+## [197] &quot;Eurycea junaluska&quot;               &quot;Eurycea latitans&quot;               
+## [199] &quot;Eurycea longicauda&quot;              &quot;Eurycea lucifuga&quot;               
+## [201] &quot;Eurycea multiplicata&quot;            &quot;Eurycea nana&quot;                   
+## [203] &quot;Eurycea naufragia&quot;               &quot;Eurycea neotenes&quot;               
+## [205] &quot;Eurycea paludicola&quot;              &quot;Eurycea pterophila&quot;             
+## [207] &quot;Eurycea quadridigitata&quot;          &quot;Eurycea rathbuni&quot;               
+## [209] &quot;Eurycea robusta&quot;                 &quot;Eurycea sosorum&quot;                
+## [211] &quot;Eurycea spelaea&quot;                 &quot;Eurycea sphagnicola&quot;            
+## [213] &quot;Eurycea subfluvicola&quot;            &quot;Eurycea tonkawae&quot;               
+## [215] &quot;Eurycea tridentifera&quot;            &quot;Eurycea troglodytes&quot;            
+## [217] &quot;Eurycea tynerensis&quot;              &quot;Eurycea wallacei&quot;               
+## [219] &quot;Eurycea waterlooensis&quot;           &quot;Eurycea wilderae&quot;               
+## [221] &quot;Gyrinophilus gulolineatus&quot;       &quot;Gyrinophilus palleucus&quot;         
+## [223] &quot;Gyrinophilus porphyriticus&quot;      &quot;Gyrinophilus subterraneus&quot;      
+## [225] &quot;Hemidactylium scutatum&quot;          &quot;Isthmura bellii&quot;                
+## [227] &quot;Isthmura boneti&quot;                 &quot;Isthmura corrugata&quot;             
+## [229] &quot;Isthmura gigantea&quot;               &quot;Isthmura maxima&quot;                
+## [231] &quot;Isthmura naucampatepetl&quot;         &quot;Isthmura sierraoccidentalis&quot;    
+## [233] &quot;Ixalotriton niger&quot;               &quot;Ixalotriton parvus&quot;             
+## [235] &quot;Nototriton abscondens&quot;           &quot;Nototriton barbouri&quot;            
+## [237] &quot;Nototriton brodiei&quot;              &quot;Nototriton gamezi&quot;              
+## [239] &quot;Nototriton guanacaste&quot;           &quot;Nototriton lignicola&quot;           
+## [241] &quot;Nototriton limnospectator&quot;       &quot;Nototriton major&quot;               
+## [243] &quot;Nototriton matama&quot;               &quot;Nototriton mime&quot;                
+## [245] &quot;Nototriton nelsoni&quot;              &quot;Nototriton oreadorum&quot;           
+## [247] &quot;Nototriton picadoi&quot;              &quot;Nototriton picucha&quot;             
+## [249] &quot;Nototriton richardi&quot;             &quot;Nototriton saslaya&quot;             
+## [251] &quot;Nototriton stuarti&quot;              &quot;Nototriton tapanti&quot;             
+## [253] &quot;Nototriton tomamorum&quot;            &quot;Nyctanolis pernix&quot;              
+## [255] &quot;Oedipina alfaroi&quot;                &quot;Oedipina alleni&quot;                
+## [257] &quot;Oedipina altura&quot;                 &quot;Oedipina berlini&quot;               
+## [259] &quot;Oedipina capitalina&quot;             &quot;Oedipina carablanca&quot;            
+## [261] &quot;Oedipina chortiorum&quot;             &quot;Oedipina collaris&quot;              
+## [263] &quot;Oedipina complex&quot;                &quot;Oedipina cyclocauda&quot;            
+## [265] &quot;Oedipina elongata&quot;               &quot;Oedipina fortunensis&quot;           
+## [267] &quot;Oedipina gephyra&quot;                &quot;Oedipina gracilis&quot;              
+## [269] &quot;Oedipina grandis&quot;                &quot;Oedipina ignea&quot;                 
+## [271] &quot;Oedipina kasios&quot;                 &quot;Oedipina koehleri&quot;              
+## [273] &quot;Oedipina leptopoda&quot;              &quot;Oedipina maritima&quot;              
+## [275] &quot;Oedipina motaguae&quot;               &quot;Oedipina nica&quot;                  
+## [277] &quot;Oedipina nimaso&quot;                 &quot;Oedipina pacificensis&quot;          
+## [279] &quot;Oedipina parvipes&quot;               &quot;Oedipina paucidentata&quot;          
+## [281] &quot;Oedipina petiola&quot;                &quot;Oedipina poelzi&quot;                
+## [283] &quot;Oedipina pseudouniformis&quot;        &quot;Oedipina quadra&quot;                
+## [285] &quot;Oedipina salvadorensis&quot;          &quot;Oedipina savagei&quot;               
+## [287] &quot;Oedipina stenopodia&quot;             &quot;Oedipina stuarti&quot;               
+## [289] &quot;Oedipina taylori&quot;                &quot;Oedipina tomasi&quot;                
+## [291] &quot;Oedipina tzutujilorum&quot;           &quot;Oedipina uniformis&quot;             
+## [293] &quot;Parvimolge townsendi&quot;            &quot;Pseudoeurycea ahuitzotl&quot;        
+## [295] &quot;Pseudoeurycea altamontana&quot;       &quot;Pseudoeurycea amuzga&quot;           
+## [297] &quot;Pseudoeurycea anitae&quot;            &quot;Pseudoeurycea aquatica&quot;         
+## [299] &quot;Pseudoeurycea aurantia&quot;          &quot;Pseudoeurycea brunnata&quot;         
+## [301] &quot;Pseudoeurycea cochranae&quot;         &quot;Pseudoeurycea conanti&quot;          
+## [303] &quot;Pseudoeurycea exspectata&quot;        &quot;Pseudoeurycea firscheini&quot;       
+## [305] &quot;Pseudoeurycea gadovii&quot;           &quot;Pseudoeurycea goebeli&quot;          
+## [307] &quot;Pseudoeurycea juarezi&quot;           &quot;Pseudoeurycea kuautli&quot;          
+## [309] &quot;Pseudoeurycea leprosa&quot;           &quot;Pseudoeurycea lineola&quot;          
+## [311] &quot;Pseudoeurycea longicauda&quot;        &quot;Pseudoeurycea lynchi&quot;           
+## [313] &quot;Pseudoeurycea melanomolga&quot;       &quot;Pseudoeurycea mixcoatl&quot;         
+## [315] &quot;Pseudoeurycea mixteca&quot;           &quot;Pseudoeurycea mystax&quot;           
+## [317] &quot;Pseudoeurycea nigromaculata&quot;     &quot;Pseudoeurycea obesa&quot;            
+## [319] &quot;Pseudoeurycea orchileucos&quot;       &quot;Pseudoeurycea orchimelas&quot;       
+## [321] &quot;Pseudoeurycea papenfussi&quot;        &quot;Pseudoeurycea rex&quot;              
+## [323] &quot;Pseudoeurycea robertsi&quot;          &quot;Pseudoeurycea rubrimembris&quot;     
+## [325] &quot;Pseudoeurycea ruficauda&quot;         &quot;Pseudoeurycea saltator&quot;         
+## [327] &quot;Pseudoeurycea smithi&quot;            &quot;Pseudoeurycea tenchalli&quot;        
+## [329] &quot;Pseudoeurycea teotepec&quot;          &quot;Pseudoeurycea tlahcuiloh&quot;       
+## [331] &quot;Pseudoeurycea tlilicxitl&quot;        &quot;Pseudoeurycea unguidentis&quot;      
+## [333] &quot;Pseudoeurycea werleri&quot;           &quot;Pseudotriton diastictus&quot;        
+## [335] &quot;Pseudotriton montanus&quot;           &quot;Pseudotriton ruber&quot;             
+## [337] &quot;Stereochilus marginatus&quot;         &quot;Thorius adelos&quot;                 
+## [339] &quot;Thorius arboreus&quot;                &quot;Thorius aureus&quot;                 
+## [341] &quot;Thorius boreas&quot;                  &quot;Thorius dubitus&quot;                
+## [343] &quot;Thorius grandis&quot;                 &quot;Thorius hankeni&quot;                
+## [345] &quot;Thorius infernalis&quot;              &quot;Thorius insperatus&quot;             
+## [347] &quot;Thorius longicaudus&quot;             &quot;Thorius lunaris&quot;                
+## [349] &quot;Thorius macdougalli&quot;             &quot;Thorius magnipes&quot;               
+## [351] &quot;Thorius maxillabrochus&quot;          &quot;Thorius minutissimus&quot;           
+## [353] &quot;Thorius minydemus&quot;               &quot;Thorius munificus&quot;              
+## [355] &quot;Thorius narismagnus&quot;             &quot;Thorius narisovalis&quot;            
+## [357] &quot;Thorius omiltemi&quot;                &quot;Thorius papaloae&quot;               
+## [359] &quot;Thorius pennatulus&quot;              &quot;Thorius pinicola&quot;               
+## [361] &quot;Thorius pulmonaris&quot;              &quot;Thorius schmidti&quot;               
+## [363] &quot;Thorius smithi&quot;                  &quot;Thorius spilogaster&quot;            
+## [365] &quot;Thorius tlaxiacus&quot;               &quot;Thorius troglodytes&quot;            
+## [367] &quot;Urspelerpes brucei&quot;              &quot;Aneides aeneus&quot;                 
+## [369] &quot;Aneides ferreus&quot;                 &quot;Aneides flavipunctatus&quot;         
+## [371] &quot;Aneides hardii&quot;                  &quot;Aneides iecanus&quot;                
+## [373] &quot;Aneides lugubris&quot;                &quot;Aneides niger&quot;                  
+## [375] &quot;Aneides vagrans&quot;                 &quot;Desmognathus abditus&quot;           
+## [377] &quot;Desmognathus aeneus&quot;             &quot;Desmognathus apalachicolae&quot;     
+## [379] &quot;Desmognathus aureatus&quot;           &quot;Desmognathus auriculatus&quot;       
+## [381] &quot;Desmognathus brimleyorum&quot;        &quot;Desmognathus carolinensis&quot;      
+## [383] &quot;Desmognathus conanti&quot;            &quot;Desmognathus folkertsi&quot;         
+## [385] &quot;Desmognathus fuscus&quot;             &quot;Desmognathus imitator&quot;          
+## [387] &quot;Desmognathus marmoratus&quot;         &quot;Desmognathus melanius&quot;          
+## [389] &quot;Desmognathus monticola&quot;          &quot;Desmognathus ochrophaeus&quot;       
+## [391] &quot;Desmognathus ocoee&quot;              &quot;Desmognathus orestes&quot;           
+## [393] &quot;Desmognathus organi&quot;             &quot;Desmognathus planiceps&quot;         
+## [395] &quot;Desmognathus quadramaculatus&quot;    &quot;Desmognathus santeetlah&quot;        
+## [397] &quot;Desmognathus valentinei&quot;         &quot;Desmognathus welteri&quot;           
+## [399] &quot;Desmognathus wrighti&quot;            &quot;Ensatina eschscholtzii&quot;         
+## [401] &quot;Hydromantes brunus&quot;              &quot;Hydromantes platycephalus&quot;      
+## [403] &quot;Hydromantes shastae&quot;             &quot;Karsenia koreana&quot;               
+## [405] &quot;Phaeognathus hubrichti&quot;          &quot;Plethodon ainsworthi&quot;           
+## [407] &quot;Plethodon albagula&quot;              &quot;Plethodon amplus&quot;               
+## [409] &quot;Plethodon angusticlavius&quot;        &quot;Plethodon asupak&quot;               
+## [411] &quot;Plethodon aureolus&quot;              &quot;Plethodon caddoensis&quot;           
+## [413] &quot;Plethodon chattahoochee&quot;         &quot;Plethodon cheoah&quot;               
+## [415] &quot;Plethodon chlorobryonis&quot;         &quot;Plethodon cinereus&quot;             
+## [417] &quot;Plethodon cylindraceus&quot;          &quot;Plethodon dorsalis&quot;             
+## [419] &quot;Plethodon dunni&quot;                 &quot;Plethodon electromorphus&quot;       
+## [421] &quot;Plethodon elongatus&quot;             &quot;Plethodon fourchensis&quot;          
+## [423] &quot;Plethodon glutinosus&quot;            &quot;Plethodon grobmani&quot;             
+## [425] &quot;Plethodon hoffmani&quot;              &quot;Plethodon hubrichti&quot;            
+## [427] &quot;Plethodon idahoensis&quot;            &quot;Plethodon jordani&quot;              
+## [429] &quot;Plethodon kentucki&quot;              &quot;Plethodon kiamichi&quot;             
+## [431] &quot;Plethodon kisatchie&quot;             &quot;Plethodon larselli&quot;             
+## [433] &quot;Plethodon meridianus&quot;            &quot;Plethodon metcalfi&quot;             
+## [435] &quot;Plethodon mississippi&quot;           &quot;Plethodon montanus&quot;             
+## [437] &quot;Plethodon neomexicanus&quot;          &quot;Plethodon nettingi&quot;             
+## [439] &quot;Plethodon ocmulgee&quot;              &quot;Plethodon ouachitae&quot;            
+## [441] &quot;Plethodon petraeus&quot;              &quot;Plethodon punctatus&quot;            
+## [443] &quot;Plethodon richmondi&quot;             &quot;Plethodon savannah&quot;             
+## [445] &quot;Plethodon sequoyah&quot;              &quot;Plethodon serratus&quot;             
+## [447] &quot;Plethodon shenandoah&quot;            &quot;Plethodon sherando&quot;             
+## [449] &quot;Plethodon shermani&quot;              &quot;Plethodon stormi&quot;               
+## [451] &quot;Plethodon teyahalee&quot;             &quot;Plethodon vandykei&quot;             
+## [453] &quot;Plethodon variolatus&quot;            &quot;Plethodon vehiculum&quot;            
+## [455] &quot;Plethodon ventralis&quot;             &quot;Plethodon virginia&quot;             
+## [457] &quot;Plethodon websteri&quot;              &quot;Plethodon wehrlei&quot;              
+## [459] &quot;Plethodon welleri&quot;               &quot;Plethodon yonahlossee&quot;          
+## [461] &quot;Speleomantes ambrosii&quot;           &quot;Speleomantes flavus&quot;            
+## [463] &quot;Speleomantes genei&quot;              &quot;Speleomantes imperialis&quot;        
+## [465] &quot;Speleomantes italicus&quot;           &quot;Speleomantes sarrabusensis&quot;     
+## [467] &quot;Speleomantes strinatii&quot;          &quot;Speleomantes supramontis&quot;
+</code></pre>
+
+<h5>Plot the results:</h5>
+
+<pre><code class="r">plethodontid.stats&lt;-aswStats(asw_taxonomy, Family = &quot;Plethodontidae&quot;,verbose = T)
+par(mar=c(1,1,1,1))
+pie(plethodontid.stats$Genera[order(plethodontid.stats$Genera, decreasing = T)], cex=0.5, main = &quot;No. of Species per Genus&quot;, col = rainbow(length(plethodontid.stats$Genera),s = 0.5), clockwise = T, border = NA)
+</code></pre>
+
+<p><img src="data:image/png;base64,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DOdzPvWe97xHqqqqRMnxne98p2zdujXntrK98O6775YXv/jF8vnPf17e/va3Z3tZynrz8/PyiU98whC67tZ37dplHqeccop53rRpE7TvA3JAPpryeh5cjsBS2NgpqDb6lp8M0ju7BRnhFnLLCJcFDvb8dpHDLum4QzBu2lNAq/cG9JX6+CxmlVXSIWC97f1irVczfJZcECjYDn4G4rlPfvKTMjk5Kbfccov8/d//vXzta1+ThoYGef3rXy+f+cxnZAGhEpX8P/3pT4sS6rnnnit//OMfTf1vf/vbcvjwYXn1q18tf/jDH+TPf/6zrFu3ziwU+vr6ZM+ePfK+971PbrvtNjl69KhcddVV8k//9E+yfft2+elPfypjY2Pyspe9TJ544gm5/vrr5Tvf+Y7s3LlT7rrrLunt7ZVXvOIVGfHSdc8FF1wgN954o3R2QueZolQgh3gI9t0xaOJZUiNQsxg2tsbjYWNT997hUXujRAYnxMo3DGya29pwEJQ+F6P0xUDulRClqz9zIYrq4zfDP/4o/eMLAW/g26yCoV0Ls8jlM8+hfC7O5tq6ujqxLEtuv/12mZubk/vuu88Q9qOPPird3d0SjUblyJEjhnBVBK4E/atf/coce8c73iFf/OIX5Yc//KG8613vkl/84hdmR63X1dfXy6FDh6SlpUXa2trk+9//vpx99tmGvPW9LhzuvPNOeeihh0w39fnhhx82fWltbV2z65WVlXLFFVekJXdtwMJflVBGvxLMiKzDXy9MEBulTY4g2tw+LITgBhPgYsU2SWRgtGDkHocOn7Woy2SM71HBiurjG9DfGvxQsxABpwhs6jS/104vY/0lBApK8LFYTB555BF4OawXJczzzjtPrr32WmlqapKbbrrJkLgSvpK0ivO1XiQSMTv78fFxUT331NSUOaZicn2vRcXjWr+/v1/uvfdeOf/8881CITGs5mbod2trjVRAr9GFxSDScerOXXfz//qv/5qomvdzDYiMRRc7FUjwsg3RATrwNwKCfwb6ddeswTwNsRXrlHC/pnstoLhbEVA/YbdLjfomFbBMo887KGItIMKBbdraAhUPS14IhD+MklcLaS5WQv3e975nCFp34meccYYhYyX95z//+XL//fcb4lXCraiokJ6eHkPK7e3thsBVlK/i9Jtvvln02AMPPGAI/sorr5TNmzdLNaJw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fPHFcs0115jXei45tahGK9P3GtI0EfVs06ZN5p4aEe3OO++U0047TRobG7PuBysSASJABHJBgCL6XFDjNWWDwNNPPy3f/va3TbSxN7zhDTIwMGDeq4heE4VoqFkl/bPOOks0cczdd99t6urOvre31+jmjx49anb5uliora2VRx55xKQlfd3rXmeSl5QNmBwoESACRUWABF9UuHmzoCNw++23yw033BD0YXJ8RIAI+AABErwPJoldJAJEgAgQASLgFAHq4J0ixvpEgAgQASJABHyAAAneB5PELhIBIkAEiAARcIoACd4pYqxPBIgAESACRMAHCJDgfTBJ7CIRIAJEgAgQAacIkOCdIsb6RIAIEAEiQAR8gAAJ3geTxC4SASJABIgAEXCKAAneKWKsTwSIABEgAkTABwiQ4H0wSewiESACRIAIEAGnCJDgnSLG+kSACBABIkAEfIAACd4Hk8QuEgEiQASIABFwigAJ3ilirE8EiAARIAJEwAcIkOB9MEnsIhEgAkSACBABpwiQ4J0ixvpEgAgQASJABHyAAAneB5PELhIBIkAEiAARcIoACd4pYqxPBIgAESACRMAHCJDgfTBJ7CIRIAJEgAgQAacIkOCdIsb6RIAIEAEiQAR8gAAJ3geTxC4SASJABIgAEXCKAAneKWKsTwSIABEgAkTABwiQ4H0wSewiESACRIAIEAGnCJDgnSLG+kSACBABIkAEfIAACd4Hk8QuEgEiQASIABFwigAJ3ilirE8EiAARIAJEwAcIkOB9MEnsIhEgAkSACBABpwiQ4J0ixvpEgAgQASJABHyAAAneB5PELhIBIkAEiAARcIoACd4pYqxPBIgAESACRMAHCJDgfTBJ7CIRIAJEgAgQAacIkOCdIsb6RIAIEAEiQAR8gAAJ3geTxC4SASJABIgAEXCKAAneKWKsTwSIABEgAkTABwiQ4H0wSewiESACRIAIEAGnCJDgnSLG+kSACBABIkAEfIAACd4Hk8QuEgEiQASIABFwigAJ3ilirE8EiAARIAJEwAcIkOB9MEnsIhEgAkSACBABpwiQ4J0ixvpEgAgQASJABHyAAAneB5PELhIBIkAEiAARcIoACd4pYqxPBIgAESACRMAHCJDgfTBJ7CIRIAJEgAgQAacIkOCdIsb6RIAIEAEiQAR8gAAJ3geTxC4SASJABIgAEXCKAAneKWKsTwSIABEgAkTABwiQ4H0wSewiESACRIAIEAGnCJDgnSLG+kSACBABIkAEfIAACd4Hk8QuEgEiQASIABFwigAJ3ilirE8EiAARIAJEwAcIkOB9MEnsIhEgAkSACBABpwiQ4J0ixvpEgAgQASJABHyAAAneB5PELhIBIkAEiAARcIoACd4pYqxPBIgAESACRMAHCJDgfTBJ7CIRIAJEgAgQAacIkOCdIsb6RIAIEAEiQAR8gAAJ3geTxC4SASJABIgAEXCKAAneKWKsTwSIABEgAkTABwiQ4H0wSewiESACRIAIEAGnCPx/mJjp5RzsWu0AAAAASUVORK5CYII=" alt="plot of chunk unnamed-chunk-10"/></p>
+
+<h2>Compile Synonym list</h2>
+
+<p>Hopefully the most useful dataset this package generates is an up-to-date list of all possible synonyms per species, to facilitate matching data sets that might be using different names for the same species. As with the taxonomic table, version of the current synonym list is stored in the defrostR package internally. This may of course be outdated and so to generate your own, up-to-date version run the getSynonym() function! The function takes the getTaxonomy() output as a reference and then looks through every species webpage, tabulating all listed synonyms. It is therefore important that you specify a &ldquo;asw_taxonomy&rdquo; object that is more up-to-date than the one stored in the package (if none is specifued, defrostR will use the internal version). Generating a full list for all amphibian species can take a long, long time (up to an hour). More realistically, you may only be interested in a specific taxonomic group and so you can narrow down your search.</p>
+
+<h5>list synonyms:</h5>
+
+<pre><code class="r">agalychnis_synonyms&lt;-getSynonyms(Genus=&quot;Agalychnis&quot;)
+head(agalychnis_synonyms,n = 15)
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left">species</th>
+<th align="left">synonyms</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">Agalychnis annae</td>
+<td align="left">Agalychnis annae</td>
+</tr>
+<tr>
+<td align="left">Agalychnis annae</td>
+<td align="left">Phyllomedusa annae</td>
+</tr>
+<tr>
+<td align="left">Agalychnis buckleyi</td>
+<td align="left">Agalychnis buckleyi</td>
+</tr>
+<tr>
+<td align="left">Agalychnis buckleyi</td>
+<td align="left">Hyla (Hylella) porifera</td>
+</tr>
+<tr>
+<td align="left">Agalychnis buckleyi</td>
+<td align="left">Hyla porifera</td>
+</tr>
+<tr>
+<td align="left">Agalychnis buckleyi</td>
+<td align="left">Hylella porifera</td>
+</tr>
+<tr>
+<td align="left">Agalychnis buckleyi</td>
+<td align="left">Hylomantis buckleyi</td>
+</tr>
+<tr>
+<td align="left">Agalychnis buckleyi</td>
+<td align="left">Phyllomedusa (Phyllomedusa) loris</td>
+</tr>
+<tr>
+<td align="left">Agalychnis buckleyi</td>
+<td align="left">Phyllomedusa buckleyi</td>
+</tr>
+<tr>
+<td align="left">Agalychnis buckleyi</td>
+<td align="left">Phyllomedusa loris</td>
+</tr>
+<tr>
+<td align="left">Agalychnis callidryas</td>
+<td align="left">Agalychnis callidryas</td>
+</tr>
+<tr>
+<td align="left">Agalychnis callidryas</td>
+<td align="left">Agalychnis callidryas callidryas</td>
+</tr>
+<tr>
+<td align="left">Agalychnis callidryas</td>
+<td align="left">Agalychnis callidryas taylori</td>
+</tr>
+<tr>
+<td align="left">Agalychnis callidryas</td>
+<td align="left">Agalychnis helenae</td>
+</tr>
+<tr>
+<td align="left">Agalychnis callidryas</td>
+<td align="left">Hyla callidryas</td>
+</tr>
+</tbody></table>
+
+<p>the output is a table with two columns listing species names and all available synonyms (here showing the first 15 entries).</p>
+
+<h2>Lets defrost something!!!</h2>
+
+<p>Having now prepared the dataset for amphibian synonyms, the inspiration for this package is to facilitate unifying naming systems, i.e. matching a list of names to the synonym table and suggeting the currently adviced nomenclature by Frost (ASW). As an example, lets look at how the names on Amphibia Web differ to those on ASW. Their most current taxonomy can be found here: <a href="http://amphibiaweb.org/taxonomy/index.html">http://amphibiaweb.org/taxonomy/index.html</a>, and can be read into R directly like so:</p>
+
+<p>amphweb_latest&lt;-read.csv(&ldquo;<a href="http://www.amphibiaweb.org/amphib_names.txt">http://www.amphibiaweb.org/amphib_names.txt</a>&rdquo;, sep=&ldquo;\t&rdquo;)</p>
+
+<p>For this tutorial though, we will use a version stored internally in defrostR as &ldquo;amphweb&rdquo; (might be out of date). </p>
+
+<h5>load the amphibia web taxonomy:</h5>
+
+<pre><code class="r">amphweb&lt;-amphweb
+head(amphweb$species)
+</code></pre>
+
+<pre><code>## [1] relicta        resplendens    ruthveni       australis      barrioi        cantillanensis
+## 5976 Levels: aaptus abakapa abbotti abdita abditaurantius abditus abdivita abei ... zygodactylus
+</code></pre>
+
+<p>lets look at only the genus Hyla  that due to a recent revision by Duellman et all (2016; Zootaxa) has experiences name changes that have been implemented in ASW, but not AW:</p>
+
+<pre><code class="r">amphweb.hyla&lt;-amphweb[amphweb$genus==&quot;Hyla&quot;,]
+</code></pre>
+
+<p>and lets &ldquo;defrost&rdquo; that list, using the synonym list created with getSynonyms(), here, using the version stored internally: </p>
+
+<pre><code class="r">hyla.defrosted&lt;-defrost(query=amphweb.hyla$species,asw = asw_synonyms)
+head(hyla.defrosted, n=15)
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left">query</th>
+<th align="left">stripped</th>
+<th align="left">status</th>
+<th align="left">warnings</th>
+<th align="left">ASW_names</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">andersonii</td>
+<td align="left">andersonii</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">annectans</td>
+<td align="left">annectans</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">arborea</td>
+<td align="left">arborea</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">arboricola</td>
+<td align="left">arboricola</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">arenicolor</td>
+<td align="left">arenicolor</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">avivoca</td>
+<td align="left">avivoca</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">bocourti</td>
+<td align="left">bocourti</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">chinensis</td>
+<td align="left">chinensis</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">chrysoscelis</td>
+<td align="left">chrysoscelis</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">cinerea</td>
+<td align="left">cinerea</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">euphorbiacea</td>
+<td align="left">euphorbiacea</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">eximia</td>
+<td align="left">eximia</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">felixarabica</td>
+<td align="left">felixarabica</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">femoralis</td>
+<td align="left">femoralis</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">gratiosa</td>
+<td align="left">gratiosa</td>
+<td align="left">name_not_found</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>the output here is a table listing: the original query, a &#39;stripped&#39; version, to make sure underscores etc. are no issue, a status column listing whether any names match and if not, whether they could be &ldquo;defrosted&rdquo; with no problem, or whether names were not found as listed synonyms or whether names are ambiguous and could refer to more than one species. A specific warning column is also included that, for now, only warns you if the resulting name changes contain duplicates. The final column lists the suggested Frost/ASW names.</p>
+
+<p>various additional arguments can be invoked, whether for example ambiguities should be sorted out on the fly with the user deciding on the go and whether to pass forward the original query names if no match is found in the synonym list.</p>
+
+<h4>Print out a report</h4>
+
+<p>instead of looking through the output table of defrost(), we can also print out a report using the following function </p>
+
+<h5>the basics:</h5>
+
+<pre><code class="r">synonymReport(hyla.defrosted)
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left"></th>
+<th align="right">number_of_units</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">queries</td>
+<td align="right">35</td>
+</tr>
+<tr>
+<td align="left">names_up_to_date</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="left">names_successfully_defrosted</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="left">names_not_found</td>
+<td align="right">35</td>
+</tr>
+<tr>
+<td align="left">ambiguities</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="left">duplicates_produced</td>
+<td align="right">0</td>
+</tr>
+</tbody></table>
+
+<p>this tells us that less than half of the names are up to date, and defrostR could update quite a few on its own without any complications. however, there is 1 query that could not be found (not listed, or listed correctly in ASW), no ambiguities (queries which mach synonyms belonging to more than one species) and most critically, the automatic defrosting has resulted in 4 cases where names are not unique anymore! These need to be checked carefully and most likely are units that used to be distinc and are now synonymized</p>
+
+<h5>all the details:</h5>
+
+<pre><code class="r">synonymReport(hyla.defrosted, verbose=T)
+</code></pre>
+
+<pre><code>## $names_not_found
+##  [1] andersonii     annectans      arborea        arboricola     arenicolor     avivoca       
+##  [7] bocourti       chinensis      chrysoscelis   cinerea        euphorbiacea   eximia        
+## [13] felixarabica   femoralis      gratiosa       hallowellii    heinzsteinitzi immaculata    
+## [19] intermedia     japonica       meridionalis   molleri        orientalis     plicata       
+## [25] sanchiangensis sarda          savignyi       simplex        squirella      suweonensis   
+## [31] tsinlingensis  versicolor     walkeri        wrightorum     zhaopingensis 
+## 5976 Levels: aaptus abakapa abbotti abdita abditaurantius abditus abdivita abei ... zygodactylus
+## 
+## $defrosted
+## $defrosted$query
+## factor(0)
+## 5976 Levels: aaptus abakapa abbotti abdita abditaurantius abditus abdivita abei ... zygodactylus
+## 
+## $defrosted$ASW_names
+## logical(0)
+## 
+## 
+## $ambiguities
+## $ambiguities$query
+## factor(0)
+## 5976 Levels: aaptus abakapa abbotti abdita abditaurantius abditus abdivita abei ... zygodactylus
+## 
+## $ambiguities$ASW_names
+## logical(0)
+## 
+## 
+## $duplicated
+## $duplicated$query
+## factor(0)
+## 5976 Levels: aaptus abakapa abbotti abdita abditaurantius abditus abdivita abei ... zygodactylus
+## 
+## $duplicated$ASW_names
+## logical(0)
+</code></pre>
+
+<p>turning on verbose, lists all the species names that could not be &ldquo;defrosted&rdquo; and need to be looked at more closely. </p>
+
+<p>of course all of this can also be done manually from the defrost() output:</p>
+
+<h5>check which names are ambiguous (in this case 0):</h5>
+
+<pre><code class="r">hyla.defrosted[hyla.defrosted$status==&quot;ambiguous&quot;,]
+</code></pre>
+
+<h5>check which names are now duplicated:</h5>
+
+<pre><code class="r">hyla.defrosted[hyla.defrosted$warnings %in% &quot;duplicated&quot;,]
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left">query</th>
+<th align="left">stripped</th>
+<th align="left">status</th>
+<th align="left">warnings</th>
+<th align="left">ASW_names</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+</body>
+
+</html>

@@ -132,7 +132,7 @@ the output is a table with two columns listing species names and all available s
   
 Having now prepared the dataset for amphibian synonyms, the inspiration for this package is to facilitate unifying naming systems, i.e. matching a list of names to the synonym table and suggeting the currently adviced nomenclature by Frost (ASW). As an example, lets look at how the names on Amphibia Web differ to those on ASW. Their most current taxonomy can be found here: http://amphibiaweb.org/taxonomy/index.html, and can be read into R directly like so:
 
-amphweb_latest<-read.csv("http://www.amphibiaweb.org/amphib_names.txt", sep="\t")
+amphweb_latest<-read.csv("http://www.amphibiaweb.org/amphib_names.txt", sep="\\t")
 
 For this tutorial though, we will use a version stored internally in defrostR as "amphweb" (might be out of date). 
   

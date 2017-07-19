@@ -1,0 +1,201 @@
+---
+title: "Set to 'defrost': How to use defrostR for updating amphibian taxonomy"
+author: "Christoph Liedtke"
+date: "June, 2017"
+output: 
+  html_document:
+    self_contained: true
+    toc: True # table of content true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    depth: 3  # upto three depths of headings (specified by #, ## and ###)
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
+vignette: >
+  %\VignetteIndexEntry{Set to 'defrost': How to use defrostR for updating amphibian taxonomy}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}    
+---
+<style type="text/css">
+.text {
+  text-align: justify;
+
+}
+</style>
+
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,  warning = FALSE, message = FALSE, echo = TRUE, tidy = FALSE, size="small")
+options(width=100)
+```
+  
+## Introduction
+  
+This package is aimed at trying to simplify the workflow of combining amphibian taxonomic data sets from different sources that use different taxonomic nomenclature. For example, two sources of important information for amphibian systematic are: Amphibian Species of the World (http://research.amnh.org/vz/herpetology/amphibia/) and Amphibia Web (http://amphibiaweb.org/). These use slightly different nomenclature. Moreover, in comparative studies, one often works with data from a range of sources such as spatial or conservation data from the IUCN red list (http://www.iucnredlist.org/) or phylogenetic information from published amphibian phylogenies such as those of Pyron and Wiens 2011 (MPE) and Pyron 2014 (Syst Biol). These sources have either made the decision to follow a specific taxonomic system or, more often, are no longer up to date. It can therefore be complicated to establish a universal or current nomenclature to be able to effectively combine data sets. As such, the main objective of this package is to harvest taxonomic classifications of all amphibian species listed on the ASW website, harvest all listed synonyms per species and then using this information, suggest "Frost" (ASW) names for any given list of taxa.
+
+This package could also be useful for easily updating museum catalogs etc, or for producing summary statistics on species numbers for various taxonomic groupings, or to update species names in manuscripts etc. after a taxonomic group has received nomenclature revisions
+
+Below are some examples of how to use the package.
+  
+### Load package
+  
+defrostR only depends on the "XML" package. Until defrostR is up on CRAN, this package is available from gitHub. Note, this requires the library "devtools" to be installed first, and may require the library "XML". 
+
+library(devtools)
+install_github("hcliedtke/defrostR", build_vignettes = TRUE)
+
+```{r message=FALSE, warning=FALSE}
+library(defrostR)
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+library(knitr)
+```
+  
+## Compile ASW taxonomy
+  
+The starting point of this package is a list of all currently registered species on the ASW website. A version of this is stored in the defrostR package internally. This may of course be outdated and so to generate your own, up-to-date version run the getTaxonomy() function, but this may take 10 to 15 minutes...
+##### build taxonomy:
+```{r message=FALSE, warning=FALSE, results='hide'}
+#asw_taxonomy<-getTaxonomy()
+head(asw_taxonomy)
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+kable(head(asw_taxonomy), padding=2)
+```
+
+The function takes no arguments and essentially iterates through the ASW website, building the URL for each species through a bottom-up approach (i.e. first looking for all orders, then superfamilies, then families, subfamilies, genera and finally species). The resulting table contains 7 columns: one for each taxonomic level (Order through to Species) and a final column with the URL for the ASW website for each species.  
+    
+#### Get some species stats  
+
+The first think one might be interested in is to get some basic numbers for listed taxonomic units nested within a particular level.
+
+##### the basics:
+```{r message=FALSE, warning=FALSE, results='hide'}
+aswStats(asw_taxonomy)
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+kable(aswStats(asw_taxonomy))
+```
+
+Additional arguments can be given to narrow your search. For example to get information on only a specific Family: 
+  
+##### information on a specific group of interest:
+```{r message=FALSE, warning=FALSE, results='hide'}
+aswStats(asw_taxonomy, Family="Plethodontidae")
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+kable(aswStats(asw_taxonomy, Family="Plethodontidae"))
+```
+
+This can be applied to any taxonomic level and to make sure everything is working properly, you could double check if this matches the information on the website: http://research.amnh.org/vz/herpetology/amphibia/index.php/  
+  
+##### taking a closer look:
+
+We can also turn on "verbose" to return a list of all nested units instead of a table. This is useful in its own right when wanting to get an overview or making graphical representations:  
+```{r message=FALSE, warning=FALSE}
+aswStats(asw_taxonomy, Family = "Plethodontidae",verbose = T)
+```
+
+
+##### Plot the results:
+```{r message=FALSE, warning=FALSE, dev="png"}
+plethodontid.stats<-aswStats(asw_taxonomy, Family = "Plethodontidae",verbose = T)
+par(mar=c(1,1,1,1))
+pie(plethodontid.stats$Genera[order(plethodontid.stats$Genera, decreasing = T)], cex=0.5, main = "No. of Species per Genus", col = rainbow(length(plethodontid.stats$Genera),s = 0.5), clockwise = T, border = NA)
+```
+
+  
+## Compile Synonym list
+  
+Hopefully the most useful dataset this package generates is an up-to-date list of all possible synonyms per species, to facilitate matching data sets that might be using different names for the same species. As with the taxonomic table, version of the current synonym list is stored in the defrostR package internally. This may of course be outdated and so to generate your own, up-to-date version run the getSynonym() function! The function takes the getTaxonomy() output as a reference and then looks through every species webpage, tabulating all listed synonyms. It is therefore important that you specify a "asw_taxonomy" object that is more up-to-date than the one stored in the package (if none is specifued, defrostR will use the internal version). Generating a full list for all amphibian species can take a long, long time (up to an hour). More realistically, you may only be interested in a specific taxonomic group and so you can narrow down your search.
+  
+##### list synonyms:
+```{r message=FALSE, warning=FALSE, results='hide'}
+agalychnis_synonyms<-getSynonyms(Genus="Agalychnis")
+head(agalychnis_synonyms,n = 15)
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+kable(head(agalychnis_synonyms,n = 15))
+```
+
+the output is a table with two columns listing species names and all available synonyms (here showing the first 15 entries).
+  
+## Lets defrost something!!!
+  
+Having now prepared the dataset for amphibian synonyms, the inspiration for this package is to facilitate unifying naming systems, i.e. matching a list of names to the synonym table and suggeting the currently adviced nomenclature by Frost (ASW). As an example, lets look at how the names on Amphibia Web differ to those on ASW. Their most current taxonomy can be found here: http://amphibiaweb.org/taxonomy/index.html, and can be read into R directly like so:
+
+amphweb_latest<-read.csv("http://www.amphibiaweb.org/amphib_names.txt", sep="\\t")
+
+For this tutorial though, we will use a version stored internally in defrostR as "amphweb" (might be out of date). 
+  
+##### load the amphibia web taxonomy:
+```{r message=FALSE, warning=FALSE}
+amphweb<-amphweb
+head(amphweb$species)
+```
+
+lets look at only the genus Hyla  that due to a recent revision by Duellman et all (2016; Zootaxa) has experiences name changes that have been implemented in ASW, but not AW:
+```{r message=FALSE, warning=FALSE}
+amphweb.hyla<-amphweb[amphweb$genus=="Hyla",]
+```
+
+and lets "defrost" that list, using the synonym list created with getSynonyms(), here, using the version stored internally: 
+```{r message=FALSE, warning=FALSE, results='hide'}
+hyla.defrosted<-defrost(query=amphweb.hyla$species,asw = asw_synonyms)
+head(hyla.defrosted, n=15)
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+kable(head(hyla.defrosted, n=15))
+```
+
+the output here is a table listing: the original query, a 'stripped' version, to make sure underscores etc. are no issue, a status column listing whether any names match and if not, whether they could be "defrosted" with no problem, or whether names were not found as listed synonyms or whether names are ambiguous and could refer to more than one species. A specific warning column is also included that, for now, only warns you if the resulting name changes contain duplicates. The final column lists the suggested Frost/ASW names.
+
+various additional arguments can be invoked, whether for example ambiguities should be sorted out on the fly with the user deciding on the go and whether to pass forward the original query names if no match is found in the synonym list.
+  
+#### Print out a report
+  
+instead of looking through the output table of defrost(), we can also print out a report using the following function 
+  
+##### the basics:
+```{r message=FALSE, warning=FALSE, results='hide'}
+synonymReport(hyla.defrosted)
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+kable(synonymReport(hyla.defrosted))
+```
+
+this tells us that less than half of the names are up to date, and defrostR could update quite a few on its own without any complications. however, there is 1 query that could not be found (not listed, or listed correctly in ASW), no ambiguities (queries which mach synonyms belonging to more than one species) and most critically, the automatic defrosting has resulted in 4 cases where names are not unique anymore! These need to be checked carefully and most likely are units that used to be distinc and are now synonymized
+  
+##### all the details:
+```{r message=FALSE, warning=FALSE}
+synonymReport(hyla.defrosted, verbose=T)
+```
+
+turning on verbose, lists all the species names that could not be "defrosted" and need to be looked at more closely. 
+
+of course all of this can also be done manually from the defrost() output:
+
+##### check which names are ambiguous (in this case 0):
+```{r message=FALSE, warning=FALSE, results='hide'}
+hyla.defrosted[hyla.defrosted$status=="ambiguous",]
+```
+
+##### check which names are now duplicated:
+```{r message=FALSE, warning=FALSE, results='hide'}
+hyla.defrosted[hyla.defrosted$warnings %in% "duplicated",]
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+kable(hyla.defrosted[hyla.defrosted$warnings %in% "duplicated",])
+```
+

@@ -10,6 +10,18 @@ getSynonyms(asw_taxonomy = defrostR::asw_taxonomy, Order = NA,
 }
 \arguments{
 \item{asw_taxonomy}{the ASW taxonomy table obtained with getTaxonomy(). If no table is provided, the default is to use defrostR's internally stored version. WARNING! this version may be outdated}
+
+\item{Order}{limit search to a user-specified amphibian order}
+
+\item{Superfamily}{limit search to a user-specified amphibian superfamily}
+
+\item{Family}{limit search to a user-specified amphibian family}
+
+\item{Subfamily}{limit search to a user-specified amphibian subfamily}
+
+\item{Genus}{limit search to a user-specified amphibian genus}
+
+\item{Species}{limit search to a user-specified amphibian species}
 }
 \value{
 returns a dataframe listing all species and their listed synonyms
@@ -25,6 +37,6 @@ system("defaults write org.R-project.R force.LANG en_US.UTF-8")
 and then restarting the session. Read more here: https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Internationalization-of-the-R_002eapp
 }
 \examples{
-asw_synonyms<-getSynonyms()
+#to get a full list of synonyms for all species, run: asw_synonyms<-getSynonyms()
 breviceptid_synonyms<-getSynonyms(Family="Brevicipitidae")
 }

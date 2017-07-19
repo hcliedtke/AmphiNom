@@ -15,6 +15,7 @@
 #' @examples
 #' aswStats()
 #' aswStats(verbose=TRUE, Family="Rhacophoridae")
+#' @import stats
 #' @export
 
 aswStats<-function(asw_taxonomy=defrostR::asw_taxonomy,verbose=F, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA){

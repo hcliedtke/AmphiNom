@@ -5,10 +5,9 @@
 #'
 #' @return returns a dataframe listing all species and their taxonomic backbone as well as all URLs per species.
 #' @export
+#' @import utils
 #' @examples
-#' @details last updated on 12th July 2017
-#' asw_taxonomy_table<-getTaxonomy()
-#' asw_taxonomy<-load(asw_taxonomy)
+#' #run asw_taxonomy_table<-getTaxonomy() to scrape the ASW website for the most current taxonomy
 
 
 
