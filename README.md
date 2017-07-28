@@ -10,7 +10,7 @@ A more detailed tutorial can be found [here](https://rawgit.com/hcliedtke/defros
 
 ## Package Installation
 
-You can also install it directly from gitHub through devtools:
+You can install defrostR directly from R using devtools:
 
 library(devtools)
 
