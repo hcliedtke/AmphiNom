@@ -3,6 +3,8 @@ knitr::opts_chunk$set(echo = TRUE,  warning = FALSE, message = FALSE, echo = TRU
 options(width=100)
 
 ## ----message=FALSE, warning=FALSE-----------------------------------------------------------------
+library(devtools)
+install_github("hcliedtke/defrostR", build_vignettes = TRUE)
 library(defrostR)
 
 ## ----echo=F, message=FALSE, warning=FALSE---------------------------------------------------------
@@ -42,15 +44,26 @@ head(agalychnis_synonyms,n = 15)
 ## ----echo=F, message=FALSE, warning=FALSE---------------------------------------------------------
 kable(head(agalychnis_synonyms,n = 15))
 
+## ----message=FALSE, warning=FALSE, results='hide'-------------------------------------------------
+summary(agalychnis_synonyms$species)
+
+## ----echo=F, message=FALSE, warning=FALSE---------------------------------------------------------
+kable(summary(agalychnis_synonyms$species))
+
 ## ----message=FALSE, warning=FALSE-----------------------------------------------------------------
-amphweb<-amphweb
-head(amphweb$species)
+amphweb_latest<-read.csv("http://www.amphibiaweb.org/amphib_names.txt", sep="\t")
+
+## ----message=FALSE, warning=FALSE, results='hide'-------------------------------------------------
+head(amphweb)
+
+## ----echo=F, message=FALSE, warning=FALSE---------------------------------------------------------
+kable(head(amphweb))
 
 ## ----message=FALSE, warning=FALSE-----------------------------------------------------------------
 amphweb.hyla<-amphweb[amphweb$genus=="Hyla",]
 
 ## ----message=FALSE, warning=FALSE, results='hide'-------------------------------------------------
-hyla.defrosted<-defrost(query=amphweb.hyla$species,asw = asw_synonyms)
+hyla.defrosted<-defrost(query=paste(amphweb.hyla$genus, amphweb.hyla$species),asw = asw_synonyms)
 head(hyla.defrosted, n=15)
 
 ## ----echo=F, message=FALSE, warning=FALSE---------------------------------------------------------
@@ -73,4 +86,7 @@ hyla.defrosted[hyla.defrosted$warnings %in% "duplicated",]
 
 ## ----echo=F, message=FALSE, warning=FALSE---------------------------------------------------------
 kable(hyla.defrosted[hyla.defrosted$warnings %in% "duplicated",])
+
+## ----message=FALSE, warning=FALSE, results='hide'-------------------------------------------------
+amphweb.hyla$ASW_names<-hyla.defrosted$ASW_names
 

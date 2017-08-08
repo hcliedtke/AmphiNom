@@ -263,19 +263,23 @@ div.tocify {
 </style>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>This package is aimed at trying to simplify the workflow of combining amphibian taxonomic data sets from different sources that use different taxonomic nomenclature. For example, two sources of important information for amphibian systematic are: Amphibian Species of the World (<a href="http://research.amnh.org/vz/herpetology/amphibia/" class="uri">http://research.amnh.org/vz/herpetology/amphibia/</a>) and Amphibia Web (<a href="http://amphibiaweb.org/" class="uri">http://amphibiaweb.org/</a>). These use slightly different nomenclature. Moreover, in comparative studies, one often works with data from a range of sources such as spatial or conservation data from the IUCN red list (<a href="http://www.iucnredlist.org/" class="uri">http://www.iucnredlist.org/</a>) or phylogenetic information from published amphibian phylogenies such as those of Pyron and Wiens 2011 (MPE) and Pyron 2014 (Syst Biol). These sources have either made the decision to follow a specific taxonomic system or, more often, are no longer up to date. It can therefore be complicated to establish a universal or current nomenclature to be able to effectively combine data sets. As such, the main objective of this package is to harvest taxonomic classifications of all amphibian species listed on the ASW website, harvest all listed synonyms per species and then using this information, suggest “Frost” (ASW) names for any given list of taxa.</p>
-<p>This package could also be useful for easily updating museum catalogs etc, or for producing summary statistics on species numbers for various taxonomic groupings, or to update species names in manuscripts etc. after a taxonomic group has received nomenclature revisions</p>
+<p>This package is designed to simplify the workflow of combining amphibian data sets from sources that use different taxonomic nomenclature, by conforming to the most current system suggested by the <a href="http://research.amnh.org/vz/herpetology/amphibia/">Amphibian Species of the World</a>. Comparative studies require the combination of data from a range of sources such as spatial or conservation data from the <a href="http://www.iucnredlist.org/">IUCN red list</a>, information on evolutionary history from published a phylogeny such as <a href="https://doi.org/10.1093/sysbio/syu042">Pyron 2014, Syst Biol</a> or life history data from <a href="http://genomics.senescence.info/species/">AnAge</a>. These sources have either made the decision to follow a specific taxonomic system or, more often, are no longer up-to-date. It can therefore be complicated to establish a universal or current nomenclature to be able to efficiently combine data sets. As such, the main objective of this package is to harvest taxonomic classifications of all amphibian species listed on the ASW website, harvest all listed synonyms per species and then using this information, suggest “Frost” (ASW) names for any given list of taxa.</p>
+<p>This package could also be useful for easily updating museum catalogs etc., and includes functions for producing summary statistics on species numbers at various taxonomic levels, or to update species names in manuscripts etc. after a taxonomic group has received nomenclature revisions</p>
 <p>Below are some examples of how to use the package.</p>
-<div id="load-package" class="section level3">
-<h3>Load package</h3>
-<p>defrostR only depends on the “XML” package. Until defrostR is up on CRAN, this package is available from gitHub. Note, this requires the library “devtools” to be installed first, and may require the library “XML”.</p>
-<p>library(devtools) install_github(“hcliedtke/defrostR”, build_vignettes = TRUE)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(defrostR)</code></pre></div>
+<div id="loading-the-package" class="section level3">
+<h3>Loading the package</h3>
+<p>defrostR is a package written in the R programming language. The most recent version can be downloaded from <a href="https://github.com/hcliedtke/defrostR">gitHub</a>, using the ‘devtools’ library. The first step is therefore to make sure that the <a href="https://cran.r-project.org/web/packages/devtools/index.html">devtools</a> package is installed and loaded. Successful installation of ‘defrostR’ might also require that the <a href="https://cran.r-project.org/web/packages/XML/index.html">XML</a> package is installed prior.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)
+<span class="kw">install_github</span>(<span class="st">&quot;hcliedtke/defrostR&quot;</span>, <span class="dt">build_vignettes =</span> <span class="ot">TRUE</span>)
+<span class="kw">library</span>(defrostR)</code></pre></div>
 </div>
 </div>
 <div id="compile-asw-taxonomy" class="section level2">
 <h2>Compile ASW taxonomy</h2>
-<p>The starting point of this package is a list of all currently registered species on the ASW website. A version of this is stored in the defrostR package internally. This may of course be outdated and so to generate your own, up-to-date version run the getTaxonomy() function, but this may take 10 to 15 minutes… ##### build taxonomy:</p>
+<p>The starting point of this package is to populate a list of all currently registered species on the ASW website. For ease-of-use, a version of this is stored in the ‘defrostR’ package internally, but this may of course be outdated and so to generate your own, up-to-date version run the getTaxonomy() function.The function takes no arguments and essentially iterates through the ASW website, building the URL for each species through a bottom-up approach (i.e. first looking for all orders, then superfamilies, then families, subfamilies, genera and finally species). The resulting table contains 7 columns: one for each taxonomic level (Order through to Species) and a final column with the URL for the ASW website for each species.</p>
+<p>Run the getTaxonomy() function (this may take 10 to 15 minutes), or have a look at the internally stored ‘asw_taxonomy’ data file:</p>
+<div id="build-taxonomy" class="section level3">
+<h3>Build taxonomy</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#asw_taxonomy&lt;-getTaxonomy()</span>
 <span class="kw">head</span>(asw_taxonomy)</code></pre></div>
 <table>
@@ -347,12 +351,12 @@ div.tocify {
 </tr>
 </tbody>
 </table>
-<p>The function takes no arguments and essentially iterates through the ASW website, building the URL for each species through a bottom-up approach (i.e. first looking for all orders, then superfamilies, then families, subfamilies, genera and finally species). The resulting table contains 7 columns: one for each taxonomic level (Order through to Species) and a final column with the URL for the ASW website for each species.</p>
-<div id="get-some-species-stats" class="section level4">
-<h4>Get some species stats</h4>
+</div>
+<div id="get-some-species-stats" class="section level3">
+<h3>Get some species stats</h3>
 <p>The first think one might be interested in is to get some basic numbers for listed taxonomic units nested within a particular level.</p>
-<div id="the-basics" class="section level5">
-<h5>the basics:</h5>
+<div id="the-basics" class="section level4">
+<h4>the basics:</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aswStats</span>(asw_taxonomy)</code></pre></div>
 <table>
 <thead>
@@ -380,10 +384,10 @@ div.tocify {
 </tr>
 </tbody>
 </table>
-<p>Additional arguments can be given to narrow your search. For example to get information on only a specific Family:</p>
+<p>Additional arguments can be specified in the aswStats() function to narrow down the search. For example to get information on only a specific Family:</p>
 </div>
-<div id="information-on-a-specific-group-of-interest" class="section level5">
-<h5>information on a specific group of interest:</h5>
+<div id="information-on-a-specific-group-of-interest" class="section level4">
+<h4>information on a specific group of interest:</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aswStats</span>(asw_taxonomy, <span class="dt">Family=</span><span class="st">&quot;Plethodontidae&quot;</span>)</code></pre></div>
 <table>
 <thead>
@@ -411,11 +415,11 @@ div.tocify {
 </tr>
 </tbody>
 </table>
-<p>This can be applied to any taxonomic level and to make sure everything is working properly, you could double check if this matches the information on the website: <a href="http://research.amnh.org/vz/herpetology/amphibia/index.php/" class="uri">http://research.amnh.org/vz/herpetology/amphibia/index.php/</a></p>
+<p>This can be applied to any taxonomic level and to make sure everything is working properly (or if the asw_taxonomy data-set is up-to-date), you could double check if this matches the information on the <a href="http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Caudata/Plethodontidae">ASW website</a></p>
 </div>
-<div id="taking-a-closer-look" class="section level5">
-<h5>taking a closer look:</h5>
-<p>We can also turn on “verbose” to return a list of all nested units instead of a table. This is useful in its own right when wanting to get an overview or making graphical representations:</p>
+<div id="taking-a-closer-look" class="section level4">
+<h4>taking a closer look:</h4>
+<p>We can also turn on ‘verbose’ to get a list of all nested units instead of just the summary a table. This is useful for getting a more detailed overview, but also for making graphical representations of this information:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aswStats</span>(asw_taxonomy, <span class="dt">Family =</span> <span class="st">&quot;Plethodontidae&quot;</span>,<span class="dt">verbose =</span> T)</code></pre></div>
 <pre><code>## $Orders
 ## 
@@ -685,9 +689,8 @@ div.tocify {
 ## [463] &quot;Speleomantes genei&quot;              &quot;Speleomantes imperialis&quot;        
 ## [465] &quot;Speleomantes italicus&quot;           &quot;Speleomantes sarrabusensis&quot;     
 ## [467] &quot;Speleomantes strinatii&quot;          &quot;Speleomantes supramontis&quot;</code></pre>
-</div>
-<div id="plot-the-results" class="section level5">
-<h5>Plot the results:</h5>
+<div id="display-this-information-visualy" class="section level5">
+<h5>display this information visualy:</h5>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plethodontid.stats&lt;-<span class="kw">aswStats</span>(asw_taxonomy, <span class="dt">Family =</span> <span class="st">&quot;Plethodontidae&quot;</span>,<span class="dt">verbose =</span> T)
 <span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))
 <span class="kw">pie</span>(plethodontid.stats$Genera[<span class="kw">order</span>(plethodontid.stats$Genera, <span class="dt">decreasing =</span> T)], <span class="dt">cex=</span><span class="fl">0.5</span>, <span class="dt">main =</span> <span class="st">&quot;No. of Species per Genus&quot;</span>, <span class="dt">col =</span> <span class="kw">rainbow</span>(<span class="kw">length</span>(plethodontid.stats$Genera),<span class="dt">s =</span> <span class="fl">0.5</span>), <span class="dt">clockwise =</span> T, <span class="dt">border =</span> <span class="ot">NA</span>)</code></pre></div>
@@ -695,11 +698,12 @@ div.tocify {
 </div>
 </div>
 </div>
+</div>
 <div id="compile-synonym-list" class="section level2">
 <h2>Compile Synonym list</h2>
-<p>Hopefully the most useful dataset this package generates is an up-to-date list of all possible synonyms per species, to facilitate matching data sets that might be using different names for the same species. As with the taxonomic table, version of the current synonym list is stored in the defrostR package internally. This may of course be outdated and so to generate your own, up-to-date version run the getSynonym() function! The function takes the getTaxonomy() output as a reference and then looks through every species webpage, tabulating all listed synonyms. It is therefore important that you specify a “asw_taxonomy” object that is more up-to-date than the one stored in the package (if none is specifued, defrostR will use the internal version). Generating a full list for all amphibian species can take a long, long time (up to an hour). More realistically, you may only be interested in a specific taxonomic group and so you can narrow down your search.</p>
-<div id="list-synonyms" class="section level5">
-<h5>list synonyms:</h5>
+<p>Hopefully the most useful data-set this package generates is an up-to-date list of all possible synonyms per species, to facilitate matching data sets that might be using different names for the same species. As with the taxonomic table, a version of the current synonym list is stored in the defrostR package internally. This may of course be outdated and so to generate your own, up-to-date version run the getSynonym() function! The function takes the getTaxonomy() output as a reference and then looks through every species webpage to tabulate all listed synonyms. It is therefore important that you specify a “asw_taxonomy” object that is more up-to-date than the one stored in the package (if none is specified, defrostR will use the internal version). Generating a full list for all amphibian species can take a long, long time (up to an hour). More realistically, you may only be interested in a specific taxonomic group and so you can narrow down your search as in this example here:</p>
+<div id="harvest-synonyms" class="section level3">
+<h3>Harvest synonyms</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">agalychnis_synonyms&lt;-<span class="kw">getSynonyms</span>(<span class="dt">Genus=</span><span class="st">&quot;Agalychnis&quot;</span>)
 <span class="kw">head</span>(agalychnis_synonyms,<span class="dt">n =</span> <span class="dv">15</span>)</code></pre></div>
 <table>
@@ -772,24 +776,216 @@ div.tocify {
 </tr>
 </tbody>
 </table>
-<p>the output is a table with two columns listing species names and all available synonyms (here showing the first 15 entries).</p>
+<p>The output is a table with two columns listing species names and all available synonyms (here showing the first 15 entries). We could summarize this information like so:</p>
+<div id="how-many-synonyms-per-species-are-there" class="section level4">
+<h4>how many synonyms per species are there?</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(agalychnis_synonyms$species)</code></pre></div>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">Agalychnis annae</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Agalychnis buckleyi</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">Agalychnis callidryas</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Agalychnis dacnicolor</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Agalychnis danieli</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Agalychnis hulli</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Agalychnis lemur</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Agalychnis medinae</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Agalychnis moreletii</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">Agalychnis psilopygion</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Agalychnis saltator</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Agalychnis spurrelli</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Agalychnis terranova</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div id="lets-defrost-something" class="section level2">
 <h2>Lets defrost something!!!</h2>
-<p>Having now prepared the dataset for amphibian synonyms, the inspiration for this package is to facilitate unifying naming systems, i.e. matching a list of names to the synonym table and suggeting the currently adviced nomenclature by Frost (ASW). As an example, lets look at how the names on Amphibia Web differ to those on ASW. Their most current taxonomy can be found here: <a href="http://amphibiaweb.org/taxonomy/index.html" class="uri">http://amphibiaweb.org/taxonomy/index.html</a>, and can be read into R directly like so:</p>
-<p>amphweb_latest&lt;-read.csv(“<a href="http://www.amphibiaweb.org/amphib_names.txt" class="uri">http://www.amphibiaweb.org/amphib_names.txt</a>”, sep=“\t”)</p>
-<p>For this tutorial though, we will use a version stored internally in defrostR as “amphweb” (might be out of date).</p>
-<div id="load-the-amphibia-web-taxonomy" class="section level5">
-<h5>load the amphibia web taxonomy:</h5>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">amphweb&lt;-amphweb
-<span class="kw">head</span>(amphweb$species)</code></pre></div>
-<pre><code>## [1] relicta        resplendens    ruthveni       australis      barrioi        cantillanensis
-## 5976 Levels: aaptus abakapa abbotti abdita abditaurantius abditus abdivita abei ... zygodactylus</code></pre>
-<p>lets look at only the genus Hyla that due to a recent revision by Duellman et all (2016; Zootaxa) has experiences name changes that have been implemented in ASW, but not AW:</p>
+<p>Having now prepared the data-set of amphibian synonyms, the main objective of this package is to facilitate the unification of naming systems, i.e. matching a list of names to the synonym table and suggesting the currently advised nomenclature by Frost (ASW). As an example, lets look at how the names on <a href="http://amphibiaweb.org">Amphibia Web</a> differ to those on ASW. Their most current taxonomy can be found <a href="http://amphibiaweb.org/taxonomy/index.html">here</a>, and can be read into R directly like so:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">amphweb_latest&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;http://www.amphibiaweb.org/amphib_names.txt&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</code></pre></div>
+<p>For this tutorial however, we will use a version stored internally in defrostR as “amphweb” (again,might be out of date so be careful).</p>
+<div id="load-the-amphibia-web-taxonomy" class="section level4">
+<h4>load the amphibia web taxonomy:</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(amphweb)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">order</th>
+<th align="left">family</th>
+<th align="left">subfamily</th>
+<th align="left">genus</th>
+<th align="left">subgenus</th>
+<th align="left">species</th>
+<th align="left">common_name</th>
+<th align="left">gaa_name</th>
+<th align="left">synonymies</th>
+<th align="left">itis_names</th>
+<th align="left">iucn</th>
+<th align="left">isocc</th>
+<th align="left">intro_isocc</th>
+<th align="right">aweb_uid</th>
+<th align="left">uri.guid</th>
+<th align="left">taxon_notes_public</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Anura</td>
+<td align="left">Allophrynidae</td>
+<td align="left"></td>
+<td align="left">Allophryne</td>
+<td align="left"></td>
+<td align="left">relicta</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">BR</td>
+<td align="left"></td>
+<td align="right">8097</td>
+<td align="left"><a href="http://amphibiaweb.org/species/8097" class="uri">http://amphibiaweb.org/species/8097</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Anura</td>
+<td align="left">Allophrynidae</td>
+<td align="left"></td>
+<td align="left">Allophryne</td>
+<td align="left"></td>
+<td align="left">resplendens</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">PE</td>
+<td align="left"></td>
+<td align="right">7786</td>
+<td align="left"><a href="http://amphibiaweb.org/species/7786" class="uri">http://amphibiaweb.org/species/7786</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Anura</td>
+<td align="left">Allophrynidae</td>
+<td align="left"></td>
+<td align="left">Allophryne</td>
+<td align="left"></td>
+<td align="left">ruthveni</td>
+<td align="left">Tukeit-Hill Frog</td>
+<td align="left">Allophryne ruthveni</td>
+<td align="left"></td>
+<td align="left">Sphaenorhynchus seabrai, Sphoenohyla seabrai</td>
+<td align="left">Least Concern (LC)</td>
+<td align="left">VE,SR,GY,GF,BR</td>
+<td align="left"></td>
+<td align="right">2059</td>
+<td align="left"><a href="http://amphibiaweb.org/species/2059" class="uri">http://amphibiaweb.org/species/2059</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Anura</td>
+<td align="left">Alsodidae</td>
+<td align="left"></td>
+<td align="left">Alsodes</td>
+<td align="left"></td>
+<td align="left">australis</td>
+<td align="left"></td>
+<td align="left">Alsodes australis</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Data Deficient (DD)</td>
+<td align="left">CL,AR</td>
+<td align="left"></td>
+<td align="right">5715</td>
+<td align="left"><a href="http://amphibiaweb.org/species/5715" class="uri">http://amphibiaweb.org/species/5715</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Anura</td>
+<td align="left">Alsodidae</td>
+<td align="left"></td>
+<td align="left">Alsodes</td>
+<td align="left"></td>
+<td align="left">barrioi</td>
+<td align="left"></td>
+<td align="left">Alsodes barrioi</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Vulnerable (VU)</td>
+<td align="left">CL</td>
+<td align="left"></td>
+<td align="right">2552</td>
+<td align="left"><a href="http://amphibiaweb.org/species/2552" class="uri">http://amphibiaweb.org/species/2552</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Anura</td>
+<td align="left">Alsodidae</td>
+<td align="left"></td>
+<td align="left">Alsodes</td>
+<td align="left"></td>
+<td align="left">cantillanensis</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">CL</td>
+<td align="left"></td>
+<td align="right">8311</td>
+<td align="left"><a href="http://amphibiaweb.org/species/8311" class="uri">http://amphibiaweb.org/species/8311</a></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="query-a-list-of-taxa-against-the-synonym-table" class="section level3">
+<h3>Query a list of taxa against the synonym table</h3>
+<p>For this example, lets look only at the genus Hyla that due to a recent revision by <a href="http://www.mapress.com/j/zt/article/view/zootaxa.4104.1.1">Duellman et al. 2016, Zootaxa</a> has experiences name changes that have been implemented in ASW, but not AW:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">amphweb.hyla&lt;-amphweb[amphweb$genus==<span class="st">&quot;Hyla&quot;</span>,]</code></pre></div>
 <p>and lets “defrost” that list, using the synonym list created with getSynonyms(), here, using the version stored internally:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hyla.defrosted&lt;-<span class="kw">defrost</span>(<span class="dt">query=</span>amphweb.hyla$species,<span class="dt">asw =</span> asw_synonyms)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hyla.defrosted&lt;-<span class="kw">defrost</span>(<span class="dt">query=</span><span class="kw">paste</span>(amphweb.hyla$genus, amphweb.hyla$species),<span class="dt">asw =</span> asw_synonyms)
 <span class="kw">head</span>(hyla.defrosted, <span class="dt">n=</span><span class="dv">15</span>)</code></pre></div>
 <table>
 <thead>
@@ -803,120 +999,120 @@ div.tocify {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">andersonii</td>
-<td align="left">andersonii</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla andersonii</td>
+<td align="left">hyla_andersonii</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes andersonii</td>
 </tr>
 <tr class="even">
-<td align="left">annectans</td>
-<td align="left">annectans</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla annectans</td>
+<td align="left">hyla_annectans</td>
+<td align="left">up_to_date</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Hyla annectans</td>
 </tr>
 <tr class="odd">
-<td align="left">arborea</td>
-<td align="left">arborea</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla arborea</td>
+<td align="left">hyla_arborea</td>
+<td align="left">up_to_date</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Hyla arborea</td>
 </tr>
 <tr class="even">
-<td align="left">arboricola</td>
-<td align="left">arboricola</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla arboricola</td>
+<td align="left">hyla_arboricola</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes arboricola</td>
 </tr>
 <tr class="odd">
-<td align="left">arenicolor</td>
-<td align="left">arenicolor</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla arenicolor</td>
+<td align="left">hyla_arenicolor</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes arenicolor</td>
 </tr>
 <tr class="even">
-<td align="left">avivoca</td>
-<td align="left">avivoca</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla avivoca</td>
+<td align="left">hyla_avivoca</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes avivoca</td>
 </tr>
 <tr class="odd">
-<td align="left">bocourti</td>
-<td align="left">bocourti</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla bocourti</td>
+<td align="left">hyla_bocourti</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes bocourti</td>
 </tr>
 <tr class="even">
-<td align="left">chinensis</td>
-<td align="left">chinensis</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla chinensis</td>
+<td align="left">hyla_chinensis</td>
+<td align="left">up_to_date</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Hyla chinensis</td>
 </tr>
 <tr class="odd">
-<td align="left">chrysoscelis</td>
-<td align="left">chrysoscelis</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla chrysoscelis</td>
+<td align="left">hyla_chrysoscelis</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes chrysoscelis</td>
 </tr>
 <tr class="even">
-<td align="left">cinerea</td>
-<td align="left">cinerea</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla cinerea</td>
+<td align="left">hyla_cinerea</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes cinereus</td>
 </tr>
 <tr class="odd">
-<td align="left">euphorbiacea</td>
-<td align="left">euphorbiacea</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla euphorbiacea</td>
+<td align="left">hyla_euphorbiacea</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes euphorbiaceus</td>
 </tr>
 <tr class="even">
-<td align="left">eximia</td>
-<td align="left">eximia</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla eximia</td>
+<td align="left">hyla_eximia</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes eximius</td>
 </tr>
 <tr class="odd">
-<td align="left">felixarabica</td>
-<td align="left">felixarabica</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla felixarabica</td>
+<td align="left">hyla_felixarabica</td>
+<td align="left">up_to_date</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Hyla felixarabica</td>
 </tr>
 <tr class="even">
-<td align="left">femoralis</td>
-<td align="left">femoralis</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla femoralis</td>
+<td align="left">hyla_femoralis</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes femoralis</td>
 </tr>
 <tr class="odd">
-<td align="left">gratiosa</td>
-<td align="left">gratiosa</td>
-<td align="left">name_not_found</td>
+<td align="left">Hyla gratiosa</td>
+<td align="left">hyla_gratiosa</td>
+<td align="left">defrosted</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Dryophytes gratiosus</td>
 </tr>
 </tbody>
 </table>
-<p>the output here is a table listing: the original query, a ‘stripped’ version, to make sure underscores etc. are no issue, a status column listing whether any names match and if not, whether they could be “defrosted” with no problem, or whether names were not found as listed synonyms or whether names are ambiguous and could refer to more than one species. A specific warning column is also included that, for now, only warns you if the resulting name changes contain duplicates. The final column lists the suggested Frost/ASW names.</p>
-<p>various additional arguments can be invoked, whether for example ambiguities should be sorted out on the fly with the user deciding on the go and whether to pass forward the original query names if no match is found in the synonym list.</p>
+<p>The output here is a table listing the user-specified query, a ‘stripped’ version of that input that tries to deal with any differences such as capitalization or underscores etc. that might cause issues, a status column listing whether any names match and if not, whether they could be “defrosted” with no problem, or whether names were not found as listed synonyms or whether names are ambiguous and could refer to more than one species. A specific warning column is also included that, for now, only warns you if the resulting name changes result in duplicates. The final column lists the suggested Frost/ASW names.</p>
+<p>Various additional arguments can be invoked, for example, whether ambiguities should be sorted out on the fly with the user deciding on which species is referred to on the go, or for example whether to pass forward the original query names if no match is found in the synonym list.</p>
 </div>
-<div id="print-out-a-report" class="section level4">
-<h4>Print out a report</h4>
-<p>instead of looking through the output table of defrost(), we can also print out a report using the following function</p>
-<div id="the-basics-1" class="section level5">
-<h5>the basics:</h5>
+<div id="are-my-names-up-to-date" class="section level3">
+<h3>Are my names up-to-date?</h3>
+<p>instead of looking through the output table of defrost(), we can also print out a report using the synonymReport() function.</p>
+<div id="the-basics-1" class="section level4">
+<h4>the basics:</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">synonymReport</span>(hyla.defrosted)</code></pre></div>
 <table>
 <thead>
@@ -932,15 +1128,15 @@ div.tocify {
 </tr>
 <tr class="even">
 <td>names_up_to_date</td>
-<td align="right">0</td>
+<td align="right">15</td>
 </tr>
 <tr class="odd">
 <td>names_successfully_defrosted</td>
-<td align="right">0</td>
+<td align="right">20</td>
 </tr>
 <tr class="even">
 <td>names_not_found</td>
-<td align="right">35</td>
+<td align="right">0</td>
 </tr>
 <tr class="odd">
 <td>ambiguities</td>
@@ -948,60 +1144,109 @@ div.tocify {
 </tr>
 <tr class="even">
 <td>duplicates_produced</td>
-<td align="right">0</td>
+<td align="right">4</td>
 </tr>
 </tbody>
 </table>
-<p>this tells us that less than half of the names are up to date, and defrostR could update quite a few on its own without any complications. however, there is 1 query that could not be found (not listed, or listed correctly in ASW), no ambiguities (queries which mach synonyms belonging to more than one species) and most critically, the automatic defrosting has resulted in 4 cases where names are not unique anymore! These need to be checked carefully and most likely are units that used to be distinc and are now synonymized</p>
+<p>this tells us that less than half of the names are up to date, and defrostR could update quite a few on its own without any complications. defrostR found all names on ASW and there were no issues with ambiguities (queries which mach synonyms belonging to more than one species), but the automatic defrosting has resulted in 4 cases where names are not unique anymore! These need to be checked carefully and most likely are units that used to be distinct and are now synonyms. We can get more of an idea of what has happened here by asking defrostR to spit out a bit more information:</p>
 </div>
-<div id="all-the-details" class="section level5">
-<h5>all the details:</h5>
+<div id="the-details" class="section level4">
+<h4>the details:</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">synonymReport</span>(hyla.defrosted, <span class="dt">verbose=</span>T)</code></pre></div>
 <pre><code>## $names_not_found
-##  [1] andersonii     annectans      arborea        arboricola     arenicolor     avivoca       
-##  [7] bocourti       chinensis      chrysoscelis   cinerea        euphorbiacea   eximia        
-## [13] felixarabica   femoralis      gratiosa       hallowellii    heinzsteinitzi immaculata    
-## [19] intermedia     japonica       meridionalis   molleri        orientalis     plicata       
-## [25] sanchiangensis sarda          savignyi       simplex        squirella      suweonensis   
-## [31] tsinlingensis  versicolor     walkeri        wrightorum     zhaopingensis 
-## 5976 Levels: aaptus abakapa abbotti abdita abditaurantius abditus abdivita abei ... zygodactylus
+## character(0)
 ## 
 ## $defrosted
 ## $defrosted$query
-## factor(0)
-## 5976 Levels: aaptus abakapa abbotti abdita abditaurantius abditus abdivita abei ... zygodactylus
+##  [1] &quot;Hyla andersonii&quot;     &quot;Hyla arboricola&quot;     &quot;Hyla arenicolor&quot;     &quot;Hyla avivoca&quot;       
+##  [5] &quot;Hyla bocourti&quot;       &quot;Hyla chrysoscelis&quot;   &quot;Hyla cinerea&quot;        &quot;Hyla euphorbiacea&quot;  
+##  [9] &quot;Hyla eximia&quot;         &quot;Hyla femoralis&quot;      &quot;Hyla gratiosa&quot;       &quot;Hyla heinzsteinitzi&quot;
+## [13] &quot;Hyla immaculata&quot;     &quot;Hyla japonica&quot;       &quot;Hyla plicata&quot;        &quot;Hyla squirella&quot;     
+## [17] &quot;Hyla suweonensis&quot;    &quot;Hyla versicolor&quot;     &quot;Hyla walkeri&quot;        &quot;Hyla wrightorum&quot;    
 ## 
 ## $defrosted$ASW_names
-## logical(0)
+##  [1] &quot;Dryophytes andersonii&quot;    &quot;Dryophytes arboricola&quot;    &quot;Dryophytes arenicolor&quot;   
+##  [4] &quot;Dryophytes avivoca&quot;       &quot;Dryophytes bocourti&quot;      &quot;Dryophytes chrysoscelis&quot; 
+##  [7] &quot;Dryophytes cinereus&quot;      &quot;Dryophytes euphorbiaceus&quot; &quot;Dryophytes eximius&quot;      
+## [10] &quot;Dryophytes femoralis&quot;     &quot;Dryophytes gratiosus&quot;     &quot;Dryophytes japonicus&quot;    
+## [13] &quot;Dryophytes immaculatus&quot;   &quot;Dryophytes japonicus&quot;     &quot;Dryophytes plicatus&quot;     
+## [16] &quot;Dryophytes squirellus&quot;    &quot;Dryophytes immaculatus&quot;   &quot;Dryophytes versicolor&quot;   
+## [19] &quot;Dryophytes walkeri&quot;       &quot;Dryophytes wrightorum&quot;   
 ## 
 ## 
 ## $ambiguities
 ## $ambiguities$query
-## factor(0)
-## 5976 Levels: aaptus abakapa abbotti abdita abditaurantius abditus abdivita abei ... zygodactylus
+## character(0)
 ## 
 ## $ambiguities$ASW_names
-## logical(0)
+## character(0)
 ## 
 ## 
 ## $duplicated
 ## $duplicated$query
-## factor(0)
-## 5976 Levels: aaptus abakapa abbotti abdita abditaurantius abditus abdivita abei ... zygodactylus
+## [1] &quot;Hyla heinzsteinitzi&quot; &quot;Hyla immaculata&quot;     &quot;Hyla japonica&quot;       &quot;Hyla suweonensis&quot;   
 ## 
 ## $duplicated$ASW_names
-## logical(0)</code></pre>
-<p>turning on verbose, lists all the species names that could not be “defrosted” and need to be looked at more closely.</p>
-<p>of course all of this can also be done manually from the defrost() output:</p>
+## [1] &quot;Dryophytes japonicus&quot;   &quot;Dryophytes immaculatus&quot; &quot;Dryophytes japonicus&quot;  
+## [4] &quot;Dryophytes immaculatus&quot;</code></pre>
+<p>At just a glance, we can already see that H. heinzsteinitzi has been sunk into D. japonicus and H. suweonensis into D. immaculatus and so, these two species are no longer valid according to ASW.</p>
+<p>Of course all of this can also be done manually from the defrost() output:</p>
 </div>
-<div id="check-which-names-are-ambiguous-in-this-case-0" class="section level5">
-<h5>check which names are ambiguous (in this case 0):</h5>
+<div id="check-which-names-are-ambiguous-in-this-case-0" class="section level4">
+<h4>check which names are ambiguous (in this case 0):</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hyla.defrosted[hyla.defrosted$status==<span class="st">&quot;ambiguous&quot;</span>,]</code></pre></div>
 </div>
-<div id="check-which-names-are-now-duplicated" class="section level5">
-<h5>check which names are now duplicated:</h5>
+<div id="check-which-names-are-now-duplicated" class="section level4">
+<h4>check which names are now duplicated:</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hyla.defrosted[hyla.defrosted$warnings %in%<span class="st"> &quot;duplicated&quot;</span>,]</code></pre></div>
-<p>query stripped status warnings ASW_names —— ——— ——- ——— ———-</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="left">query</th>
+<th align="left">stripped</th>
+<th align="left">status</th>
+<th align="left">warnings</th>
+<th align="left">ASW_names</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>17</td>
+<td align="left">Hyla heinzsteinitzi</td>
+<td align="left">hyla_heinzsteinitzi</td>
+<td align="left">defrosted</td>
+<td align="left">duplicated</td>
+<td align="left">Dryophytes japonicus</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td align="left">Hyla immaculata</td>
+<td align="left">hyla_immaculata</td>
+<td align="left">defrosted</td>
+<td align="left">duplicated</td>
+<td align="left">Dryophytes immaculatus</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td align="left">Hyla japonica</td>
+<td align="left">hyla_japonica</td>
+<td align="left">defrosted</td>
+<td align="left">duplicated</td>
+<td align="left">Dryophytes japonicus</td>
+</tr>
+<tr class="even">
+<td>30</td>
+<td align="left">Hyla suweonensis</td>
+<td align="left">hyla_suweonensis</td>
+<td align="left">defrosted</td>
+<td align="left">duplicated</td>
+<td align="left">Dryophytes immaculatus</td>
+</tr>
+</tbody>
+</table>
+<p>The decision can now be made how to deal with these duplicates, or should there be any ambiguities, after which point, the ASW names can simply be adopted for use in the original data-set and voila!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">amphweb.hyla$ASW_names&lt;-hyla.defrosted$ASW_names</code></pre></div>
 </div>
 </div>
 </div>
