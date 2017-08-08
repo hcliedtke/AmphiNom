@@ -4,7 +4,7 @@ Title: A tool for standardizing amphibian taxonomy
 Version: 1.0.0
 Date: 2017-07-12
 Author: H. Christoph Liedtke
-Maintainer: H. Christoph Liedtke <hc.liedtke@gmail.com>
+Maintainer: H. Christoph Liedtke <christoph.liedtke@ebd.csic.es>
 Description: This package provides a workflow for combining amphibian taxonomic data sets from different sources that use different taxonomic nomenclature, by suggesting the most current nomenclature used by the Amphibian Species of the World online reference for a given input query of species names. It can also be used to extract specific systematic information (e.g. species downstream of a given taxonomic level).
 Depends: R (>= 3.0.1), XML
 Suggests: knitr, rmarkdown

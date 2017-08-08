@@ -1,5 +1,5 @@
 ---
-title: "Set to 'defrost': How to use defrostR for updating amphibian taxonomy"
+title: "Set to 'defrost': How to use defrostR for standardizing amphibian taxonomy"
 author: "Christoph Liedtke"
 date: "June, 2017"
 output: 
@@ -13,17 +13,10 @@ output:
     theme: united  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
 vignette: >
-  %\VignetteIndexEntry{Set to 'defrost': How to use defrostR for updating amphibian taxonomy}
+  %\VignetteIndexEntry{Set to 'defrost': How to use defrostR for standardizing amphibian taxonomy}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}    
+  %\VignetteEncoding{UTF-8}    
 ---
-<style type="text/css">
-.text {
-  text-align: justify;
-
-}
-</style>
-
 
 
 
@@ -44,10 +37,12 @@ Below are some examples of how to use the package.
   
 defrostR is a package written in the R programming language. The most recent version can be downloaded from [gitHub](https://github.com/hcliedtke/defrostR), using the 'devtools' library. The first step is therefore to make sure that the [devtools](https://cran.r-project.org/web/packages/devtools/index.html) package is installed and loaded. Successful installation of 'defrostR' might also require that the [XML](https://cran.r-project.org/web/packages/XML/index.html) package is installed prior.
 
-
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, eval=FALSE}
 library(devtools)
 install_github("hcliedtke/defrostR", build_vignettes = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE}
 library(defrostR)
 ```
 
@@ -63,7 +58,7 @@ Run the getTaxonomy() function (this may take 10 to 15 minutes), or have a look 
 
 ### Build taxonomy
 
-```{r message=FALSE, warning=FALSE, results='hide'}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 #asw_taxonomy<-getTaxonomy()
 head(asw_taxonomy)
 ```
@@ -80,7 +75,7 @@ The first think one might be interested in is to get some basic numbers for list
 
 #### the basics:
 
-```{r message=FALSE, warning=FALSE, results='hide'}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 aswStats(asw_taxonomy)
 ```
 
@@ -93,7 +88,7 @@ Additional arguments can be specified in the aswStats() function to narrow down 
   
 #### information on a specific group of interest:
 
-```{r message=FALSE, warning=FALSE, results='hide'}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 aswStats(asw_taxonomy, Family="Plethodontidae")
 ```
 
@@ -107,6 +102,7 @@ This can be applied to any taxonomic level and to make sure everything is workin
 #### taking a closer look:
 
 We can also turn on 'verbose' to get a list of all nested units instead of just the summary a table. This is useful for getting a more detailed overview, but also for making graphical representations of this information:  
+
 ```{r message=FALSE, warning=FALSE}
 aswStats(asw_taxonomy, Family = "Plethodontidae",verbose = T)
 ```
@@ -142,7 +138,7 @@ The output is a table with two columns listing species names and all available s
 
 #### how many synonyms per species are there?
 
-```{r message=FALSE, warning=FALSE, results='hide'}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 summary(agalychnis_synonyms$species)
 ```
 
@@ -164,7 +160,7 @@ For this tutorial however, we will use a version stored internally in defrostR a
 
 #### load the amphibia web taxonomy:
 
-```{r message=FALSE, warning=FALSE, results='hide'}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 head(amphweb)
 ```
 
@@ -200,7 +196,7 @@ Various additional arguments can be invoked, for example, whether ambiguities sh
 instead of looking through the output table of defrost(), we can also print out a report using the synonymReport() function. 
   
 #### the basics:
-```{r message=FALSE, warning=FALSE, results='hide'}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 synonymReport(hyla.defrosted)
 ```
 
@@ -230,7 +226,7 @@ hyla.defrosted[hyla.defrosted$status=="ambiguous",]
 
 #### check which names are now duplicated:
 
-```{r message=FALSE, warning=FALSE, results='hide'}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 hyla.defrosted[hyla.defrosted$warnings %in% "duplicated",]
 ```
 
@@ -240,7 +236,7 @@ kable(hyla.defrosted[hyla.defrosted$warnings %in% "duplicated",])
 
 The decision can now be made how to deal with these duplicates, or should there be any ambiguities, after which point, the ASW names can simply be adopted for use in the original data-set and voila!
 
-```{r message=FALSE, warning=FALSE, results='hide'}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 amphweb.hyla$ASW_names<-hyla.defrosted$ASW_names
 ```
 
