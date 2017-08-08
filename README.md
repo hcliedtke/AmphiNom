@@ -4,7 +4,7 @@ This package is designed to simplify the workflow of combining amphibian data se
 
 This package could also be useful for easily updating museum catalogs etc., and includes functions for producing summary statistics on species numbers at various taxonomic levels, or to update species names in manuscripts etc. after a taxonomic group has received nomenclature revisions
 
-A detailed tutorial can be found [here](https://rawgit.com/hcliedtke/defrostR/master/inst/doc/defrostR_tutorial.html)
+A detailed tutorial can be found [here](https://rawgit.com/hcliedtke/defrostR/master/vignettes/defrostR_tutorial.html)
 
 
 
