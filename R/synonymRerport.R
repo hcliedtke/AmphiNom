@@ -14,7 +14,6 @@
 #' amphweb.bufonidae<-amphweb[amphweb$family=="Bufonidae",]
 #' bufonidae.defrosted<-defrost(query=amphweb.bufonidae$species)
 #' synonymReport(bufonidae.defrosted)
-#' synonymReport(bufonidae.defrosted,)
 #' @export
 
 

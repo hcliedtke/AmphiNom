@@ -1,14 +1,14 @@
-#' Submit query to update nomenclautre according to the ASW taxonomy
+#' Submit query to find updates in nomenclautre
 #'
-#' This function takes a query (a list of taxon names to be assessed) and the amphibian species of the world synonym table (preferrably generated with the function getSynonyms(), or loaded from the dataset stored internally) as input and returns an updated list of names.
+#' This function takes a query (a list of taxon names to be assessed) and the amphibian species of the world synonym table (preferrably generated with the function getSynonyms(), or loaded from the data set stored internally) as input and returns an updated list of names.
 #'
 #'
-#' Two logical arguments can be turned on to a) allow an "on the fly" decision to be made on what name to take if synonym matches multiple names (if not, it will return all possible names) and to b) return the original name if no match is found
+#' Two logical arguments can be turned on to a) allow an "on the fly" decision to be made on what name to take if synonym matches multiple names (if not, it will return all possible names) and to b) return the original query name if no match is found
 #' @param query vector of taxon names to be processed (can also be tip labels of a phylogeny for example)
-#' @param asw amphibian species of the world synonym reference table on which to base new names on.Default is to use defrostR's internally stored data set that may not be the most up-to-date.
-#' @param interactive logical argument (default=FALSE) of whether to allow an "on the fly" decision to be made on what name to take if synonym matches multiple names. TRUE will return all possible names for a given query
+#' @param asw amphibian species of the world synonym reference table on which to base new names on. Default setting will use the internally stored data set that may not be the most up-to-date.
+#' @param interactive logical argument (default=FALSE) of whether to allow an "on the fly" decision to be made on what name to take if synonym matches multiple names. FLASE will return all possible names for a given query as a string, TRUE will ask the user to select one.
 #' @param return.no.matches logical argument of whether to leave taxa not found in the reference table blank or whether to fill in the names provided by the query. default is FALSE
-#' @return this function returns a data frame with the following information/columns: original/input names, "stripped" names with no formatting, status of what action has been taken, updated names as recommendet by the reference table
+#' @return this function returns a data frame with the following information/columns: original/input names, "stripped" names with no formatting, status of what action has been taken, updated names as recommended by the reference table
 #' @export
 
 
