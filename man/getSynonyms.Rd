@@ -37,6 +37,8 @@ system("defaults write org.R-project.R force.LANG en_US.UTF-8")
 and then restarting the session. Read more here: https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Internationalization-of-the-R_002eapp
 }
 \examples{
-#to get a full list of synonyms for all species, run: asw_synonyms<-getSynonyms()
-breviceptid_synonyms<-getSynonyms(Family="Brevicipitidae")
+#to get a full list of synonyms for all species, run:
+\dontrun{asw_synonyms<-getSynonyms()}
+#to get synonyms for a specific taxonomic group only:
+\dontrun{breviceptid_synonyms<-getSynonyms(Family="Brevicipitidae")}
 }

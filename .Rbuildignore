@@ -2,8 +2,10 @@
 ^\.Rproj\.user$
 ^cran-comments\.md$
 ^README\.Rmd$
-^\.NEWS\.md$
+^README\.md$
+^\NEWS\.md$
 ^\.travis\.yml$
 ^\.\.Rcheck$
 .git
 ^revdep$
+

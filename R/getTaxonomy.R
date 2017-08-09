@@ -7,8 +7,7 @@
 #' @export
 #' @import utils
 #' @examples
-#' #run asw_taxonomy_table<-getTaxonomy() to scrape the ASW website for the most current taxonomy
-
+#' \dontrun{asw_taxonomy_table<-getTaxonomy()}
 
 
 ###

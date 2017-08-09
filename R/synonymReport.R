@@ -9,9 +9,10 @@
 #' @param verbose logical arguments can be turned on to list species which result in conflict. Default=FALSE
 #' @return returns either a data frame or list of summary statitics
 #' @examples
-#' amphweb<-defrostR::amphweb
+#' #check out amphibiaweb taxonomy and extract only Bufonidae
 #' head(amphweb$species)
 #' amphweb.bufonidae<-amphweb[amphweb$family=="Bufonidae",]
+#' #defrost bufonidae and inspect
 #' bufonidae.defrosted<-defrost(query=amphweb.bufonidae$species)
 #' synonymReport(bufonidae.defrosted)
 #' @export

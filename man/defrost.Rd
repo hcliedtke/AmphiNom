@@ -25,3 +25,6 @@ This function takes a query (a list of taxon names to be assessed) and the amphi
 \details{
 Two logical arguments can be turned on to a) allow an "on the fly" decision to be made on what name to take if synonym matches multiple names (if not, it will return all possible names) and to b) return the original query name if no match is found
 }
+\examples{
+defrost(query=c("Bufo calamita", "Bufo viridis"))
+}

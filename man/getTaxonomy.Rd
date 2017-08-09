@@ -13,5 +13,5 @@ returns a dataframe listing all species and their taxonomic backbone as well as 
 This function takes no arguments. It cycles through the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/) to scrap all taxonomic information from Order to Species. As there are 5 taxonomic levels within each Order (Superfamily/Family/Subfamily/Genus/Species), one can expect the function to require 1 initial loop followed by 4 more, but it is designed to keep going until all lineages have reached the species level.
 }
 \examples{
-#run asw_taxonomy_table<-getTaxonomy() to scrape the ASW website for the most current taxonomy
+\dontrun{asw_taxonomy_table<-getTaxonomy()}
 }
