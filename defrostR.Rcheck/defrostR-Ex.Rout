@@ -410,7 +410,7 @@ $Species
 > flush(stderr()); flush(stdout())
 > 
 > ### Name: getSynonyms
-> ### Title: Compile dataframe of all synonyms listed on Amphibia Species of
+> ### Title: Compile dataframe of all synonyms listed on Amphibian Species of
 > ###   the World
 > ### Aliases: getSynonyms
 > 
@@ -429,7 +429,8 @@ $Species
 > flush(stderr()); flush(stdout())
 > 
 > ### Name: getTaxonomy
-> ### Title: Construct taxonomy used by Amphibian Species of the World
+> ### Title: Compile amphibian taxonomy following the Amphibian Species of
+> ###   the World
 > ### Aliases: getTaxonomy
 > 
 > ### ** Examples
@@ -465,14 +466,6 @@ names_successfully_defrosted               0
 names_not_found                          606
 ambiguities                                0
 duplicates_produced                        0
-> synonymReport(bufonidae.defrosted,)
-                             number_of_units
-queries                                  606
-names_up_to_date                           0
-names_successfully_defrosted               0
-names_not_found                          606
-ambiguities                                0
-duplicates_produced                        0
 > 
 > 
 > 
@@ -480,7 +473,7 @@ duplicates_produced                        0
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.782 0.056 15.365 0 0 
+Time elapsed:  1.817 0.06 15.73 0 0 
 > grDevices::dev.off()
 null device 
           1 

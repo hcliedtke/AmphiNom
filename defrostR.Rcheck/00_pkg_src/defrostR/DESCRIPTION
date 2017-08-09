@@ -1,6 +1,6 @@
 Package: defrostR
 Type: Package
-Title: A tool for keeping up with amphibian taxonomy
+Title: A tool for standardizing amphibian taxonomy
 Version: 1.0.0
 Date: 2017-07-12
 Author: H. Christoph Liedtke
@@ -16,4 +16,4 @@ RoxygenNote: 6.0.1
 URL: http://github.com/hcliedtke/defrostR
 BugReports: http://github.com/hcliedtke/defrostR/issues
 NeedsCompilation: no
-Packaged: 2017-07-19 10:11:14 UTC; L9HRVWMTX
+Packaged: 2017-08-09 07:58:34 UTC; L9HRVWMTX

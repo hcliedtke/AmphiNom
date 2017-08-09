@@ -2,7 +2,7 @@
 % Please edit documentation in R/getTaxonomy.R
 \name{getTaxonomy}
 \alias{getTaxonomy}
-\title{Construct taxonomy used by Amphibian Species of the World}
+\title{Compile amphibian taxonomy following the Amphibian Species of the World}
 \usage{
 getTaxonomy()
 }
@@ -10,7 +10,7 @@ getTaxonomy()
 returns a dataframe listing all species and their taxonomic backbone as well as all URLs per species.
 }
 \description{
-This function takes no arguments. It cycles through the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/) in an attempt to scrap all taxonomic information from Order to Species. As there are 5 taxonomic levels within each order (Superfamily/Family/Subfamily/Genus/Species), one can expect the function to require 1 initial loop followed by 4 more, but it is designed to keep going until all lineages have reached the species level.
+This function takes no arguments. It cycles through the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/) to scrap all taxonomic information from Order to Species. As there are 5 taxonomic levels within each Order (Superfamily/Family/Subfamily/Genus/Species), one can expect the function to require 1 initial loop followed by 4 more, but it is designed to keep going until all lineages have reached the species level.
 }
 \examples{
 #run asw_taxonomy_table<-getTaxonomy() to scrape the ASW website for the most current taxonomy

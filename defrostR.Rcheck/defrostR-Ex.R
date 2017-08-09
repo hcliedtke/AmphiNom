@@ -84,7 +84,7 @@ nameEx("getSynonyms")
 flush(stderr()); flush(stdout())
 
 ### Name: getSynonyms
-### Title: Compile dataframe of all synonyms listed on Amphibia Species of
+### Title: Compile dataframe of all synonyms listed on Amphibian Species of
 ###   the World
 ### Aliases: getSynonyms
 
@@ -102,7 +102,8 @@ nameEx("getTaxonomy")
 flush(stderr()); flush(stdout())
 
 ### Name: getTaxonomy
-### Title: Construct taxonomy used by Amphibian Species of the World
+### Title: Compile amphibian taxonomy following the Amphibian Species of
+###   the World
 ### Aliases: getTaxonomy
 
 ### ** Examples
@@ -128,7 +129,6 @@ head(amphweb$species)
 amphweb.bufonidae<-amphweb[amphweb$family=="Bufonidae",]
 bufonidae.defrosted<-defrost(query=amphweb.bufonidae$species)
 synonymReport(bufonidae.defrosted)
-synonymReport(bufonidae.defrosted,)
 
 
 

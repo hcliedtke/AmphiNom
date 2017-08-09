@@ -1,8 +1,8 @@
-#' Compile dataframe of all synonyms listed on Amphibia Species of the World
+#' Compile dataframe of all synonyms listed on Amphibian Species of the World
 #'
-#' This function looks up any listed synonyms on the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/). It takes a minimum of oneargument, the asw_taxonomy table generated with the function getTaxonomy(). If a full search is performed, this can take quite long (looking through ~7000 websites for upwards of 20 000 synonyms), but additional arguments can be included to restrict searches to a specified taxonomic group.
+#' This function looks up any listed synonyms on the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/). It takes a minimum of one argument: the asw_taxonomy table generated with the function getTaxonomy(). If a full search is performed, this can take quite long (looking through ~7000 species webpages for upwards of 20 000 synonyms), but additional arguments can be included to restrict searches to a specified taxonomic group.
 #'
-#' @param asw_taxonomy the ASW taxonomy table obtained with getTaxonomy(). If no table is provided, the default is to use defrostR's internally stored version. WARNING! this version may be outdated
+#' @param asw_taxonomy the ASW taxonomy table obtained with getTaxonomy(). If no table is provided, by default it will use the internally stored data set. WARNING! this version of the amphibian taxonomy may be outdated
 #' @param Order limit search to a user-specified amphibian order
 #' @param Superfamily limit search to a user-specified amphibian superfamily
 #' @param Family limit search to a user-specified amphibian family
@@ -10,7 +10,7 @@
 #' @param Genus limit search to a user-specified amphibian genus
 #' @param Species limit search to a user-specified amphibian species
 #' @return returns a dataframe listing all species and their listed synonyms
-#' @details Users may experience issues with umlauts that are not supported by their system langauge. On Mac OSX, this can be changed by running the following line of code in R:
+#' @details Users may experience issues with umlauts that are not supported by their system language. On Mac OSX, this can be changed by running the following line of code in R:
 #'
 #' system("defaults write org.R-project.R force.LANG en_US.UTF-8")
 #'

@@ -2,10 +2,9 @@ amphweb                 AmphibiaWeb Taxonomy
 aswStats                Get summary statistics of current taxonomy
 asw_synonyms            Amphibian Species of the World synonyms
 asw_taxonomy            Amphibian Species of the World Taxonomy
-defrost                 Submit query to update nomenclautre according
-                        to the ASW taxonomy
+defrost                 Submit query to find updates in nomenclautre
 getSynonyms             Compile dataframe of all synonyms listed on
-                        Amphibia Species of the World
-getTaxonomy             Construct taxonomy used by Amphibian Species of
-                        the World
+                        Amphibian Species of the World
+getTaxonomy             Compile amphibian taxonomy following the
+                        Amphibian Species of the World
 synonymReport           Get summary report of "defrosted" query
