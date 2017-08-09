@@ -1,1 +1,2 @@
-vignettes/* linguist-vendored
+* linguist-vendored
+*.R linguist-vendored=false
