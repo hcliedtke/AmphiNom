@@ -88,7 +88,7 @@ defrost<-function(query, asw=defrostR::asw_synonyms, interactive=F, return.no.ma
 
   ##formate the output names the same way as the input names
   if(length(grep(query$query[1], pattern="_"))>0){
-    query$ASW_names<-gsub(query$ASW_names, pattern=" ", replacement="_")
+    query$ASW_names<-gsub(query$ASW_names, pattern="[[:alpha:]] [[:alpha:]]", replacement="_")
   }
 
   return(query)
