@@ -57,7 +57,7 @@ defrost<-function(query, asw=defrostR::asw_synonyms, interactive=F, return.no.ma
         query$status[i]<-"defrosted"
       }
       if(length(unique(asw$species[asw$stripped==query$stripped[i]]))>1){
-        n <- readline(prompt=cat("",as.character(query$query[i]),"can be matched with multiple species names. Choose one of the following by entering the line number in the console:","",unique(asw$species[asw$stripped==query$stripped[i]]), sep="\n"))
+        n <- readline(prompt=cat("",as.character(query$query[i]),"can be matched with multiple species names. Choose one of the following by entering the line number in the console:","",as.character(unique(asw$species[asw$stripped==query$stripped[i]])), sep="\n"))
         query$ASW_names[i]<-as.character(unique(asw$species[asw$stripped==query$stripped[i]])[as.integer(n)])
         query$status[i]<-"defrosted"
       }
