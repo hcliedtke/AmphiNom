@@ -87,9 +87,12 @@ defrost<-function(query, asw=defrostR::asw_synonyms, interactive=F, return.no.ma
   query$warnings[query$ASW_names %in% duplicates[!is.na(duplicates)]]<-"duplicated"
 
   ##formate the output names the same way as the input names
-  if(length(grep(query$query[1], pattern="_"))>0){
-    query$ASW_names<-gsub(query$ASW_names, pattern="[[:alpha:]] [[:alpha:]]", replacement="_")
+  for(i in 1:nrow(query)){
+    if(grepl(query$query[i], pattern="_")){
+      query$ASW_names[i]<-gsub(query$ASW_names[i], pattern="([[:alpha:]]) ([[:alpha:]])", replacement="\\1_\\2")
+    }
   }
 
   return(query)
 }
+
