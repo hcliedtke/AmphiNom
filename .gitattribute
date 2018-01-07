@@ -1,4 +1,4 @@
 vignettes/* linguist-vendored
 defrostR.Rcheck/* linguist-vendored
 man/* linguist-vendored
-inst/* linguist-vendored
+inst/doc/* linguist-vendored
