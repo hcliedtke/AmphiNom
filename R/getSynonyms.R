@@ -26,16 +26,18 @@
 
 getSynonyms<-function(asw_taxonomy=defrostR::asw_taxonomy, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA, Species=NA){
 
-  if(!is.na(Order)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$order==Order,]
-  if(!is.na(Superfamily)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$superfamily==Superfamily,]
-  if(!is.na(Family)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$family==Family,]
-  if(!is.na(Subfamily)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$subfamily==Subfamily,]
-  if(!is.na(Genus)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$genus==Genus,]
-  if(!is.na(Species)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$species==Species,]
+  if(!is.na(Order)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$order %in% Order,]
+  if(!is.na(Superfamily)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$superfamily %in% Superfamily,]
+  if(!is.na(Family)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$family %in% Family,]
+  if(!is.na(Subfamily)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$subfamily %in% Subfamily,]
+  if(!is.na(Genus)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$genus %in% Genus,]
+  if(!is.na(Species)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$species %in% gsub(Species, pattern="_", replacement = " "),]
 
+  if(nrow(asw_taxonomy)<1) print("No match found. Check spelling and make sure nested searches are compatible")
+  if(nrow(asw_taxonomy)<1) return()
 
-  asw_taxonomy<-as.data.frame(apply(X=asw_taxonomy, MARGIN=2, FUN=factor))
   asw_taxonomy<-asw_taxonomy[!is.na(asw_taxonomy$url),]
+  if(nrow(asw_taxonomy)>1) asw_taxonomy<-as.data.frame(apply(X=asw_taxonomy, MARGIN=2, FUN=factor))
 
 
   print("Looking up synonyms. If performing a full search, this could take a while...")
