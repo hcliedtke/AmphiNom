@@ -57,7 +57,7 @@ defrost<-function(query, asw=defrostR::asw_synonyms, interactive=F, return.no.ma
         query$status[i]<-"defrosted"
       }
       if(length(unique(asw$species[asw$stripped==query$stripped[i]]))>1){
-        n <- readline(prompt=cat("",as.character(query$query[i]),"can be matched with multiple species names. Choose one of the following by entering the line number in the console:","",unique(asw$species[asw$stripped==query$stripped[i]]), sep="\n"))
+        n <- readline(prompt=cat("",as.character(query$query[i]),"can be matched with multiple species names. Choose one of the following by entering the line number in the console:","",as.character(unique(asw$species[asw$stripped==query$stripped[i]])), sep="\n"))
         query$ASW_names[i]<-as.character(unique(asw$species[asw$stripped==query$stripped[i]])[as.integer(n)])
         query$status[i]<-"defrosted"
       }
@@ -87,9 +87,12 @@ defrost<-function(query, asw=defrostR::asw_synonyms, interactive=F, return.no.ma
   query$warnings[query$ASW_names %in% duplicates[!is.na(duplicates)]]<-"duplicated"
 
   ##formate the output names the same way as the input names
-  if(length(grep(query$query[1], pattern="_"))>0){
-    query$ASW_names<-gsub(query$ASW_names, pattern=" ", replacement="_")
+  for(i in 1:nrow(query)){
+    if(grepl(query$query[i], pattern="_")){
+      query$ASW_names[i]<-gsub(query$ASW_names[i], pattern="([[:alpha:]]) ([[:alpha:]])", replacement="\\1_\\2")
+    }
   }
 
   return(query)
 }
+

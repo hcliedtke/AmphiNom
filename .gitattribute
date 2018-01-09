@@ -1,0 +1,4 @@
+vignettes/* linguist-vendored
+defrostR.Rcheck/* linguist-vendored
+man/* linguist-vendored
+inst/doc/* linguist-vendored

@@ -1,7 +1,7 @@
 Package: defrostR
 Type: Package
 Title: A Tool for Standardizing Amphibian Taxonomy
-Version: 1.0.0
+Version: 1.0.1
 Date: 2017-08-05
 Author: H. Christoph Liedtke
 Maintainer: H. Christoph Liedtke <christoph.liedtke@ebd.csic.es>
