@@ -15,7 +15,7 @@
 searchASW<-function(query, asw_taxonomy=defrostR::asw_taxonomy){
 
   query<-gsub(query, pattern="_",replacement=" ")
-  sp.url<-asw_taxonomy$url[grep(query,asw_taxonomy$species,ignore.case=TRUE,value=F)]
+  sp.url<-as.character(asw_taxonomy$url[grep(query,asw_taxonomy$species,ignore.case=TRUE,value=F)])
 
   if(length(sp.url)==0){
     print("Oops. no species of that name found. Check spelling?")
