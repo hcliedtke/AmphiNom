@@ -844,7 +844,7 @@ div.tocify {
 <div id="lets-defrost-something" class="section level2">
 <h2>Lets defrost something!!!</h2>
 <p>Having now prepared the data-set of amphibian synonyms, the main objective of this package is to facilitate the unification of naming systems, i.e. matching a list of names to the synonym table and suggesting the currently advised nomenclature by Frost (ASW). As an example, lets look at how the names on <a href="http://amphibiaweb.org">Amphibia Web</a> differ to those on ASW. Their most current taxonomy can be found <a href="http://amphibiaweb.org/taxonomy/index.html">here</a>, and can be read into R directly like so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">amphweb_latest&lt;-<span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://amphibiaweb.org/amphib_names.txt&quot;</span>), <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">amphweb_latest&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;https://amphibiaweb.org/amphib_names.txt&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</code></pre></div>
 <p>For this tutorial however, we will use a version stored internally in defrostR as “amphweb” (again,might be out of date so be careful).</p>
 <div id="load-the-amphibia-web-taxonomy" class="section level4">
 <h4>load the amphibia web taxonomy:</h4>
