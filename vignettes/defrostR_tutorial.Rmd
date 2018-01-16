@@ -152,7 +152,7 @@ kable(summary(agalychnis_synonyms$species))
 Having now prepared the data-set of amphibian synonyms, the main objective of this package is to facilitate the unification of naming systems, i.e. matching a list of names to the synonym table and suggesting the currently advised nomenclature by Frost (ASW). As an example, lets look at how the names on [Amphibia Web](http://amphibiaweb.org) differ to those on ASW. Their most current taxonomy can be found [here](http://amphibiaweb.org/taxonomy/index.html), and can be read into R directly like so:
 
 ```{r message=FALSE, warning=FALSE}
-amphweb_latest<-read.csv("https://amphibiaweb.org/amphib_names.txt", sep="\t")
+amphweb_latest<-read.csv(url("https://amphibiaweb.org/amphib_names.txt"), sep="\t")
 ```
 
 For this tutorial however, we will use a version stored internally in defrostR as "amphweb" (again,might be out of date so be careful). 
