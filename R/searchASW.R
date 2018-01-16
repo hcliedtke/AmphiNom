@@ -33,7 +33,7 @@ searchASW<-function(query, asw_taxonomy=defrostR::asw_taxonomy){
   sp.info$author<-name[2]
 
   ##get taxonomic hierarchy
-  sp.info$taxonomy<-gsub(sp.url, pattern="http://research.amnh.org/vz/herpetology/amphibia/", replacement = "")
+  sp.info$taxonomy<-gsub(sp.url, pattern="https://research.amnh.org/vz/herpetology/amphibia/", replacement = "")
 
   ## get synonym info
   syn<-grep(html, pattern="<p>", value=T)[1]
