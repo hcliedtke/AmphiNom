@@ -53,7 +53,7 @@ kable(head(agalychnis_synonyms,n = 15))
 kable(summary(agalychnis_synonyms$species))
 
 ## ----message=FALSE, warning=FALSE-----------------------------------------------------------------
-amphweb_latest<-read.csv("https://amphibiaweb.org/amphib_names.txt", sep="\t")
+amphweb_latest<-read.csv(url("https://amphibiaweb.org/amphib_names.txt"), sep="\t")
 
 ## ----message=FALSE, warning=FALSE, eval=FALSE-----------------------------------------------------
 #  head(amphweb)
