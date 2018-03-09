@@ -1,8 +1,8 @@
-Package: defrostR
+Package: AmphiSync
 Type: Package
 Title: An Amphibian Systematics Tool
-Version: 1.1.0
-Date: 2018-01-11
+Version: 1.0.0
+Date: 2018-03-09
 Author: H. Christoph Liedtke
 Maintainer: H. Christoph Liedtke <christoph.liedtke@ebd.csic.es>
 Description: Provides a workflow for combining amphibian taxonomic data sets from different sources that use different taxonomic nomenclature, by suggesting the most current nomenclature used by the Amphibian Species of the World: an Online Reference, Frost (2017) <http://research.amnh.org/herpetology/amphibia/index.html> for a given input query of species names. It can also be used to extract specific systematic information (e.g. species downstream of a given taxonomic level).
@@ -13,5 +13,5 @@ License: GPL (>= 2.0)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
-URL: http://github.com/hcliedtke/defrostR
-BugReports: http://github.com/hcliedtke/defrostR/issues
+URL: http://github.com/hcliedtke/amphisync
+BugReports: http://github.com/hcliedtke/amphisync/issues
