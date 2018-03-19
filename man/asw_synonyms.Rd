@@ -17,6 +17,6 @@ dataset last updated on 12th July 2017
 \examples{
 head(asw_synonyms)
 str(asw_synonyms)
-asw_synonyms<-defrostR::asw_synonyms
+asw_synonyms<-AmphiNom::asw_synonyms
 }
 \keyword{datasets}

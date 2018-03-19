@@ -4,10 +4,10 @@
 \alias{synonymReport}
 \title{Get summary report of "defrosted" query}
 \usage{
-synonymReport(defrosted, verbose = F)
+synonymReport(query_info, verbose = F)
 }
 \arguments{
-\item{defrosted}{output of the function defrost()}
+\item{query_info}{output of the function aswSync()}
 
 \item{verbose}{logical arguments can be turned on to list species which result in conflict. Default=FALSE}
 }
@@ -15,7 +15,7 @@ synonymReport(defrosted, verbose = F)
 returns either a data frame or list of summary statitics
 }
 \description{
-This function produces a report of an undertaken defrost() query
+This function produces a report of an undertaken aswSync() query
 }
 \details{
 One logical arguments can be turned on to summarize in terms of numbers of cases, or to provide species names of conflicting issues.
@@ -24,7 +24,7 @@ One logical arguments can be turned on to summarize in terms of numbers of cases
 #check out amphibiaweb taxonomy and extract only Bufonidae
 head(amphweb$species)
 amphweb.bufonidae<-amphweb[amphweb$family=="Bufonidae",]
-#defrost bufonidae and inspect
-bufonidae.defrosted<-defrost(query=amphweb.bufonidae$species)
-synonymReport(bufonidae.defrosted)
+#query bufonidae against ASW database and inspect
+bufonidae.asw<-aswSync(query=amphweb.bufonidae$species)
+synonymReport(bufonidae.asw)
 }

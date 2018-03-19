@@ -17,6 +17,6 @@ dataset last updated on 12th July 2017
 \examples{
 head(asw_taxonomy)
 str(asw_taxonomy)
-asw_taxonomy<-defrostR::asw_taxonomy
+asw_taxonomy<-AmphiNom::asw_taxonomy
 }
 \keyword{datasets}

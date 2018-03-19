@@ -11,10 +11,10 @@
 #' @return this function returns a data frame with the following information/columns: original/input names, "stripped" names with no formatting, status of what action has been taken, updated names as recommended by the reference table
 #' @export
 #' @examples
-#' defrost(query=c("Bufo calamita", "Bufo viridis"))
+#' aswSync(query=c("Bufo calamita", "Bufo viridis"))
 
 
-defrost<-function(query, asw=defrostR::asw_synonyms, interactive=F, return.no.matches=F){
+aswSync<-function(query, asw=AmphiSync::asw_synonyms, interactive=F, return.no.matches=F){
 
 
   ### first step is to remove all formatting from both names and the frost database
@@ -39,7 +39,7 @@ defrost<-function(query, asw=defrostR::asw_synonyms, interactive=F, return.no.ma
     for(i in 1:nrow(query)){
       if(length(unique(asw$species[asw$stripped==query$stripped[i]]))==1){
         query$ASW_names[i]<-as.character((asw$species[asw$stripped==query$stripped[i]])[1])
-        query$status[i]<-"defrosted"
+        query$status[i]<-"updated"
       }
       if(length(unique(asw$species[asw$stripped==query$stripped[i]]))>1){
         query$status[i]<-"ambiguous"
@@ -54,12 +54,12 @@ defrost<-function(query, asw=defrostR::asw_synonyms, interactive=F, return.no.ma
     for(i in 1:nrow(query)){
       if(length(unique(asw$species[asw$stripped==query$stripped[i]]))==1){
         query$ASW_names[i]<-as.character((asw$species[asw$stripped==query$stripped[i]])[1])
-        query$status[i]<-"defrosted"
+        query$status[i]<-"updated"
       }
       if(length(unique(asw$species[asw$stripped==query$stripped[i]]))>1){
         n <- readline(prompt=cat("",as.character(query$query[i]),"can be matched with multiple species names. Choose one of the following by entering the line number in the console:","",as.character(unique(asw$species[asw$stripped==query$stripped[i]])), sep="\n"))
         query$ASW_names[i]<-as.character(unique(asw$species[asw$stripped==query$stripped[i]])[as.integer(n)])
-        query$status[i]<-"defrosted"
+        query$status[i]<-"updated"
       }
     }
   }

@@ -18,7 +18,7 @@
 #' @import stats
 #' @export
 
-aswStats<-function(asw_taxonomy=defrostR::asw_taxonomy,verbose=F, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA){
+aswStats<-function(asw_taxonomy=AmphiNom::asw_taxonomy,verbose=F, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA){
 
   if(!is.na(Order)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$order==Order,]
   if(!is.na(Superfamily)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$superfamily==Superfamily,]

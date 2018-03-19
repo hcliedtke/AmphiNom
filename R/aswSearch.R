@@ -8,17 +8,17 @@
 #' @export
 #' @import utils
 #' @examples
-#' searchASW("Pleurodeles waltl")
+#' aswSearch("Pleurodeles waltl")
 
 
 ###
-searchASW<-function(query, asw_taxonomy=defrostR::asw_taxonomy){
+aswSearch<-function(query, asw_taxonomy=AmphiNom::asw_taxonomy){
 
   query<-gsub(query, pattern="_",replacement=" ")
   sp.url<-as.character(asw_taxonomy$url[grep(query,asw_taxonomy$species,ignore.case=TRUE,value=F)])
 
   if(length(sp.url)==0){
-    print("Oops. no species of that name found. Check spelling?")
+    print("No species of that name found. Make sure that the binomial name is separated either by a space of an underscore, there are no spelling mistakes and that the currently accepted ASW name is used (synonym search not supported, use aswSync() instead).")
     return()}
 
   html<-readLines(sp.url)

@@ -24,7 +24,7 @@
 #' @export
 
 
-getSynonyms<-function(asw_taxonomy=defrostR::asw_taxonomy, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA, Species=NA){
+getSynonyms<-function(asw_taxonomy=AmphiNom::asw_taxonomy, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA, Species=NA){
 
   if(!is.na(Order)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$order %in% Order,]
   if(!is.na(Superfamily)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$superfamily %in% Superfamily,]

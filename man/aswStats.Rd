@@ -4,7 +4,7 @@
 \alias{aswStats}
 \title{Get summary statistics of current taxonomy}
 \usage{
-aswStats(asw_taxonomy = defrostR::asw_taxonomy, verbose = F, Order = NA,
+aswStats(asw_taxonomy = AmphiNom::asw_taxonomy, verbose = F, Order = NA,
   Superfamily = NA, Family = NA, Subfamily = NA, Genus = NA)
 }
 \arguments{

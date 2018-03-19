@@ -4,7 +4,7 @@
 \alias{getSynonyms}
 \title{Compile dataframe of all synonyms listed on Amphibian Species of the World}
 \usage{
-getSynonyms(asw_taxonomy = defrostR::asw_taxonomy, Order = NA,
+getSynonyms(asw_taxonomy = AmphiNom::asw_taxonomy, Order = NA,
   Superfamily = NA, Family = NA, Subfamily = NA, Genus = NA,
   Species = NA)
 }
