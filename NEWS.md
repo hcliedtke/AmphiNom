@@ -1,4 +1,4 @@
-## AmphiSync 1.0.0
+## AmphiNom 1.0.0
   + package name change
 
 ## defrostR 1.1.0
