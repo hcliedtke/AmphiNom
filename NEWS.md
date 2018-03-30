@@ -1,5 +1,5 @@
 ## AmphiNom 1.0.0
-  + package name change
+  + package name (API) change
 
 ## defrostR 1.1.0
   + includes new function: searchASW()

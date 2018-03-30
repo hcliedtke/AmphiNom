@@ -10,15 +10,15 @@ A detailed tutorial will be uploaded soon
 
 ## Package Installation
 
-You can install amphisync in R directly using devtools:
+You can install AmphiNom in R directly using devtools:
 
 library(devtools)
 
-install_github("hcliedtke/amphisync", build_vignettes = TRUE)
+install_github("hcliedtke/AmphiNom", build_vignettes = TRUE)
 
 (The installation may crash if your dependencies are not up to date.)
 
 ## Package citation
 
 H. Christoph Liedtke (2017). AmphiNom: A tool for keeping up with amphibian taxonomy. R package version 1.0.0.
-  http://github.com/hcliedtke/amphinom
+  http://github.com/hcliedtke/AmphiNom

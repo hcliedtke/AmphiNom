@@ -1,7 +1,6 @@
 ## Echo a message when loading the package
 .onAttach <- function(...) {
   packageStartupMessage("")
-  packageStartupMessage("## The ASW online reference is copyright protected. Accordingly, please cite: ##")
-  packageStartupMessage("Frost, Darrel R. <year>. Amphibian Species of the World: an online reference.  Version 6 (DATE OF ACCESS). Electronic Database accessible at http://research.amnh.org/herpetology/amphibia/index.html. American Museum of Natural History, New York, USA.")
+  packageStartupMessage("!!The ASW online reference is copyright protected. Any use of its product via AmphiNom requires that copyright and terms of use are adhered to. See: http://research.amnh.org/vz/herpetology/amphibia/Copyright-and-terms-of-use!!")
   packageStartupMessage("")
 }

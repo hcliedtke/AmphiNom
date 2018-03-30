@@ -6,7 +6,7 @@
 #' @usage asw_synonyms
 #' @format R dataset
 #' @keywords datasets
-#' @details dataset last updated on 12th July 2017
+#' @details dataset last updated on 2nd January 2018
 #' @examples
 #' head(asw_synonyms)
 #' str(asw_synonyms)

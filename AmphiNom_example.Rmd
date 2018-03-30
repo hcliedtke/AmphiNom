@@ -1,0 +1,241 @@
+---
+title: "Example of how to use AmphiNom to merge datasets"
+author: "H. Christoph Liedtke"
+date: "March, 2018"
+output: 
+  html_document:
+    self_contained: true
+    toc: True
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    depth: 4 
+    theme: united 
+    highlight: tango 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Introduction
+Retrieving and merging data on species of amphibians from different sources can be problematic if not the same nomenclature is used. As a first step, compiling data usually requires synchornizing the names used for species which can be tedious if datasets are large. This example introduces such a scenario and shows how AmphiNom can be implemented to derive at a taxonomy that is standardized across datasets.
+
+Do certain life history traits make amphibians more suscpetible to extinction? This is a question extensively addressed in a publication by Cooper et al. 2008, Global Ecol. Biogeogr.17, 211–221, and we can repeat a similar analysis by using the IUCN risk categories as a proxy for species health and the life history characters - body size, egg diameter and clutch size published in Gomez-Mestre et al. 2012, Evolution 66(12):3687-3700. The nomenclature used in Gomez-Mestre is not the same as that used by IUCN however and so the naming of units in these datasets must be inspected first before they can be merged. 
+
+## Prepare environment and load data sets
+
+Load libraries needed for this example
+
+```{r, message=FALSE, warning=FALSE, results='hide'}
+library(AmphiNom) # if not yet installed follow the instructions here: https://github.com/hcliedtke/AmphiNom
+library(phytools)
+```
+
+Set working directory
+
+```{r, eval=F}
+setwd("~/") # set as needed
+```
+
+```{r, echo=F}
+setwd("~/Documents/AmphiNom_project/manuscript/syst_biodiv/revised/gomezmestre_example/")
+```
+
+Load necessary data
+```{r}
+# Life history dataset and phylogeny from Gomez-Mestre et al. 2012 Evolution
+gm.dat<-read.csv("gomezmestre_data.csv", header=T) # available as supplementary information from original publication
+gm.tree<-read.nexus("gomezmestre_tree.tree")# available upon request from the authors
+
+# Load IUCN data. This particular dataset is a .csv export from a search results for Anura on the IUCN website. Creation of user account is required to be able to export this kind of search result.
+iucn.dat<-read.csv("iucn_anura.csv", header=T)
+iucn.dat$binomial<-paste(iucn.dat$Genus, iucn.dat$Species) # make a column with binomial names
+```
+
+As is, if we try to match up the two datasets, we find that 87 species in the Gomez-Mestre dataset are not found in the IUCN dataset:
+```{r}
+# how many Gomez-Mestre names are not in the IUCN dataset?
+length(which(!gm.dat$Species %in% iucn.dat$binomial))
+```
+At this point it is also important to point out that for the example below, we will use the internally stored asw_taxonomy and asw_synonyms datasets. These were last updated in January 2018 and may therefore not be current. To construct the must current datasets, use the getTaxonomy() and getSynonyms() functions.
+
+## Inspect Gomez-Mestre dataset
+
+Check names in dataset match names in tree
+```{r}
+all(gm.tree$tip.label==gsub(gm.dat$Species, pattern=" ", replacement = "_")) # gsub() is used to insert underscores in binomial names (the format used in the tree)
+```
+
+
+Screen names to see how well they match up to ASW and what can be 'updated' seamlessly
+
+```{r}
+gm.asw<-aswSync(gm.dat$Species)
+synonymReport(gm.asw)
+```
+
+This report shows that of the 470 names, 367 are still 'current' according to ASW and although a further 96 are not, AmphiNom could find the corresponding ASW species. This means that ASW had the names listed as synonyms for only a single species. We can inspect the names that were updated like so:
+```{r}
+gm.asw[gm.asw$status=="updated",c("query","ASW_names")]
+```
+
+### Handle problematic names
+Instead of checking all 470 names manually, AmphiNom has checked 463 for us already, leaving only 7 species that need a closer look. There are three situations for which AmphiNom needs careful input from the user, detailed below.
+
+####a) Names not found
+The report above shows that two names in the Gomez-Mestre dataset were not found on ASW. These need to be checked mannually. It appears that one name, "Calyptocephallela gayi", contains a spelling mistake and another name, "Trachycephalus typhonius", is not explicitly listed as a valid synonym on ASW, but extensively referenced to under the account for T. typhonius and this issue can also be easily resolved by searching for "Trachycephalus venulosus" on the ASW website.
+
+```{r}
+#list the names not found
+synonymReport(gm.asw, verbose = T)$names_not_found
+#manually insert the correct names
+gm.asw$ASW_names[gm.asw$query=="Calyptocephallela gayi"]<-"Calyptocephalella gayi" #simple spelling mistake
+gm.asw$ASW_names[gm.asw$query=="Trachycephalus venulosus"]<-"Trachycephalus typhonius" # T. venulosus is a junior synonym of T. typhonius according to Lavilla et al. 2010, Zootaxa, 2671:17-30.
+```
+
+####b) Ambiguous names
+Five more names were flagged as "ambiguous". These are cases where a name in the query dataset is listed as a synonym for more than one species on ASW. A decision is required about which species is referred to.
+```{r}
+# list ambiguities (both queries and suggested names)
+synonymReport(gm.asw, verbose = T)$ambiguities
+# we can update these names manually like so:
+gm.asw$ASW_names[gm.asw$query=="Bufo granulosus"]<-"Rhinella granulosa" # decision based on phylogenetic positions
+gm.asw$ASW_names[gm.asw$query=="Hypsiboas boans"]<-"Boana boans" # H. albocunctatus is already in the dataset
+gm.asw$ASW_names[gm.asw$query=="Kassina maculata"]<-"Phlyctimantis maculatus" # decision based on phylogenetic positions
+gm.asw$ASW_names[gm.asw$query=="Rana pipiens"]<-"Lithobates pipiens" # L. catesbeiana already in dataset
+gm.asw$ASW_names[gm.asw$query=="Rhacophorus arboreus"]<-"Rhacophorus arboreus" # based on phylogenetic position
+```
+
+####c) Duplicates
+The final check that AmphiNom performs is to make sure that the resulting list of ASW_names does not contain any duplicates. There may be datasets where this is expected (e.g. datasets with more than a single representative per species), but otherwise, this is an indication that the name updating by AmphiNom has resulted in more than one query being assigned to the same name. This may be the case if the query contains two or more species that have since been collapsed/synonymized under a single name.
+
+In this particular case, no duplicate names were found in the resulting ASW_names suggestions. However, as we have inserted names manually to correct for missing names and ambiguities, it is wise to check again that there are no duplicates.
+```{r}
+any(duplicated(gm.asw$ASW_names))
+```
+
+We now have a list of "ASW_names" for the Gomez-Mestre dataset. The idea is that this list of names is now a standardized naming system that we can apply to all other datasets to merge them for downstream analysis.
+
+## Inspect IUCN dataset
+
+The IUCN data are a good example to work with here, because it adheres to the ASW taxonomy and it also contains a list of reasonable synonyms per species. That said, running AmphiNom on it, shows quite a number of discrepancies.
+
+```{r}
+iucn.asw<-aswSync(iucn.dat$binomial)
+synonymReport(iucn.asw)
+```
+
+The discordance with the ASW names is in part because the ASW is updated more frequently than the IUCN. For example, the genus "Ranoidea" used in ASW is not used by the IUCN, where Cyclorana and Litoria are used instead. Interesting also is the large number of duplications, which appear to be the result of IUCN providing information for a number of sub-species that are not treated as species by ASW. For example, Bufo gargarizans as recognized by ASW is represented by six IUCN accounts, B. andrewsi, B. gargarizans, B. kabischi, B. minshanicus, B. tibetanus and B. wolongensis.
+
+
+If we were to use the whole dataset, names not found, ambiguities and diplicates should be addressed as above, but as we are not interested in all ~6000 anurans for this particular example, instead of 'updating' all the IUCN names to ASW names, we can try to reduce the dataset first.
+
+```{r}
+# how many Gomez-Mestre names are not in the IUCN dataset?
+length(which(!gm.dat$Species %in% iucn.dat$binomial))
+# how many Gomez-Mestre names 'updatade' to ASW names are not in the IUCN dataset?
+length(which(!gm.asw$ASW_names %in% iucn.dat$binomial))
+# how many Gomez-Mestre names 'updatade' to ASW names are not in the IUCN dataset 'updated' to ASW names?
+length(which(!gm.asw$ASW_names %in% iucn.asw$ASW_names))
+
+```
+Without AmphiNom, 87 species in the Gomez-Mestre dataset need to be checked manually, which can be reduced to only 4 species when applying the AmphiNom translation to both. These are:
+
+```{r}
+gm.asw$ASW_names[!gm.asw$ASW_names %in% iucn.asw$ASW_names]
+```
+
+We can focus on resolving naming issues for only these four. As mentioned above, the IUCN data also include reasonable synonyms. As the Gomez-Mestre dataset is relatively recent, there are high chances we can find these four names in the list of synonyms, but the genus "Boana" for example has relatively recently been accepted by ASW and so is not listed.
+
+The AmphiNom approach would be the following. Instead of looking for only the ASW suggested names in the IUCN dataset, we will look for all synonyms for those four names (i.e. essentially doing the reserve process that AmphiNom would usually do). The returned names are the names that are used in the IUCN dataset for each case and we can then update them accordingly.
+
+```{r}
+asw_synonyms$synonyms[asw_synonyms$species=="Cornufer guentheri"][asw_synonyms$synonyms[asw_synonyms$species=="Cornufer guentheri"] %in% iucn.dat$binomial]
+iucn.asw$ASW_names[iucn.asw$query=="Cornufer guentheri"]<-"Cornufer guentheri"
+
+asw_synonyms$synonyms[asw_synonyms$species=="Boana boans"][asw_synonyms$synonyms[asw_synonyms$species=="Boana boans"] %in% iucn.dat$binomial]
+iucn.asw$ASW_names[iucn.asw$query=="Hypsiboas boans"]<-"Boana boans"
+
+asw_synonyms$synonyms[asw_synonyms$species=="Phlyctimantis maculatus"][asw_synonyms$synonyms[asw_synonyms$species=="Phlyctimantis maculatus"] %in% iucn.dat$binomial]
+iucn.asw$ASW_names[iucn.asw$query=="Kassina maculata"]<-"Phlyctimantis maculatus"
+
+asw_synonyms$synonyms[asw_synonyms$species=="Rhacophorus arboreus"][asw_synonyms$synonyms[asw_synonyms$species=="Rhacophorus arboreus"] %in% iucn.dat$binomial]
+iucn.asw$ASW_names[iucn.asw$query=="Rhacophorus arboreus"]<-"Rhacophorus arboreus"
+
+```
+
+
+Lets check again whether all the names now match:
+
+```{r}
+all(gm.asw$ASW_names %in% iucn.asw$ASW_names)
+```
+
+We can now keep only the IUCN information for the species in the Gomez-Mestre dataset. But we still have to check whether or not there are duplicates that have been introduced due to the AmphiNom action.
+
+```{r}
+iucn.dat$ASW_names<-iucn.asw$ASW_names #include an additional column of ASW names to the original IUCN dataset
+iucn.gm<-iucn.dat[iucn.dat$ASW_names %in% gm.asw$ASW_names,] #make a new IUCN dataset that contains only Gomez-Mestre species
+iucn.gm[duplicated(iucn.gm$ASW_names, fromLast = T) | duplicated(iucn.gm$ASW_names),c("binomial","ASW_names")] #check which names are listed in this new dataset more than once. We include the duplicated (with boleen |) function twice to also include the first term of the duplicated set.
+```
+By looking at these duplicates, it is apparent that the IUCN recognizes several subspecies that ASW does not (or at least did not at the time the internal dataset used for this example was generated). At this stage, it is crucial that the researcher make a clear decision on how to deal with such cases. As this is only an example to show how one could use AmphiNom to facilitate dataset-merging, we will proceed by simply omitting subspecies.
+
+```{r}
+iucn.gm<-iucn.gm[!((duplicated(iucn.gm$ASW_names, fromLast = T) | duplicated(iucn.gm$ASW_names)) & iucn.gm$ASW_names!=iucn.gm$binomial),]
+#check again to see if the names now match across the two datasets
+all(iucn.gm$ASW_names %in% gm.asw$ASW_names)
+
+```
+
+The two datasets now match and we can supplement the Gomez-Mestre dataset with the Red List status
+
+```{r}
+gm.dat$ASW_names<-gm.asw$ASW_names # add ASW names to the Gomez-Mestre dataset
+
+iucn.gm<-iucn.gm[match(gm.asw$ASW_names, iucn.gm$ASW_names),] # re-order the IUCN dataset to match the order of the Gomez-Mestre datasets
+all(iucn.gm$ASW_names==gm.asw$ASW_names) # make sure they really match
+
+gm.dat$IUCN<-iucn.gm$Red.List.status #add the IUCN Red List status data to the Gomez-Mestre dataset
+gm.dat$IUCN<-factor(gm.dat$IUCN) #update factors
+head(gm.dat, 15) #shows the first couple of entries of our working dataset
+```
+
+
+
+## Mapping traits
+
+We have now combined the two data sets and can start to explore the data, such as whether any of the three life history traits (body size, egg size or clutch size) is correlated with a specific conservation risk status:
+
+```{r}
+summary(gm.dat$IUCN) #number of species per IUCN category
+# as EX and DD have very few individuals, we will drop these from the analysis for this example:
+gm.dat<-gm.dat[gm.dat$IUCN!="EX" & gm.dat$IUCN!="DD",]
+gm.dat$IUCN<-factor(gm.dat$IUCN) # reset levels
+gm.dat$IUCN= factor(gm.dat$IUCN,c("LC","NT","VU","EN","CR")) #re-order factors in increasing risk category (to order the plot in this way)
+
+# plot:
+boxplot(gm.dat$SVL~gm.dat$IUCN, lty=1, col="grey90", las=1, pch=20, frame=F,log="y", ylim=c(10,250), ylab="Body Size")
+boxplot(gm.dat$Egg~gm.dat$IUCN, lty=1, col="grey90", las=1, pch=20, frame=F,log="y", ylim=c(0.2,10), ylab="Egg Size")
+boxplot(gm.dat$Clutch~gm.dat$IUCN, lty=1, col="grey90", las=1, pch=20, frame=F, log="y", ylim=c(1,100000), ylab="Clutch Size")
+```
+
+## Testing differences
+
+Using the phylogeny provided by Gomez-Mestre (adpapted from that of Pyron and Wiens 2011, MPE 61(2):543-583), we can test differences in life history traits across IUCN risk categories using a phylogenetic ANOVA (phytools package).
+
+```{r, warnings=F}
+#adjust phylogeny to match dataset
+gm.tree<-drop.tip(gm.tree, gm.tree$tip.label[!gm.tree$tip.label %in% gsub(gm.dat$Species, pattern = " ", replacement = "_")])
+all(gm.tree$tip.label==gsub(gm.dat$Species, pattern = " ", replacement = "_"))# check rownames match
+
+## BODY SIZE
+phylANOVA(tree = gm.tree, x = gm.dat$IUCN, y=log10(gm.dat$SVL))
+## EGG SIZE
+phylANOVA(tree = gm.tree, x = gm.dat$IUCN, y=log10(gm.dat$Egg))
+## CLUTCH SIZE
+phylANOVA(tree = gm.tree, x = gm.dat$IUCN, y=log10(gm.dat$Clutch))
+```
+
+Interestingly enough, this analysis suggests that although there is no trend in body size across IUCN risk categories and only one significant pair-wise difference in egg size (endangered species have larger eggs than least concern species), species which are listed under greater threat categories (endangered, EN and critically endangered, CR) have significantly smaller clutch sizes than species ranked under lesser threat categories (least concern, LC and near threatened, NT). The result that low fecundity species are at greater extinction risk conforms to the results of Cooper et al. 2008, but their more inclusive study stressed that this link may not be direct and rather geographic range size is a more important ecological variable determining extinction risk. 

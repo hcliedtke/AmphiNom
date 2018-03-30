@@ -4,7 +4,7 @@
 \alias{aswSync}
 \title{Submit query to find updates in nomenclautre}
 \usage{
-aswSync(query, asw = AmphiSync::asw_synonyms, interactive = F,
+aswSync(query, asw = AmphiNom::asw_synonyms, interactive = F,
   return.no.matches = F)
 }
 \arguments{

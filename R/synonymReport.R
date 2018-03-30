@@ -1,4 +1,4 @@
-#' Get summary report of "defrosted" query
+#' Get summary report of "synced" query
 #'
 #' This function produces a report of an undertaken aswSync() query
 #'
@@ -23,7 +23,7 @@ synonymReport<-function(query_info, verbose=F){
 
   if(verbose==F){
     out<-data.frame(row.names=c("queries","names_up_to_date","names_successfully_updated","names_not_found","ambiguities","duplicates_produced"), number_of_units=c(
-      nrow(defrosted),
+      nrow(query_info),
       length(which(query_info$status=="up_to_date")),
       length(which(query_info$status=="updated")),
       length(which(query_info$status=="name_not_found")),

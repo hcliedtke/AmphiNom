@@ -2,7 +2,7 @@
 % Please edit documentation in R/synonymReport.R
 \name{synonymReport}
 \alias{synonymReport}
-\title{Get summary report of "defrosted" query}
+\title{Get summary report of "synced" query}
 \usage{
 synonymReport(query_info, verbose = F)
 }

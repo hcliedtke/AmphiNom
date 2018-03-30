@@ -14,7 +14,7 @@
 #' aswSync(query=c("Bufo calamita", "Bufo viridis"))
 
 
-aswSync<-function(query, asw=AmphiSync::asw_synonyms, interactive=F, return.no.matches=F){
+aswSync<-function(query, asw=AmphiNom::asw_synonyms, interactive=F, return.no.matches=F){
 
 
   ### first step is to remove all formatting from both names and the frost database
@@ -92,6 +92,8 @@ aswSync<-function(query, asw=AmphiSync::asw_synonyms, interactive=F, return.no.m
       query$ASW_names[i]<-gsub(query$ASW_names[i], pattern="([[:alpha:]]) ([[:alpha:]])", replacement="\\1_\\2")
     }
   }
+
+  query$query<-as.character(query$query)
 
   return(query)
 }

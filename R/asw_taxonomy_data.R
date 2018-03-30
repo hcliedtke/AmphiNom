@@ -6,7 +6,7 @@
 #' @usage asw_taxonomy
 #' @format R dataset
 #' @keywords datasets
-#' @details dataset last updated on 12th July 2017
+#' @details dataset last updated on 2nd January 2018
 #' @examples
 #' head(asw_taxonomy)
 #' str(asw_taxonomy)
