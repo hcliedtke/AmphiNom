@@ -19,5 +19,5 @@ install_github("hcliedtke/AmphiNom", build_vignettes = TRUE)
 
 ## Package citation
 
-H. Christoph Liedtke (2017). AmphiNom: A tool for keeping up with amphibian taxonomy. R package version 1.0.0.
+H. Christoph Liedtke (2018). AmphiNom: A tool for keeping up with amphibian taxonomy. R package version 1.0.0.
   http://github.com/hcliedtke/AmphiNom
