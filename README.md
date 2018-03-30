@@ -4,7 +4,7 @@ This package is designed to simplify the workflow of combining amphibian data se
 
 This package could also be useful for easily updating museum catalogs etc., and includes functions for producing summary statistics on species numbers at various taxonomic levels, or to update species names in manuscripts etc. after a taxonomic group has received nomenclature revisions.
 
-Good places to start learning more about AmphiNom are this [Tutorial](http://htmlpreview.github.io/?https://github.com/hcliedtke/AmphiNom/blob/master/vignettes/AmphiNom_tutorial.html) and this worked [Example](http://htmlpreview.github.io/?https://github.com/hcliedtke/AmphiNom/blob/master/vignettes/AmphinNom_example.html).
+Good places to start learning more about AmphiNom are this [Tutorial](http://htmlpreview.github.io/?https://github.com/hcliedtke/AmphiNom/blob/master/vignettes/AmphiNom_tutorial.html){:target="_blank"} and this worked [Example](http://htmlpreview.github.io/?https://github.com/hcliedtke/AmphiNom/blob/master/vignettes/AmphinNom_example.html){:target="_blank"}.
 
 
 ## Package Installation
