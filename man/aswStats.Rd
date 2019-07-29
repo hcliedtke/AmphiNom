@@ -4,8 +4,9 @@
 \alias{aswStats}
 \title{Get summary statistics of current taxonomy}
 \usage{
-aswStats(asw_taxonomy = AmphiNom::asw_taxonomy, verbose = F, Order = NA,
-  Superfamily = NA, Family = NA, Subfamily = NA, Genus = NA)
+aswStats(asw_taxonomy = AmphiNom::asw_taxonomy, verbose = F,
+  Order = NA, Superfamily = NA, Family = NA, Subfamily = NA,
+  Genus = NA)
 }
 \arguments{
 \item{asw_taxonomy}{output of the function frostScraper() default will take defrostR's stored version, which might be outdated}
