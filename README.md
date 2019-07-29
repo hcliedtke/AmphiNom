@@ -20,4 +20,7 @@ install_github("hcliedtke/AmphiNom", build_vignettes = TRUE)
 ## Package citation
 
 H. Christoph Liedtke (2019). AmphiNom: an amphibian systematics tool. Systematics and Biodiversity (17)1:1-6
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1fba5b2b9cde499f22a456db8e5304838ae2c78c
