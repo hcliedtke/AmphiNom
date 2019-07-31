@@ -11,9 +11,11 @@ Good places to start learning more about AmphiNom are this [Tutorial](https://cd
 
 You can install AmphiNom in R directly using devtools:
 
+```{r}
 library(devtools)
-
 install_github("hcliedtke/AmphiNom", build_vignettes = TRUE)
+library(AmphiNom)
+```
 
 (The installation may crash if your dependencies are not up to date.)
 

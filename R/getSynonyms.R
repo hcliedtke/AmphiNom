@@ -45,14 +45,22 @@ getSynonyms<-function(asw_taxonomy=AmphiNom::asw_taxonomy, Order=NA, Superfamily
   pb<- txtProgressBar(max=nrow(asw_taxonomy),style=3)
   for(i in 1:nrow(asw_taxonomy)){
     #get url and parse to document
-    html.doc <- htmlParse(asw_taxonomy$url[i],useInternalNodes = T, encoding="UTF-8")
+    html<-readLines(as.character(asw_taxonomy$url[i]))
 
-    #extract synonym div class, convert to list and extract all the names in bold
-    synon<-xpathSApply(doc=html.doc,path="//*/div[@class='synonymy']")[[1]]
-    synon.list<-xmlToList(synon)
-    synon.names<-sapply(synon.list, '[', 'b') #check first level
-    synon.names<-c(synon.names, sapply(synon.list$p, '[', 'b')) #check second level
-    synon.names<-grep(x=unlist(synon.names, use.names=F), pattern="[[:alpha:]]", value = T)
+    #extract first paragraph (containing synonyms) and capture species names, based on the pattern that they occur before a
+    #website link and is printed in bold (<b></b>)
+    syn<-grep(html, pattern="<p>", value=T)[1]
+    syn<-unlist(strsplit(syn, split ="<p>"))
+    syn<-syn[grep(syn, pattern="<b>")] # keep only elements with a bold word in it
+    syn<-gsub(syn, pattern="<a href=.*",replacement = "")
+    syn<-gsub(syn, pattern="</b>.*", replacement = "")
+    junk<-'<.*?>| |&nbsp;|\\s+'
+    syn<-gsub(syn, pattern=junk, replacement = " ")
+    syn<-gsub(syn, pattern="&quot;", replacement="'")
+    syn<-gsub(syn, pattern="[^[:alnum:]]+$", replacement = " ")
+    syn<-gsub(syn, pattern="^\\s+|\\s+$", replacement = "")
+    syn<-gsub(syn, pattern="\\s+", replacement=" ")
+    synon.names<-syn[syn!=""]
 
 
 
@@ -90,9 +98,6 @@ getSynonyms<-function(asw_taxonomy=AmphiNom::asw_taxonomy, Order=NA, Superfamily
 
     ##populate:
     asw.syn.tab<-c(asw.syn.tab, synon.names)
-
-    #free html
-    free(html.doc)
 
     # counter:
     setTxtProgressBar(pb,i)

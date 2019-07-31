@@ -6,7 +6,7 @@ Date: 2019-07-29
 Author: H. Christoph Liedtke
 Maintainer: H. Christoph Liedtke <christoph.liedtke@ebd.csic.es>
 Description: Provides a workflow for combining amphibian taxonomic data sets from different sources that use different taxonomic nomenclature, by suggesting the most current nomenclature used by the Amphibian Species of the World: an Online Reference, Frost (2017) <http://research.amnh.org/herpetology/amphibia/index.html> (Amphibian Species of the World: an online reference.  Version 6 (DATE OF ACCESS). Electronic Database accessible at http://research.amnh.org/herpetology/amphibia/index.html. American Museum of Natural History, New York, USA. ) for a given input query of species names. It can also be used to extract specific systematic information (e.g. species downstream of a given taxonomic level).
-Depends: R (>= 3.0.1), XML
+Depends: R (>= 3.5.0), XML
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 License: GPL (>= 2.0)
