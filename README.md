@@ -6,6 +6,8 @@ This package could also be useful for easily updating museum catalogs etc., and 
 
 Good places to start learning more about AmphiNom are this [Tutorial](https://cdn.rawgit.com/hcliedtke/AmphiNom/df576f91/vignettes/AmphiNom_tutorial.html) and this worked [Example](https://cdn.rawgit.com/hcliedtke/AmphiNom/df576f91/vignettes/AmphinNom_example.html).
 
+This schametic is intended to outline how to use the functions of this package:
+![](./schametic.png)
 
 ## Package Installation
 
