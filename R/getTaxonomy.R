@@ -21,7 +21,7 @@ getTaxonomy<-function(){
     pb<- txtProgressBar(max=length(url.stem),style=3)
     for(i in 1:length(url.stem)){
       if(!grepl(x=url.stem[i],pattern="-")){
-        l<-readLines(paste("http://research.amnh.org/vz/herpetology/amphibia/index.php//Amphibia/",url.stem[i],sep = ""))
+        l<-readLines(paste("http://research.amnh.org/vz/herpetology/amphibia/index.php/Amphibia/",url.stem[i],sep = ""))
         l1<-grep(l, pattern=url.stem[i], value=T)
         pat<-paste('.*', url.stem[i],'/(.*)\">.*', sep="")
         temp[[i]]<-gsub(pattern = pat, "\\1", x = l1)
