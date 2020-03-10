@@ -4,8 +4,12 @@
 \alias{aswSync}
 \title{Submit query to find updates in nomenclautre}
 \usage{
-aswSync(query, asw = AmphiNom::asw_synonyms, interactive = F,
-  return.no.matches = F)
+aswSync(
+  query,
+  asw = AmphiNom::asw_synonyms,
+  interactive = F,
+  return.no.matches = F
+)
 }
 \arguments{
 \item{query}{vector of taxon names to be processed (can also be tip labels of a phylogeny for example)}

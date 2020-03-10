@@ -4,9 +4,15 @@
 \alias{getSynonyms}
 \title{Compile dataframe of all synonyms listed on Amphibian Species of the World}
 \usage{
-getSynonyms(asw_taxonomy = AmphiNom::asw_taxonomy, Order = NA,
-  Superfamily = NA, Family = NA, Subfamily = NA, Genus = NA,
-  Species = NA)
+getSynonyms(
+  asw_taxonomy = AmphiNom::asw_taxonomy,
+  Order = NA,
+  Superfamily = NA,
+  Family = NA,
+  Subfamily = NA,
+  Genus = NA,
+  Species = NA
+)
 }
 \arguments{
 \item{asw_taxonomy}{the ASW taxonomy table obtained with getTaxonomy(). If no table is provided, by default it will use the internally stored data set. WARNING! this version of the amphibian taxonomy may be outdated}
