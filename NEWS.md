@@ -1,4 +1,5 @@
 ## AmphiNom 1.0.1
+  + updated base url (10th March 2020)
   + internal datasets updated (29th July 2019)
   
 ## AmphiNom 1.0.0
