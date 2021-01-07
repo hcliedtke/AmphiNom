@@ -9,9 +9,14 @@ output:
     toc_float:
       collapsed: false
       smooth_scroll: false
-    depth: 4  # upto three depths of headings (specified by #, ##, ### etc.)
-    theme: united  # many options for theme, this one is my favorite.
-    highlight: tango  # specifies the syntax highlighting style
+    depth: 4  
+    theme: united  
+    highlight: tango  
+  pdf_document:
+    highlight: tango
+    number_sections: yes
+    toc: yes
+    toc_depth: 4 
 vignette: >
   %\VignetteIndexEntry{How to use AmphiNom for combining amphibia datasets}
   %\VignetteEngine{knitr::rmarkdown}
@@ -139,11 +144,11 @@ The output is a table with two columns listing species names and all available s
 #### how many synonyms per species are there?
 
 ```{r message=FALSE, warning=FALSE, eval=FALSE}
-summary(agalychnis_synonyms$species)
+table(agalychnis_synonyms$species)
 ```
 
 ```{r echo=F, message=FALSE, warning=FALSE}
-kable(summary(agalychnis_synonyms$species))
+kable(table(agalychnis_synonyms$species), col.names = c("Species","Number of associated names"))
 ```
 
 

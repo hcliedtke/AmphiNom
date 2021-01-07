@@ -1,0 +1,10 @@
+citHeader("To cite package 'AmphiNom' in publications use:")
+
+citEntry(entry = "Article",
+  author = personList(as.person("H. Christoph Liedtke")),
+  title = "AmphiNom: an amphibian systematics tool",
+  year = 2019,
+  journal = "Systematics and Biodiversity",
+  volume = "17",
+  pages = "1-6",
+  textVersion = paste("H. Christoph Liedtke (2019). AmphiNom: an amphibian systematics tool. Systematics and Biodiversity (17)1:1-6"))

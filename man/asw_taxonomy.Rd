@@ -4,7 +4,9 @@
 \name{asw_taxonomy}
 \alias{asw_taxonomy}
 \title{Amphibian Species of the World Taxonomy}
-\format{R dataset}
+\format{
+R dataset
+}
 \usage{
 asw_taxonomy
 }

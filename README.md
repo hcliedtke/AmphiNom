@@ -4,7 +4,7 @@ This package is designed to simplify the workflow of combining amphibian data se
 
 This package could also be useful for easily updating museum catalogs etc., and includes functions for producing summary statistics on species numbers at various taxonomic levels, or to update species names in manuscripts etc. after a taxonomic group has received nomenclature revisions.
 
-Good places to start learning more about AmphiNom are this [Tutorial](https://cdn.rawgit.com/hcliedtke/AmphiNom/df576f91/vignettes/AmphiNom_tutorial.html) and this worked [Example](https://cdn.rawgit.com/hcliedtke/AmphiNom/df576f91/vignettes/AmphinNom_example.html).
+Good places to start learning more about AmphiNom are this [Tutorial](https://cdn.rawgit.com/hcliedtke/AmphiNom/df576f91/vignettes/AmphiNom_tutorial.html) and this worked [Example](https://figshare.com/articles/dataset/AmphiNom_an_amphibian_systematics_tool/7235297).
 
 This schametic is intended to outline how to use the functions of this package:
 ![](schematic.png)

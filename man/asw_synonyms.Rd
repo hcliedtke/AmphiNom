@@ -4,7 +4,9 @@
 \name{asw_synonyms}
 \alias{asw_synonyms}
 \title{Amphibian Species of the World synonyms}
-\format{R dataset}
+\format{
+R dataset
+}
 \usage{
 asw_synonyms
 }

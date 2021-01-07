@@ -4,7 +4,9 @@
 \name{amphweb}
 \alias{amphweb}
 \title{AmphibiaWeb Taxonomy}
-\format{R dataset}
+\format{
+R dataset
+}
 \usage{
 amphweb
 }

@@ -8,4 +8,6 @@
 ^\.\.Rcheck$
 .git
 ^revdep$
-
+^data_archive$
+^schematic.png$
+^update_internal_datasets.R$
