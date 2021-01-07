@@ -3,5 +3,4 @@
 .RData
 .Ruserdata
 revdep/.cache.rds
-data_archive/
 update_internal_datasets.R
