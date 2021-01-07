@@ -21,6 +21,10 @@ library(AmphiNom)
 
 (The installation may crash if your dependencies are not up to date.)
 
+## Internal datasets
+
+Last updated on 7th January 2021
+
 ## Package citation
 
 H. Christoph Liedtke (2019). AmphiNom: an amphibian systematics tool. Systematics and Biodiversity (17)1:1-6
