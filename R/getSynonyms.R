@@ -44,6 +44,10 @@ getSynonyms<-function(asw_taxonomy=AmphiNom::asw_taxonomy, Order=NA, Superfamily
   asw.syn.tab<-c()
   pb<- txtProgressBar(max=nrow(asw_taxonomy),style=3)
   for(i in 1:nrow(asw_taxonomy)){
+
+    #add random sleep time
+    Sys.sleep(runif(1, min = 0.1, max = 1)) # random sleep time
+
     #get url and parse to document
     html<-readLines(as.character(asw_taxonomy$url[i]))
 

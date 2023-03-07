@@ -21,7 +21,10 @@ getTaxonomy<-function(){
     pb<- txtProgressBar(max=length(url.stem),style=3)
     for(i in 1:length(url.stem)){
       if(!grepl(x=url.stem[i],pattern="-")){
-        l<-readLines(paste("http://research.amnh.org/vz/herpetology/amphibia/index.php/Amphibia/",url.stem[i],sep = ""))
+        #add random sleep time
+        Sys.sleep(runif(1, min = 0.1, max = 1))
+        #send request
+        l <- readLines(paste("https://amphibiansoftheworld.amnh.org/Amphibia/", url.stem[i], sep = ""))
         l1<-grep(l, pattern=url.stem[i], value=T)
         pat<-paste('.*', url.stem[i],'/(.*)\">.*', sep="")
         temp[[i]]<-gsub(pattern = pat, "\\1", x = l1)
@@ -66,7 +69,7 @@ getTaxonomy<-function(){
       tmp.tbl$family[i]<-ifelse(length(grep(split.stem[[i]], pattern="idae", value=F))==0, NA, grep(split.stem[[i]], pattern="idae", value=T))
       tmp.tbl$subfamily[i]<-ifelse(length(grep(split.stem[[i]][-length(split.stem[[i]])], pattern="inae", value=F))==0, NA, grep(split.stem[[i]][-length(split.stem[[i]])], pattern="inae", value=T))
       tmp.tbl$species[i]<-sub(x = tail(split.stem[[i]],n=1),pattern="(\\w+)-", replacement = "\\1 ")
-      tmp.tbl$url[i]<-paste("http://research.amnh.org/vz/herpetology/amphibia/Amphibia/",url.stem[i], collapse="",sep="")
+      tmp.tbl$url[i]<-paste("https://amphibiansoftheworld.amnh.org/Amphibia/",url.stem[i], collapse="",sep="")
     }
     tmp.tbl$genus<-gsub(tmp.tbl$species, pattern=" .*", replacement = "")
     return(tmp.tbl)
