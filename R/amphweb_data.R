@@ -8,6 +8,7 @@
 #' @usage amphweb
 #' @format R dataset
 #' @keywords datasets
+#' @details dataset last updated on 18th December 2023
 #' @examples
 #' head(amphweb)
 #' amphweb<-AmphiNom::amphweb
