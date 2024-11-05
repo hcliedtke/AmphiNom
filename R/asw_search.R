@@ -1,18 +1,18 @@
 #' Search the Amphibian Species of the World database (Species search)
 #'
-#' This function searches species accounts on the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/) and returns all available information listed. The URL per species is taken from defrostR's internally stored records, unless specified otherwise.
+#' This function searches species accounts on the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/) and returns all available information listed. The URL per species is taken from AmphiNom's internally stored records, unless specified otherwise.
 #'
 #' @param query search term. Binomial species name either separated by a space or "_"
-#' @param asw_taxonomy version of taxonomy to use (output of getTaxonomy()). By default, internally stored version is used (which may be out of data)
+#' @param asw_taxonomy version of taxonomy to use (output of get_taxonomy()). By default, internally stored version is used (which may be out of data)
 #' @return returns all available information in list form
 #' @export
 #' @import utils
 #' @examples
-#' aswSearch("Pleurodeles waltl")
+#' asw_search("Pleurodeles waltl")
 
 
 ###
-aswSearch<-function(query, asw_taxonomy=AmphiNom::asw_taxonomy){
+asw_search<-function(query, asw_taxonomy=AmphiNom::asw_taxonomy){
 
   query<-gsub(query, pattern="_",replacement=" ")
   sp.url<-as.character(asw_taxonomy$url[grep(query,asw_taxonomy$species,ignore.case=TRUE,value=F)])
@@ -33,7 +33,7 @@ aswSearch<-function(query, asw_taxonomy=AmphiNom::asw_taxonomy){
   sp.info$author<-name[2]
 
   ##get taxonomic hierarchy
-  sp.info$taxonomy<-gsub(sp.url, pattern="http://research.amnh.org/vz/herpetology/amphibia/", replacement = "")
+  sp.info$taxonomy<-gsub(sp.url, pattern="https://amphibiansoftheworld.amnh.org/Amphibia/", replacement = "")
 
   ## get synonym info
   syn<-grep(html, pattern="<p>", value=T)[1]

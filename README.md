@@ -30,7 +30,17 @@ This may also cause installing the packages with vignettes to fail. If this is t
 
 ## Internal datasets
 
-Last updated on 18th December 2023
+Last updated on 9th September 2024
+
+## Releases
+
+### v1.1.0 - 05/11/2024
+
+- Change of function names to have consistent naming structure, separating words with underscore and using only lower case. E.g. `aswSearch()` is now `asw_search()`
+
+### v1.0.2
+
+- first release
 
 ## Package citation
 
