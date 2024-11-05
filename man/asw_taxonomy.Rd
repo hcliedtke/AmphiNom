@@ -11,10 +11,10 @@ R dataset
 asw_taxonomy
 }
 \description{
-Data table generated using the getTaxonomy() function. The dataset contains a full list of species listed on the Amphibian Species of the World (ASW) website along with all higher level taxonomy and the URLs for each species. A version is stored internally for the purpose of running examples, but users should be aware that this may be outdated depending both on how recently the defrostR package as well as the ASW website has been updated.
+Data table generated using the get_taxonomy() function. The dataset contains a full list of species listed on the Amphibian Species of the World (ASW) website along with all higher level taxonomy and the URLs for each species. A version is stored internally for the purpose of running examples, but users should be aware that this may be outdated depending both on how recently the defrostR package as well as the ASW website has been updated.
 }
 \details{
-dataset last updated on 2nd January 2018
+dataset last updated on 9th September 2024
 }
 \examples{
 head(asw_taxonomy)

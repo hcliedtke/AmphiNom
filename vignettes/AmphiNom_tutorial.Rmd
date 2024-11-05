@@ -32,7 +32,7 @@ options(width=100)
   
 ## Introduction
   
-This package is designed to simplify the workflow of combining amphibian data sets from sources that use different taxonomic nomenclature, by conforming to the most current system suggested by the [Amphibian Species of the World: an Online Resource, Forst (2017)](http://research.amnh.org/vz/herpetology/amphibia/). Comparative studies require the combination of data from a range of sources such as spatial or conservation data from the [IUCN red list](http://www.iucnredlist.org/), information on evolutionary history from published a phylogeny such as [Pyron 2014, Syst Biol](https://doi.org/10.1093/sysbio/syu042) or life history data from [AnAge](http://genomics.senescence.info/species/). These sources have either made the decision to follow a specific taxonomic system or, more often, are no longer up-to-date. It can therefore be complicated to establish a universal or current nomenclature to be able to efficiently combine data sets. As such, the main objective of this package is to harvest taxonomic classifications of all amphibian species listed on the ASW website, harvest all listed synonyms per species and then using this information, suggest ASW names for any given list of taxa.
+This package is designed to simplify the workflow of combining amphibian data sets from sources that use different taxonomic nomenclature, by conforming to the most current system suggested by the [Amphibian Species of the World: an Online Resource](https://amphibiansoftheworld.amnh.org/). Comparative studies require the combination of data from a range of sources such as spatial or conservation data from the [IUCN red list](http://www.iucnredlist.org/), information on evolutionary history from published a phylogeny such as [Pyron 2014, Syst Biol](https://doi.org/10.1093/sysbio/syu042) or life history data from [AnAge](http://genomics.senescence.info/species/). These sources have either made the decision to follow a specific taxonomic system or, more often, are no longer up-to-date. It can therefore be complicated to establish a universal or current nomenclature to be able to efficiently combine data sets. As such, the main objective of this package is to harvest taxonomic classifications of all amphibian species listed on the ASW website, harvest all listed synonyms per species and then using this information, suggest ASW names for any given list of taxa.
 
 This package could also be useful for easily updating museum catalogs etc., and includes functions for producing summary statistics on species numbers at various taxonomic levels, or to update species names in manuscripts etc. after a taxonomic group has received nomenclature revisions.
 
@@ -44,7 +44,7 @@ AmphiNom is a package written in the R programming language. The most recent ver
 
 ```{r message=FALSE, eval=FALSE}
 library(devtools)
-install_github("hcliedtke/AmphiNom", build_vignettes = TRUE)
+install_github("hcliedtke/AmphiNom", build_vignettes = FALSE)
 ```
 
 ```{r message=FALSE, warning=FALSE}
@@ -57,14 +57,14 @@ library(knitr)
   
 ## Compile ASW taxonomy
   
-The starting point of this package is to populate a list of all currently registered species on the ASW website. For ease-of-use, a version of this is stored in the 'AmphiNom' package internally, but this may of course be outdated and so to generate your own, up-to-date version run the getTaxonomy() function.The function takes no arguments and essentially iterates through the ASW website, building the URL for each species through a bottom-up approach (i.e. first looking for all orders, then superfamilies, then families, subfamilies, genera and finally species). The resulting table contains 7 columns: one for each taxonomic level (Order through to Species) and a final column with the URL for the ASW website for each species.
+The starting point of this package is to populate a list of all currently registered species on the ASW website. For ease-of-use, a version of this is stored in the 'AmphiNom' package internally, but this may of course be outdated and so to generate your own, up-to-date version run the get_taxonomy() function.The function takes no arguments and essentially iterates through the ASW website, building the URL for each species through a bottom-up approach (i.e. first looking for all orders, then superfamilies, then families, subfamilies, genera and finally species). The resulting table contains 7 columns: one for each taxonomic level (Order through to Species) and a final column with the URL for the ASW website for each species.
 
-Run the getTaxonomy() function (this may take 10 to 15 minutes), or have a look at the internally stored 'asw_taxonomy' data file:
+Run the get_taxonomy() function (this may take 10 to 15 minutes), or have a look at the internally stored 'asw_taxonomy' data file:
 
 ### Build taxonomy
 
 ```{r message=FALSE, warning=FALSE, eval=FALSE}
-#asw_taxonomy<-getTaxonomy()
+#asw_taxonomy<-get_taxonomy()
 head(asw_taxonomy)
 ```
 
@@ -81,27 +81,27 @@ The first think one might be interested in is to get some basic numbers for list
 #### the basics:
 
 ```{r message=FALSE, warning=FALSE, eval=FALSE}
-aswStats(asw_taxonomy)
+asw_stats(asw_taxonomy)
 ```
 
 ```{r echo=F, message=FALSE, warning=FALSE}
-kable(aswStats(asw_taxonomy))
+kable(asw_stats(asw_taxonomy))
 ```
 
-Additional arguments can be specified in the aswStats() function to narrow down the search. For example to get information on only a specific Family: 
+Additional arguments can be specified in the asw_stats() function to narrow down the search. For example to get information on only a specific Family: 
 
   
 #### information on a specific group of interest:
 
 ```{r message=FALSE, warning=FALSE, eval=FALSE}
-aswStats(asw_taxonomy, Family="Plethodontidae")
+asw_stats(asw_taxonomy, Family="Plethodontidae")
 ```
 
 ```{r echo=F, message=FALSE, warning=FALSE}
-kable(aswStats(asw_taxonomy, Family="Plethodontidae"))
+kable(asw_stats(asw_taxonomy, Family="Plethodontidae"))
 ```
 
-This can be applied to any taxonomic level and to make sure everything is working properly (or if the asw_taxonomy data-set is up-to-date), you could double check if this matches the information on the [ASW website](http://research.amnh.org/vz/herpetology/amphibia/Amphibia/Caudata/Plethodontidae)
+This can be applied to any taxonomic level and to make sure everything is working properly (or if the asw_taxonomy data-set is up-to-date), you could double check if this matches the information on the [ASW website](https://amphibiansoftheworld.amnh.org/Amphibia/Caudata/Plethodontidae)
 
 
 #### taking a closer look:
@@ -109,14 +109,14 @@ This can be applied to any taxonomic level and to make sure everything is workin
 We can also turn on 'verbose' to get a list of all nested units instead of just the summary a table. This is useful for getting a more detailed overview, but also for making graphical representations of this information:  
 
 ```{r message=FALSE, warning=FALSE}
-aswStats(asw_taxonomy, Family = "Plethodontidae",verbose = T)
+asw_stats(asw_taxonomy, Family = "Plethodontidae",verbose = T)
 ```
 
 
 ##### display this information visualy:
 
 ```{r message=FALSE, warning=FALSE, dev="png"}
-plethodontid.stats<-aswStats(asw_taxonomy, Family = "Plethodontidae",verbose = T)
+plethodontid.stats<-asw_stats(asw_taxonomy, Family = "Plethodontidae",verbose = T)
 par(mar=c(1,1,1,1))
 pie(plethodontid.stats$Genera[order(plethodontid.stats$Genera, decreasing = T)], cex=0.5, main = "No. of Species per Genus", col = rainbow(length(plethodontid.stats$Genera),s = 0.5), clockwise = T, border = NA)
 ```
@@ -124,13 +124,13 @@ pie(plethodontid.stats$Genera[order(plethodontid.stats$Genera, decreasing = T)],
   
 ## Compile Synonym list
   
-Hopefully the most useful data-set this package generates is an up-to-date list of all possible synonyms per species, to facilitate matching data sets that might be using different names for the same species. As with the taxonomic table, a version of the current synonym list is stored in the AmphiNom package internally. This may of course be outdated and so to generate your own, up-to-date version run the getSynonym() function! The function takes the getTaxonomy() output as a reference and then looks through every species webpage to tabulate all listed synonyms. It is therefore important that you specify a "asw_taxonomy" object that is more up-to-date than the one stored in the package (if none is specified, AmphiNom will use the internal version). Generating a full list for all amphibian species can take a long, long time (up to an hour). More realistically, you may only be interested in a specific taxonomic group and so you can narrow down your search as in this example here:
+Hopefully the most useful data-set this package generates is an up-to-date list of all possible synonyms per species, to facilitate matching data sets that might be using different names for the same species. As with the taxonomic table, a version of the current synonym list is stored in the AmphiNom package internally. This may of course be outdated and so to generate your own, up-to-date version run the get_synonym() function! The function takes the get_taxonomy() output as a reference and then looks through every species webpage to tabulate all listed synonyms. It is therefore important that you specify a "asw_taxonomy" object that is more up-to-date than the one stored in the package (if none is specified, AmphiNom will use the internal version). Generating a full list for all amphibian species can take a long, long time (up to an hour). More realistically, you may only be interested in a specific taxonomic group and so you can narrow down your search as in this example here:
 
 
 ### Harvest synonyms
 
 ```{r message=FALSE, warning=FALSE, results='hide'}
-agalychnis_synonyms<-getSynonyms(Genus="Agalychnis")
+agalychnis_synonyms<-get_synonyms(Genus="Agalychnis")
 head(agalychnis_synonyms,n = 15)
 ```
 
@@ -181,9 +181,9 @@ For this example, lets look only at the genus Hyla  that due to a recent revisio
 amphweb.hyla<-amphweb[amphweb$genus=="Hyla",]
 ```
 
-and lets query that list, using the synonym list created with getSynonyms(), here, using the version stored internally: 
+and lets query that list, using the synonym list created with get_synonyms(), here, using the version stored internally: 
 ```{r message=FALSE, warning=FALSE, results='hide'}
-hyla.names<-aswSync(query=paste(amphweb.hyla$genus, amphweb.hyla$species),asw = asw_synonyms)
+hyla.names<-asw_sync(query=paste(amphweb.hyla$genus, amphweb.hyla$species),asw = asw_synonyms)
 head(hyla.names, n=15)
 ```
 
@@ -198,28 +198,28 @@ Various additional arguments can be invoked, for example, whether ambiguities sh
 
 ### Are my names up-to-date?
 
-instead of looking through the output table of aswSync(), we can also print out a report using the synonymReport() function. 
+instead of looking through the output table of asw_sync(), we can also print out a report using the synonym_report() function. 
   
 #### the basics:
 ```{r message=FALSE, warning=FALSE, eval=FALSE}
-synonymReport(hyla.names)
+synonym_report(hyla.names)
 ```
 
 ```{r echo=F, message=FALSE, warning=FALSE}
-kable(synonymReport(hyla.names))
+kable(synonym_report(hyla.names))
 ```
 
 this tells us that less than half of the names are up to date, and AmphiNom could update quite a few on its own without any complications. AmphiNom found all names on ASW and there were no issues with ambiguities (queries which mach synonyms belonging to more than one species), but the automatic updating has resulted in 4 cases where names are not unique anymore! These need to be checked carefully and most likely are units that used to be distinct and are now synonyms. We can get more of an idea of what has happened here by asking AmphiNom to spit out a bit more information:
   
 #### the details:
 ```{r message=FALSE, warning=FALSE}
-synonymReport(hyla.names, verbose=T)
+synonym_report(hyla.names, verbose=T)
 ```
 
 At just a glance, we can already see that H. heinzsteinitzi has been sunk into D. japonicus and H. suweonensis into D. immaculatus and so, these two species are no longer valid according to ASW. 
 
 
-Of course all of this can also be done manually from the aswSync() output:
+Of course all of this can also be done manually from the asw_sync() output:
 
 
 #### check which names are ambiguous (in this case 0):

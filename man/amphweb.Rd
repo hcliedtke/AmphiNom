@@ -15,6 +15,9 @@ Data table of taxonomy downloaded from http://amphibiaweb.org/. The dataset cont
 When using this dataset, please cite accordingly, as specified by their terms of use (CC-BY-NC license):
 Citation: AmphibiaWeb. <year>. <https://amphibiaweb.org> University of California, Berkeley, CA, USA. <date of access>.
 }
+\details{
+dataset last updated on 9th September 2024
+}
 \examples{
 head(amphweb)
 amphweb<-AmphiNom::amphweb

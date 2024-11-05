@@ -9,5 +9,5 @@ There were no ERRORs, WARNINGs or NOTEs.
 
 
 ## Downstream dependencies
-I have also run R CMD check on downstream dependencies of defrostR
-(https://github.com/hcliedtke/defrostR.Rcheck).
+I have also run R CMD check on downstream dependencies of AmphiNom
+(https://github.com/hcliedtke/AmphiNom.Rcheck).

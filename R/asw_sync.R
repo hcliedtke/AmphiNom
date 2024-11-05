@@ -1,6 +1,6 @@
 #' Submit query to find updates in nomenclautre
 #'
-#' This function takes a query (a list of taxon names to be assessed) and the amphibian species of the world synonym table (preferrably generated with the function getSynonyms(), or loaded from the data set stored internally) as input and returns an updated list of names.
+#' This function takes a query (a list of taxon names to be assessed) and the amphibian species of the world synonym table (preferably generated with the function get_synonyms(), or loaded from the data set stored internally) as input and returns an updated list of names.
 #'
 #'
 #' Two logical arguments can be turned on to a) allow an "on the fly" decision to be made on what name to take if synonym matches multiple names (if not, it will return all possible names) and to b) return the original query name if no match is found
@@ -11,10 +11,10 @@
 #' @return this function returns a data frame with the following information/columns: original/input names, "stripped" names with no formatting, status of what action has been taken, updated names as recommended by the reference table
 #' @export
 #' @examples
-#' aswSync(query=c("Bufo calamita", "Bufo viridis"))
+#' asw_sync(query=c("Bufo calamita", "Bufo viridis"))
 
 
-aswSync<-function(query, asw=AmphiNom::asw_synonyms, interactive=F, return.no.matches=F){
+asw_sync<-function(query, asw=AmphiNom::asw_synonyms, interactive=F, return.no.matches=F){
 
 
   ### first step is to remove all formatting from both names and the frost database

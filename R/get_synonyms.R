@@ -1,15 +1,15 @@
 #' Compile dataframe of all synonyms listed on Amphibian Species of the World
 #'
-#' This function looks up any listed synonyms on the ASW website (http://research.amnh.org/vz/herpetology/amphibia/index.php/). It takes a minimum of one argument: the asw_taxonomy table generated with the function getTaxonomy(). If a full search is performed, this can take quite long (looking through ~7000 species webpages for upwards of 20 000 synonyms), but additional arguments can be included to restrict searches to a specified taxonomic group.
+#' This function looks up any listed synonyms on the ASW website (https://amphibiansoftheworld.amnh.org/). It takes a minimum of one argument: the asw_taxonomy table generated with the function getTaxonomy(). If a full search is performed, this can take quite long (looking through ~8800 species webpages for upwards of 31 000 synonyms), but additional arguments can be included to restrict searches to a specified taxonomic group.
 #'
-#' @param asw_taxonomy the ASW taxonomy table obtained with getTaxonomy(). If no table is provided, by default it will use the internally stored data set. WARNING! this version of the amphibian taxonomy may be outdated
+#' @param asw_taxonomy the ASW taxonomy table obtained with get_taxonomy(). If no table is provided, by default it will use the internally stored data set. WARNING! this version of the amphibian taxonomy may be outdated
 #' @param Order limit search to a user-specified amphibian order
 #' @param Superfamily limit search to a user-specified amphibian superfamily
 #' @param Family limit search to a user-specified amphibian family
 #' @param Subfamily limit search to a user-specified amphibian subfamily
 #' @param Genus limit search to a user-specified amphibian genus
 #' @param Species limit search to a user-specified amphibian species
-#' @return returns a dataframe listing all species and their listed synonyms
+#' @return returns a data frame listing all species and their listed synonyms
 #' @details Users may experience issues with umlauts that are not supported by their system language. On Mac OSX, this can be changed by running the following line of code in R:
 #'
 #' system("defaults write org.R-project.R force.LANG en_US.UTF-8")
@@ -17,14 +17,14 @@
 #' and then restarting the session. Read more here: https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Internationalization-of-the-R_002eapp
 #' @examples
 #' #to get a full list of synonyms for all species, run:
-#' \dontrun{asw_synonyms<-getSynonyms()}
+#' \dontrun{asw_synonyms<-get_synonyms()}
 #' #to get synonyms for a specific taxonomic group only:
-#' \dontrun{breviceptid_synonyms<-getSynonyms(Family="Brevicipitidae")}
+#' \dontrun{get_synonyms(Family="Sooglossidae")}
 #' @import utils XML
 #' @export
 
 
-getSynonyms<-function(asw_taxonomy=AmphiNom::asw_taxonomy, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA, Species=NA){
+get_synonyms<-function(asw_taxonomy=AmphiNom::asw_taxonomy, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA, Species=NA){
 
   if(!is.na(Order)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$order %in% Order,]
   if(!is.na(Superfamily)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$superfamily %in% Superfamily,]
@@ -46,7 +46,7 @@ getSynonyms<-function(asw_taxonomy=AmphiNom::asw_taxonomy, Order=NA, Superfamily
   for(i in 1:nrow(asw_taxonomy)){
 
     #add random sleep time
-    Sys.sleep(runif(1, min = 0.1, max = 1)) # random sleep time
+    Sys.sleep(runif(1, min = 0.3, max = 1)) # random sleep time
 
     #get url and parse to document
     html<-readLines(as.character(asw_taxonomy$url[i]))

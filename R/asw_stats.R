@@ -1,10 +1,10 @@
 #' Get summary statistics of current taxonomy
 #'
-#' This function uses the ASW taxonomy table created with the function getTaxonomy() and summarizes counts of units per taxonomic level
+#' This function uses the ASW taxonomy table created with the function get_taxonomy() and summarizes counts of units per taxonomic level
 #'
 #'
 #' @details One logical arguments can be turned on to summarize at given taxonomic levels or to give numbers of each unit per taxonomic level
-#' @param asw_taxonomy output of the function frostScraper() default will take defrostR's stored version, which might be outdated
+#' @param asw_taxonomy output of the function get_taxonomy() default will take AmphiNom's internally stored version, which might be outdated
 #' @param Order string to specify summary statistics of only a specific order
 #' @param Superfamily string to specify summary statistics of only a specific superfamily
 #' @param Family string to specify summary statistics of only a specific Family
@@ -13,12 +13,12 @@
 #' @param verbose logical arguments can be turned on to summarize at given taxonomic levels or to give numbers of each unit per taxonomic level. default is switched off (FALSE)
 #' @return returns either a data frame or list of summary statitics
 #' @examples
-#' aswStats()
-#' aswStats(verbose=TRUE, Family="Rhacophoridae")
+#' asw_stats()
+#' asw_stats(verbose=TRUE, Family="Rhacophoridae")
 #' @import stats
 #' @export
 
-aswStats<-function(asw_taxonomy=AmphiNom::asw_taxonomy,verbose=F, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA){
+asw_stats<-function(asw_taxonomy=AmphiNom::asw_taxonomy,verbose=F, Order=NA, Superfamily=NA, Family=NA,Subfamily=NA, Genus=NA){
 
   if(!is.na(Order)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$order==Order,]
   if(!is.na(Superfamily)) asw_taxonomy<-asw_taxonomy[asw_taxonomy$superfamily==Superfamily,]

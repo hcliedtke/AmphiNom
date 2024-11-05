@@ -5,21 +5,19 @@
 #'
 #' @details One logical arguments can be turned on to summarize in terms of numbers of cases, or to provide species names of conflicting issues.
 #'
-#' @param query_info output of the function aswSync()
+#' @param query_info output of the function asw_sync()
 #' @param verbose logical arguments can be turned on to list species which result in conflict. Default=FALSE
 #' @return returns either a data frame or list of summary statitics
 #' @examples
 #' #check out amphibiaweb taxonomy and extract only Bufonidae
 #' head(amphweb$species)
-#' amphweb.bufonidae<-amphweb[amphweb$family=="Bufonidae",]
+#' amphweb_bufonidae<-amphweb[amphweb$family=="Bufonidae",]
 #' #query bufonidae against ASW database and inspect
-#' bufonidae.asw<-aswSync(query=amphweb.bufonidae$species)
-#' synonymReport(bufonidae.asw)
+#' bufonidae_asw<-asw_sync(query=amphweb.bufonidae$species)
+#' synonym_report(bufonidae_asw)
 #' @export
 
-
-
-synonymReport<-function(query_info, verbose=F){
+synonym_report<-function(query_info, verbose=F){
 
   if(verbose==F){
     out<-data.frame(row.names=c("queries","names_up_to_date","names_successfully_updated","names_not_found","ambiguities","duplicates_produced"), number_of_units=c(

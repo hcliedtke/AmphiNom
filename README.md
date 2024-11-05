@@ -1,10 +1,10 @@
 # AmphiNom
 
-This package is designed to simplify the workflow of combining amphibian data sets from sources that use different taxonomic nomenclature (AmphiNom: Amphibian Nomenclature), by conforming to the most current system suggested by the [Amphibian Species of the World](http://research.amnh.org/vz/herpetology/amphibia/). Comparative studies require the combination of data from a range of sources such as spatial or conservation data from the [IUCN red list](http://www.iucnredlist.org/), information on evolutionary history from published phylogenies such as [Pyron 2014, Syst Biol](https://doi.org/10.1093/sysbio/syu042) or life history data from [AnAge](http://genomics.senescence.info/species/). These sources have either made the decision to follow a specific taxonomic system or, more often, are no longer up-to-date. It can therefore be complicated to establish a universal or current nomenclature to be able to efficientlty combine data sets. As such, the main objective of this package is to harvest taxonomic classifications of all amphibian species listed on the ASW website, harvest all listed synonyms per species and then using this information, suggest ASW names for any given list of taxa.
+This package is designed to simplify the workflow of combining amphibian data sets from sources that use different taxonomic nomenclature (AmphiNom: Amphibian Nomenclature), by conforming to the most current system suggested by the [Amphibian Species of the World](https://amphibiansoftheworld.amnh.org/). Comparative studies require the combination of data from a range of sources such as spatial or conservation data from the [IUCN red list](http://www.iucnredlist.org/), information on evolutionary history from published phylogenies such as [Pyron 2014, Syst Biol](https://doi.org/10.1093/sysbio/syu042) or life history data from [AnAge](http://genomics.senescence.info/species/). These sources have either made the decision to follow a specific taxonomic system or, more often, are no longer up-to-date. It can therefore be complicated to establish a universal or current nomenclature to be able to efficientlty combine data sets. As such, the main objective of this package is to harvest taxonomic classifications of all amphibian species listed on the ASW website, harvest all listed synonyms per species and then using this information, suggest ASW names for any given list of taxa.
 
 This package could also be useful for easily updating museum catalogs etc., and includes functions for producing summary statistics on species numbers at various taxonomic levels, or to update species names in manuscripts etc. after a taxonomic group has received nomenclature revisions.
 
-Good places to start learning more about AmphiNom are this [Tutorial](https://hcliedtke.github.io/R-scrapheap/amphinom_tutorial.html) and this worked [Example](https://figshare.com/articles/dataset/AmphiNom_an_amphibian_systematics_tool/7235297).
+Good places to start learning more about AmphiNom is this [Tutorial](https://hcliedtke.github.io/R-scrapheap/amphinom_tutorial.html) and this worked [Example](https://figshare.com/articles/dataset/AmphiNom_an_amphibian_systematics_tool/7235297). **NOTE: the function names have been updated for version v1.1.0)**
 
 This schametic is intended to outline how to use the functions of this package:
 ![](schematic.png)
@@ -31,16 +31,6 @@ This may also cause installing the packages with vignettes to fail. If this is t
 ## Internal datasets
 
 Last updated on 9th September 2024
-
-## Releases
-
-### v1.1.0 - 05/11/2024
-
-- Change of function names to have consistent naming structure, separating words with underscore and using only lower case. E.g. `aswSearch()` is now `asw_search()`
-
-### v1.0.2
-
-- first release
 
 ## Package citation
 
