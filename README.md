@@ -26,7 +26,7 @@ library(AmphiNom)
 
 Some websites don't like to be scraped.There are three functions that crawl the ASW website (`getTaxonomy()`,`getSynonyms()` and `aswSearch()`). It may be that the server will deny access (HTTP stattus 403), especially after repeated requests have been made. Nonetheless, AmphiNom can still be used with the internally stored dataset.
 
-This may also cause installing the packages with vignettes to fail. If this is the case, make sure to disable these while installing (`build_vignettes = FALSE`). Versions of vignettes and tutorials can be accessed [here](https://hcliedtke.github.io/R-scrapheap/amphinom_example.html) and [here](https://hcliedtke.github.io/R-scrapheap/amphinom_tutorial.html). 
+This may also cause installing the packages with vignettes to fail. If this is the case, make sure to disable these while installing (`build_vignettes = FALSE`). Versions of vignettes and tutorials can be accessed [here](https://hcliedtke.github.io/R-scrapheap/amphinom_example.html) and [here](https://hcliedtke.github.io/R-scrapheap/amphinom_tutorial.html). __NOTE:__ The latest version of AmphiNom has slightly different grammer (asw_sync() instead of aswSync() etc.).
 
 ## Internal datasets
 
