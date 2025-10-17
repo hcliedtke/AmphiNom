@@ -16,7 +16,7 @@ When using this dataset, please cite accordingly, as specified by their terms of
 Citation: AmphibiaWeb. <year>. <https://amphibiaweb.org> University of California, Berkeley, CA, USA. <date of access>.
 }
 \details{
-dataset last updated on 9th September 2024
+dataset last updated on 16th October 2025
 }
 \examples{
 head(amphweb)
